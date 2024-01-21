@@ -14,3 +14,5 @@ Run:
 - In terminal:
 `npm start`
 You may need to change the directory
+...
+
