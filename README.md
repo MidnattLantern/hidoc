@@ -51,16 +51,20 @@ Components:
 Every JavaScript component can be found inside `src > components`,
 Every corresponding CSS component can be found inside `src > styles`, 
 
-Navbar:
+Navigation bar "Navbar":
 ---
 - This component satisfy the "Navbar" user story.
 - Uses can navigate trough 
 - Uses { Navbar, Container, Nav } from React-Bootstrap
+- The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implimenting the use of `Navbar.Toggle` and `Navbar.Collapse`.
+- `Navbar.Toggle` makes up the 'hamburger' button.
+- `Navbar.Collapse` wrap the items that should be hidden inside the 'hamburger' button.
 
 
 User stories:
 ===
 - Navbar: As a user, I can see a navigation bar from every page so that I can easily navigate around HiDoc.
+- Navbar: As a user on a small screen/ small window, the navigation bar is hidden inside a 'hamburger' button, so that the navigation bar don't take up space on the small screen/ window.
 - Sign Up: As a user, I can sign up.
 - Sign In: As a user, I can sign in.
 
