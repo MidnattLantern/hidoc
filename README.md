@@ -18,6 +18,23 @@ Bootstrap:
 - React-Bootstrap (ver 4) is specifically designed for React. To install (ver 4), run in terminal:
 `npm install react-bootstrap@1.6.3 bootstrap@4.6.0`
 
+Routing
+---
+- Enable the page to render content depending on the URL address.
+- In terminal:
+`npm install react-router-dom@5.3.0`
+- Next, add this inside index.js:
+`import {BrowserRouter as Router } from 'react-router-dom';`
+- Then, add this inside index.js, inside <React.StrictMode>:
+`
+<Router>
+  <App />
+</Router>
+`
+- Why?
+This setup will enable the navigation bar to render content depending on what button the user click.
+- Inside App.js, add <Route> for each individual item that should be rendered. Include exact.
+
 Font Awesome:
 ---
 - HiDoc use icons borrowed from Font Awesome.
@@ -46,10 +63,11 @@ You may need to change the directory
 ...
 
 
-Components:
+Components/ Features:
 ===
-Every JavaScript component can be found inside `src > components`,
+Most JavaScript components can be found inside `src > components`, exceptions are documented later,
 Every corresponding CSS component can be found inside `src > styles`, 
+These details are important if the `.js` need to be relocated. In that case, the directory path need to be edited inside `apps.py`.
 
 Navigation bar "Navbar":
 ---
@@ -59,6 +77,12 @@ Navigation bar "Navbar":
 - The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implimenting the use of `Navbar.Toggle` and `Navbar.Collapse`.
 - `Navbar.Toggle` makes up the 'hamburger' button.
 - `Navbar.Collapse` wrap the items that should be hidden inside the 'hamburger' button.
+- Switch and route
+
+Sign-in page:
+---
+- This feature satisfy the "Sign-in" user story.
+- This page is located inside `src > pages > auth`.
 
 
 User stories:
