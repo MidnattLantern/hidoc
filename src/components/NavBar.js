@@ -5,13 +5,14 @@ import { NavLink } from "react-bootstrap/esm";
 
 const NavBar = () => {
     return (
-        <Navbar>
+        <Navbar expand="lg" className={styles.NavBar} >
         <div>
             <Container>
 
                 <NavLink to="/">
                     <Navbar.Brand href="#home">
-                        <i className="fa-solid fa-list-alt"></i> HiDoc
+                        <i className=""></i>
+                        <h1>HiDoc</h1>
                     </Navbar.Brand>
                 </NavLink>
 
@@ -19,21 +20,27 @@ const NavBar = () => {
                     <Nav>
 
                         <NavLink to="/"
-                        
                         >
-                            <p>item 1</p>
+                            <h2>
+                                <i class="fa-solid fa-binoculars"></i>
+                                Browse
+                            </h2>
                         </NavLink>
 
                         <NavLink to="/"
-                        
                         >
-                            <p>item 2</p>
+                            <h2>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                Search Artist
+                            </h2>
                         </NavLink>
 
                         <NavLink to="/"
-                        
                         >
-                            <p>item 3</p>
+                            <h2>
+                                <i class="fa-solid fa-eye"></i>
+                                Watch List
+                            </h2>
                         </NavLink>
 
                     </Nav>
