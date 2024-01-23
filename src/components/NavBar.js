@@ -6,13 +6,14 @@ import { NavLink } from "react-bootstrap/esm";
 const NavBar = () => {
     return (
         <Navbar expand="lg" className={styles.NavBar} >
-            <div>
+            
                 <Container>
 
                     <NavLink to="/">
-                        <Navbar.Brand href="#home">
-                            <i className=""></i>
-                            <h1>HiDoc</h1>
+                        <Navbar.Brand href="/">
+                            <h1>
+                                <i className="fa-solid fa-list-alt"></i>HiDoc
+                            </h1>
                         </Navbar.Brand>
                     </NavLink>
 
@@ -21,44 +22,39 @@ const NavBar = () => {
                     <NavLink>
                         <Nav>
 
-                            <NavLink to="/"
-                            >
-                                <h2>
-                                    <i class="fa-solid fa-binoculars"></i>
-                                    Browse
-                                </h2>
+                            <NavLink to="/" exact>
+                                <Nav.Link href="/browse">
+                                        <i class="fa-solid fa-binoculars"></i>
+                                        Browse
+                                    </Nav.Link>
                             </NavLink>
 
-                            <NavLink to="/"
-                            >
-                                <h2>
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    Search Artist
-                                </h2>
+                            <NavLink to="/search" exact>
+                                <Nav.Link href="/search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        Search Artist
+                                    </Nav.Link>
                             </NavLink>
 
-                            <NavLink to="/"
-                            >
-                                <h2>
-                                    <i class="fa-solid fa-eye"></i>
-                                    Watch List
-                                </h2>
+                            <NavLink to="/watch-list" exact>
+                                <Nav.Link href="/watch-list">
+                                        <i class="fa-solid fa-eye"></i>
+                                        Watch List
+                                </Nav.Link>
                             </NavLink>
 
-                            <NavLink to="/"
-                            >
-                                <h2>
-                                    <i class="fa-solid fa-user-plus"></i>
-                                    Sign up
-                                </h2>
+                            <NavLink to="/sign-up" exact>
+                                <Nav.Link href="sign-up">
+                                        <i class="fa-solid fa-user-plus"></i>
+                                        Sign up
+                                    </Nav.Link>
                             </NavLink>
 
-                            <NavLink to="/"
-                            >
-                                <h2>
-                                    <i class="fa-solid fa-door-open"></i>
-                                    Sign in
-                                </h2>
+                            <NavLink to="/sign-in" exact>
+                                <Nav.Link href="/sign-in">
+                                        <i class="fa-solid fa-door-open"></i>
+                                        Sign in
+                                    </Nav.Link>
                             </NavLink>
 
                         </Nav>
@@ -67,7 +63,7 @@ const NavBar = () => {
 
                 </Container>
 
-            </div>
+            
         </Navbar>
         
     )
