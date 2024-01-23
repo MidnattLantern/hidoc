@@ -10,10 +10,10 @@ const NavBar = () => {
                 <Container>
 
                     <NavLink to="/">
-                        <Navbar.Brand href="/">
-                            <h1>
+                        <Navbar.Brand className={styles.Logo}>
+                            
                                 <i className="fa-solid fa-list-alt"></i>HiDoc
-                            </h1>
+                            
                         </Navbar.Brand>
                     </NavLink>
 
@@ -22,27 +22,42 @@ const NavBar = () => {
                     
                         <Nav>
 
-                            <NavLink to="/" >
+                            <NavLink to="/" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
                                 <i class="fa-solid fa-binoculars"></i>
                                 Browse
                             </NavLink>
 
-                            <NavLink to="/search" >
+                            <NavLink to="/search" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 Search Artist
                             </NavLink>
 
-                            <NavLink to="/watch-list" >
+                            <NavLink to="/watch-list" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
                                 <i class="fa-solid fa-eye"></i>
                                 Watch List
                             </NavLink>
 
-                            <NavLink to="/sign-up" >
+                            <NavLink to="/sign-up" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
                                 <i class="fa-solid fa-user-plus"></i>
                                 Sign up
                             </NavLink>
 
-                            <NavLink to="/sign-in" >
+                            <NavLink to="/sign-in" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
                                 <i class="fa-solid fa-door-open"></i>
                                 Sign in
                             </NavLink>

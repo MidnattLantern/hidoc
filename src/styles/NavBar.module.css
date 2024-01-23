@@ -1,11 +1,28 @@
+a {
+    text-decoration: none;
+}
+
 .NavBar {
-    border: 1px solid black;
+    border: 1px none black;
 }
 
 .NavLink {
+    margin: 5px;
     padding: 5px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 3px;
 }
 
-.Active i {
-    color: #2142b2;
+.Active {
+    color: rgb(202, 31, 88);
+    border: 2px solid rgb(202, 31, 88);
+}
+
+.Logo {
+    margin: 5px;
+    padding: 5px;
+    color: black;
+    font-size: 50px;
+    border-radius: 3px;
 }
