@@ -54,6 +54,10 @@ Tangle in development:
 - In terminal:
 `kill -9 (PID number)`
 
+- The default setup inside `index.js` that came with npx installment didn't render links properly.
+- (Image of old setup that don't work)
+- The code inside `index.js` was borrowed from Moments by Code Institute, a setup that works.
+
 
 Run:
 ---
