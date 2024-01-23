@@ -89,12 +89,57 @@ Sign-in page:
 - This page is located inside `src > pages > auth`.
 
 
+Agile development:
+===
+The user stories list priority features with a number. The higher the number, the less important those features are. HiDoc use an agile approach, meaning the less important user stories were only developed after the current priority were polished to a standard sufficient to be deployed.
+
 User stories:
 ===
-- Navbar: As a user, I can see a navigation bar from every page so that I can easily navigate around HiDoc.
-- Navbar: As a user on a small screen/ small window, the navigation bar is hidden inside a 'hamburger' button, so that the navigation bar don't take up space on the small screen/ window.
-- Sign Up: As a user, I can sign up.
-- Sign In: As a user, I can sign in.
+1. Absolutely essential, without these stories, HiDoc cannot exist:
+- Navbar:
+As a user, I can see a navigation bar from every page so that I can easily navigate around HiDoc. So that whatever I want to do is accessible.
+- Navbar collapse:
+As a user on a small screen/ small window, the navigation bar is hidden inside a 'hamburger' button. So that the navigation bar don't take up space on the small screen/ window.
+- Sign Up:
+As a user, I can sign up.
+- Sign In:
+As a user, I can sign in.
+- Sign out:
+As a signed in user, I can sign out.
+- Portfolio:
+As a signed in user, I can see my name and all my projects in a porfolio page.
+- Create project:
+As a signed in user, inside my portfolio page, I can click a button that let me create a new project to my property, and give it a name.
+- Edit projects:
+As a signed in user, inside my porfolio page, I can click a button for any of my projects, that let me change its name.
+- Delete projects:
+As a signed in user, inside my portfolio page, I can click a button for any of my projects, that let me delete it and all its content.
+- Add text object:
+As a signed in user, inside my project, I can click a button that adds a text object.
+- Edit text object:
+As a signed in user, inside my project, I can click a button that changes the content of an existing text object.
+- Delete text object:
+As a signed in user, inside my project, I can click a button that deletes an existing text object.
+- Add image object:
+As a signed in user, inside my project, I can click a button that adds an image object.
+- Delete image object:
+As a signed in user, inside my project, I can click a button that deletes an existing image object.
+- Reassign object:
+As a signed in user, inside my project, I can click and drag any object to rearrange the order they appear.
+
+2. Essential, HiDoc would be functional, but not complete without these:
+- Browse:
+As a user, I can browse all public projects. So that I can find inspiration.
+- Search artist:
+As a user, I can search for artists by entering their name and see their name appear with a hyperlink to their portfolio. So that I can find artists I know the name of.
+- Watch list: As a signed in user, I can find a list of all projects I've clicked Watch, so that I can save all the projects I have interest in.
+- Watch button:
+As a signed in user, looking at any project, I can click a Watch button that will add that project to my Watch list. So that I can save all the projects I have interst in.
+- Unwatch button:
+As a signed in user, who have clicked the watch button for any project, I can click it again to unwatch it. So that projects I don't want in my watch list are gone.
+
+3. Optional, HiDoc don't need these, but they are valuable features:
+- Watch count: As a user, I can see how many people are watching a project. So that I know how much attention the project has.
 
 
 Credits:
