@@ -91,7 +91,18 @@ Sign-in page:
 
 Agile development:
 ===
+This section cover the tactical approach taken before and during development.
+
 The user stories list priority features with a number. The higher the number, the less important those features are. HiDoc use an agile approach, meaning the less important user stories were only developed after the current priority were polished to a standard sufficient to be deployed.
+
+HiDoc is a project following a criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfy all the expectations. To secure the highest chance of passing the expectations, this project follow a similar model to that training project. These are the features on a table from Code institutes training project, as well as hot HiDoc remix these features:
+- CI Training project - HiDoc
+- post - project
+- like - watch
+- comment - documentation
+- follow - watch list
+The HiDoc equivalents however, are not copies masked behind a different name. For instance, the comment from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are seperate features from the training project, whereas HiDoc merge them into one.
+
 
 User stories:
 ===
