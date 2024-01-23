@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../styles/NavBar.module.css';
 import { Navbar, Container, Nav, } from "react-bootstrap";
-import { NavLink } from "react-bootstrap/esm";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -19,10 +19,10 @@ const NavBar = () => {
 
                     <Navbar.Toggle />
                     <Navbar.Collapse>
-                    <NavLink>
+                    
                         <Nav>
 
-                            <NavLink to="/" exact>
+                        <NavLink to="/" exact>
                                 <Nav.Link href="/browse">
                                         <i class="fa-solid fa-binoculars"></i>
                                         Browse
@@ -58,7 +58,7 @@ const NavBar = () => {
                             </NavLink>
 
                         </Nav>
-                    </NavLink>
+                    
                     </Navbar.Collapse>
 
                 </Container>
