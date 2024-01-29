@@ -11,7 +11,7 @@ NPM
 - Why?
 Creating a new setup upon an existing template or app will make the code hard to maintain and hard to make sense.
 - If development is done with Gitpod, run this for every session, in terminal:
-``nvm install 16 use 16`
+`nvm install 16 use 16`
 
 Bootstrap:
 ---
@@ -41,8 +41,10 @@ Font Awesome:
 - Installment of Font Awesome is a string inside `public > index.html`
 
 
-Tangle in development:
+Deployment
 ===
+Tangle in development (troubleshooting):
+---
 - Documentation of encountered problems and how they were solved:
 - During development in Gitpod, it is neccessary to manually install npm for each session. Run in terminal:
 `nvm install 16 use 16`
@@ -157,3 +159,5 @@ Credits:
 ===
 Reference: Code Institute
 Icons: Font Awesome
+Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/about?classification=Handwriting
+Paragraph Font: Quicksand https://fonts.google.com/specimen/Quicksand/about?query=Quicksand&stroke=Sans+Serif

@@ -62,6 +62,22 @@ const NavBar = () => {
                                 Sign in
                             </NavLink>
 
+                            <NavLink to="/sign-out" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
+                                <i class="fa-solid fa-door-open"></i>
+                                Sign out
+                            </NavLink>
+
+                            <NavLink to="/my-page" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
+                                <i class="fa-solid fa-door-open"></i>
+                                My page
+                            </NavLink>
+
                         </Nav>
                     
                     </Navbar.Collapse>
