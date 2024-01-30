@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from '../styles/NavBar.module.css';
 import { Navbar, Container, Nav, } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
+    const currentUser = useContext(CurrentUserContext);
+    const loggedInIcons = (
+    <>
+    {currentUser?.username}
+    <p>signed in</p>
+    </>)
+    const loggedOutIcons = (
+    <>
+    <p>signed out</p>
+    </>)
 
     return (
         <Navbar expand="lg" className={styles.NavBar} >
-            
+                    {currentUser ? loggedInIcons : loggedOutIcons}
                 <Container>
 
                     <NavLink to="/">

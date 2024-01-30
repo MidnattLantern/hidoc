@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState, } from "react";
 import axios from 'axios';
 //import styles from "../../styles/SignInForm.module.css";
 import {
@@ -8,10 +8,13 @@ import {
   } from "react-bootstrap";
 
 import { Link, useHistory } from "react-router-dom";
+import { SetCurrentUserContext } from "../../App";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm() {
-  const setCurrentUser = useSetCurrentUser();
+    const setCurrentUser = useContext(SetCurrentUserContext);
+
+  //const setCurrentUser = useSetCurrentUser();
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -24,20 +27,19 @@ function SignInForm() {
   const history = useHistory();
   const handleSubmit = async (user_input) => {
     user_input.preventDefault();
-
     try {
-        const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-        setCurrentUser(data.user);
+        const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+        setCurrentUser(data.user)
         history.push("/");
     } catch (err) {
         setErrors(err.response?.data);
     }
   };
 
-  const handleInput = (event) => {
+  const handleInput = (user_input) => {
     setSignInData({
         ...signInData,
-        [event.target.name]: event.target.value,
+        [user_input.target.name]: user_input.target.value,
     });
   };
 
