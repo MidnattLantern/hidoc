@@ -18,7 +18,7 @@ import {
         password1: "",
         password2: "",
     });
-    const { username, password1, password2,} = signUpData;
+    const { username, password1,2,} = signUpData;
 
     const [errors, setErrors] = useState({});
 
