@@ -8,6 +8,4 @@ How: Firefox developer tool > network > click an instance, reveal the expected n
 
 Sign in error:
 ---
-The strangest error was that of when you sign in and get a "error not defined" error. You're not signed in.
-Cause: unknown.
-Solution: Run on Chrome. HiDoc is primarily tested on Mozilla Firefox. It's a mystery how, but when attempting to sign in via Google Chrome, the sign in was successful. After that sign in, it became possible to sign in on all browsers.
+"errors is undefined" in Firefox, "TypeError: Cannot read properties of undefined (reading 'username')" in Chrome.
