@@ -35,7 +35,7 @@ import {
         user_input.preventDefault();
         try {
             await axios.post('/dj-rest-auth/registration/', signUpData);
-            history.push('/signin');
+            history.push('/sign-in');
         } catch (err) {
             setErrors(err.response?.data);
         }
@@ -44,7 +44,7 @@ import {
     return (
         <div>
             <h1>Sign up</h1>
-            <Form OnSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
 
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>
