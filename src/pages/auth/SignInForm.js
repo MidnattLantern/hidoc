@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+//import axios from 'axios';
 //import styles from "../../styles/SignInForm.module.css";
 import {
     Form,
     Button,
   } from "react-bootstrap";
 
-const SignInForm = () => {
+function SignInForm() {
+  
+
     return (
         <div>
             <h1>Sign in</h1>

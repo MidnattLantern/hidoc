@@ -40,6 +40,12 @@ Font Awesome:
 - HiDoc use icons borrowed from Font Awesome.
 - Installment of Font Awesome is a string inside `public > index.html`
 
+Axios and API request:
+---
+- In the Heroku app for the API, there are two client origins with link to the front-end URL.
+- Axios is used to link the frontend and backend. In terminal:
+`npm install axios`
+
 
 Deployment
 ===
@@ -157,6 +163,7 @@ As a signed in user, who have clicked the watch button for any project, I can cl
 
 Credits:
 ===
+Heavy references from other projects are commented
 Reference: Code Institute
 Icons: Font Awesome
 Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/about?classification=Handwriting
