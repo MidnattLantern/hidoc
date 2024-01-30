@@ -15,10 +15,10 @@ import {
   const SignUpForm = () => {
     const [signUpData, setSignUpData,] = useState({
         username: "",
-        password: "",
-        password_confirm: "",
+        password1: "",
+        password2: "",
     });
-    const { username, password, password_confirm,} = signUpData;
+    const { username, password1, password2,} = signUpData;
 
     const [errors, setErrors] = useState({});
 
@@ -62,33 +62,33 @@ import {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password">
+                <Form.Group controlId="password1">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                     type="password"
                     placeholder=""
-                    name="password"
-                    value={password}
+                    name="password1"
+                    value={password1}
                     onChange={handleInput}
                     />
                 </Form.Group>
-                {errors.password?.map((message, idx) => (
+                {errors.password1?.map((message, idx) => (
                     <Alert variant="warning" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password_confirm">
+                <Form.Group controlId="password2">
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                     type="password"
                     placeholder=""
-                    name="password_confirm"
-                    value={password_confirm}
+                    name="password2"
+                    value={password2}
                     onChange={handleInput}
                     />
                 </Form.Group>
-                {errors.password_confirm?.map((message, idx) => (
+                {errors.password2?.map((message, idx) => (
                     <Alert variant="warning" key={idx}>
                         {message}
                     </Alert>
