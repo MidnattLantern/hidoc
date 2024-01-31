@@ -18,19 +18,60 @@ const NavBar = () => {
         }
     };
 
+
     const loggedInIcons = (
     <>
+                            <NavLink to="/watch-list" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
+                                <i className="fa-solid fa-eye"></i>
+                                Watch List
+                            </NavLink>
+
+                            <NavLink to="/"
+                            className={styles.NavLink}
+                            onClick={handleSignOut}
+                            >
+                                <i className="fa-solid fa-door-open"></i>
+                                Sign out
+                            </NavLink>
+
+                            <NavLink to="/my-page" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
+                                <i className="fa-solid fa-door-open"></i>
+                                My page
+                            </NavLink>
     {currentUser?.username}
-    <p>signed in</p>
     </>)
+
+
     const loggedOutIcons = (
-    <>
-    <p>signed out</p>
-    </>)
+        <>
+        <NavLink to="/sign-in" exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        >
+            <i className="fa-solid fa-door-open"></i>
+            Sign in
+        </NavLink>
+
+        <NavLink to="/sign-up" exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        >
+            <i className="fa-solid fa-user-plus"></i>
+            Sign up
+        </NavLink>
+        <p>signed out</p>
+        </>)
+
 
     return (
         <Navbar expand="lg" className={styles.NavBar} >
-                    {currentUser ? loggedInIcons : loggedOutIcons}
+                    
                 <Container>
 
                     <NavLink to="/">
@@ -61,52 +102,8 @@ const NavBar = () => {
                                 Search Artist
                             </NavLink>
 
-                            const signedInIcons = <>
+                            {currentUser ? loggedInIcons : loggedOutIcons}
 
-                            <NavLink to="/watch-list" exact
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                            >
-                                <i className="fa-solid fa-eye"></i>
-                                Watch List
-                            </NavLink>
-
-                            <NavLink to="/"
-                            className={styles.NavLink}
-                            onClick={handleSignOut}
-                            >
-                                <i className="fa-solid fa-door-open"></i>
-                                Sign out
-                            </NavLink>
-
-                            <NavLink to="/my-page" exact
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                            >
-                                <i className="fa-solid fa-door-open"></i>
-                                My page
-                            </NavLink>
-
-                            </>
-                            const signedOutIcons = <>
-
-                            <NavLink to="/sign-in" exact
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                            >
-                                <i className="fa-solid fa-door-open"></i>
-                                Sign in
-                            </NavLink>
-
-                            <NavLink to="/sign-up" exact
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                            >
-                                <i className="fa-solid fa-user-plus"></i>
-                                Sign up
-                            </NavLink>
-
-                            </>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

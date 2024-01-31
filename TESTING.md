@@ -12,3 +12,8 @@ Sign in error:
 Theory: API isn't properly set up with the front end.
 Cause: typo at DEFAULT_RENDERER_CLASSES in backend, and <CurrentUserProvided> in index.js didn't wrap around <App />
 How: 
+
+Weird API UI:
+---
+The UI have a weird look in Heoku deployment.
+reason: typo at `EFAULT_RENDERER_CLASSES`

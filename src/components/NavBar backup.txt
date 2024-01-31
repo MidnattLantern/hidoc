@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from '../styles/NavBar.module.css';
 import { Navbar, Container, Nav, } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext, SetCurrentUserContext } from "../App";
+import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
+import axios from "axios";
 
 const NavBar = () => {
+    const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+    const handleSignOut = async () => {
+        try{
+            await axios.post('dj-rest-auth/logout/');
+            setCurrentUser(null);
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
+    const loggedInIcons = (
+    <>
+    {currentUser?.username}
+    <p>signed in</p>
+    </>)
+    const loggedOutIcons = (
+    <>
+    <p>signed out</p>
+    </>)
 
     return (
         <Navbar expand="lg" className={styles.NavBar} >
-            
+                    {currentUser ? loggedInIcons : loggedOutIcons}
                 <Container>
 
                     <NavLink to="/">
@@ -26,7 +49,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-binoculars"></i>
+                                <i className="fa-solid fa-binoculars"></i>
                                 Browse
                             </NavLink>
 
@@ -34,7 +57,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i className="fa-solid fa-magnifying-glass"></i>
                                 Search Artist
                             </NavLink>
 
@@ -44,15 +67,15 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-eye"></i>
+                                <i className="fa-solid fa-eye"></i>
                                 Watch List
                             </NavLink>
 
-                            <NavLink to="/sign-out" exact
+                            <NavLink to="/"
                             className={styles.NavLink}
-                            activeClassName={styles.Active}
+                            onClick={handleSignOut}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 Sign out
                             </NavLink>
 
@@ -60,7 +83,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 My page
                             </NavLink>
 
@@ -71,7 +94,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 Sign in
                             </NavLink>
 
@@ -79,7 +102,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-user-plus"></i>
+                                <i className="fa-solid fa-user-plus"></i>
                                 Sign up
                             </NavLink>
 
