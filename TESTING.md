@@ -9,3 +9,6 @@ How: Firefox developer tool > network > click an instance, reveal the expected n
 Sign in error:
 ---
 "errors is undefined" in Firefox, "TypeError: Cannot read properties of undefined (reading 'username')" in Chrome.
+Theory: API isn't properly set up with the front end.
+Cause: typo at DEFAULT_RENDERER_CLASSES in backend, and <CurrentUserProvided> in index.js didn't wrap around <App />
+How: 
