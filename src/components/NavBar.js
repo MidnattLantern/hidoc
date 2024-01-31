@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+//import React, { useContext } from "react";
+import React from "react";
 import styles from '../styles/NavBar.module.css';
 import { Navbar, Container, Nav, } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { CurrentUserContext, SetCurrentUserContext } from "../App";
+//import { CurrentUserContext, SetCurrentUserContext } from "../App";
 import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
 import axios from "axios";
 
 const NavBar = () => {
@@ -41,8 +43,10 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         >
-            <i className="fa-solid fa-door-open"></i>
-            My page
+            <Avatar
+            src={currentUser?.artaccount_image}
+            text="My page"
+            />
         </NavLink>
     {currentUser?.username}
     </>)
@@ -104,7 +108,7 @@ const NavBar = () => {
 
                             {currentUser ? loggedInIcons : loggedOutIcons}
 
-                            {currentUser?.artaccount_image}
+                            {currentUser?.artaccount_id}
 
                         </Nav>
                     </Navbar.Collapse>
