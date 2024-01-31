@@ -1,3 +1,5 @@
+The HiDoc project follow a very similar model to Code Institute's Moments project. This is a tactical agile approach. To prevent risk of plagarism and improve in-depth-understanding, HiDoc use different naming convention, which force development to be more alert about what's happening in the Moments project. Because of this, problems caused due to misuse in naming was a common roadblock during development. This is a documentation for some roadblocks. Not all but most of them are namin related.
+
 SignUp problem:
 ---
 Submiting in the signup page wouldn't do anything, nor give response to the end uesr.
