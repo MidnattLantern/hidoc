@@ -17,3 +17,10 @@ Weird API UI:
 ---
 The UI have a weird look in Heoku deployment.
 reason: typo at `EFAULT_RENDERER_CLASSES`
+
+undefined account:
+---
+Clicking my page return a undefined url. The question is, how does currentUser?. get its data?
+Theory: HiDoc follow a different naming convention, using art account instead of profile. Causing conflict.
+Cause: Backend issuee. Serializsers.py inside drf_api were written as "profile_id" and "profile.id". HiDoc is setup to expect artaccount_id.
+How: rename backend setup.
