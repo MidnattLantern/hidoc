@@ -4,6 +4,7 @@ import {
     Form,
     Button,
     Alert,
+    Col,
   } from "react-bootstrap";
 
 import { useHistory } from "react-router-dom";
@@ -42,8 +43,9 @@ function SignInForm() {
 
     return (
         <div>
+          <Col md={6}>
             <h1>Sign in</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} ClassName="col-md-6">
 
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>
@@ -87,6 +89,7 @@ function SignInForm() {
                 ))}
 
             </Form>
+          </Col>
         </div>
     )
 };

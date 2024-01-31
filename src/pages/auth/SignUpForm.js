@@ -5,7 +5,7 @@ import {
     Form,
     Button,
     //Image,
-    //Col,
+    Col,
     //Row,
     //Container,
     Alert,
@@ -43,6 +43,7 @@ import {
 
     return (
         <div>
+            <Col md={6}>
             <h1>Sign up</h1>
             <Form onSubmit={handleSubmit}>
 
@@ -106,6 +107,7 @@ import {
                 ))}
 
             </Form>
+            </Col>
         </div>
     )
 };
