@@ -40,13 +40,14 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink to={`/my-page/${currentUser?.artaccount_id}`}
-        className={styles.NavLink}
+        className={styles.AccountNavLink}
         activeClassName={styles.Active}
         >
             <Avatar
             src={currentUser?.artaccount_image}
-            text="My page"
+            text="My Page"
             />
+
         </NavLink>
     {currentUser?.username}
     </>)
