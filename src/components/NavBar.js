@@ -49,7 +49,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-binoculars"></i>
+                                <i className="fa-solid fa-binoculars"></i>
                                 Browse
                             </NavLink>
 
@@ -57,7 +57,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i className="fa-solid fa-magnifying-glass"></i>
                                 Search Artist
                             </NavLink>
 
@@ -67,7 +67,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-eye"></i>
+                                <i className="fa-solid fa-eye"></i>
                                 Watch List
                             </NavLink>
 
@@ -75,7 +75,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             onClick={handleSignOut}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 Sign out
                             </NavLink>
 
@@ -83,7 +83,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 My page
                             </NavLink>
 
@@ -94,7 +94,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-door-open"></i>
+                                <i className="fa-solid fa-door-open"></i>
                                 Sign in
                             </NavLink>
 
@@ -102,7 +102,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             >
-                                <i class="fa-solid fa-user-plus"></i>
+                                <i className="fa-solid fa-user-plus"></i>
                                 Sign up
                             </NavLink>
 
