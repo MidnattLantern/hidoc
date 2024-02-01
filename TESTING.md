@@ -32,3 +32,8 @@ How: rename backend setup.
 Anything with hooks should be named "use", otherwise React will reject it. 
 Incorrect: camelCase
 Correct: useCamelCase
+
+Duplicate text fields in Create Project
+---
+The create project follow a similar model to CI Moments. This line of code prevent the form field from duplicate:
+<Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">

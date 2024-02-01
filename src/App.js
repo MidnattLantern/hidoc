@@ -8,6 +8,7 @@ import './api/axiosDefaults';
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignOutForm from './pages/auth/SignOutForm';
+import ProjectCreateForm from './pages/projects/ProjectCreateForm';
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
@@ -59,6 +60,10 @@ function App() {
 
             <Switch>
               <Route exact path="/sign-out" render={() => <SignOutForm/>} />
+            </Switch>
+
+            <Switch>
+              <Route exact path="/projects/create" render={() => <ProjectCreateForm/>} />
             </Switch>
 
           </Container>

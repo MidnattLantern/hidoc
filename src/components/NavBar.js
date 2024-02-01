@@ -31,7 +31,7 @@ const addProjectIcon = (
     className={styles.NavLink}
     activeClassName={styles.Active}
     >
-        <i class="far fa-plus-square"></i> New project
+        <i class="far fa-plus-square"></i> Create project
     </NavLink>
 )
 
