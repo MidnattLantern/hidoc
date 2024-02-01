@@ -37,3 +37,12 @@ Duplicate text fields in Create Project
 ---
 The create project follow a similar model to CI Moments. This line of code prevent the form field from duplicate:
 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+
+Creating project publish empty values
+---
+Submitting a form to create a project return empty values in the API.
+Theory: The names for submittion didn't use the same as for the API.
+Cause: The names for submittion didn't user the same as for the API.
+- Used names (causeing failure): "title", "description", "poster",
+- API names (to fix the issue): "project_title", "project_description", "feature_poster".
+How: ProjectCreateForm.js need to match the same names from the API.

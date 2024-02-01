@@ -15,11 +15,11 @@ import { axiosReq } from "../../api/axiosDefaults";
 function ProjectCreateForm() {
     const [errors, setErrors] = useState({});
     const [projectData, setProjectData] = useState({
-        title: "",
-        description: "",
-        poster: "",
+        project_title: "",
+        project_description: "",
+        feature_poster: "",
     });
-    const { title, description, poster } = projectData;
+    const { project_title, project_description, feature_poster } = projectData;
     const posterInput = useRef(null)
     const history = useHistory()
 
@@ -32,10 +32,10 @@ function ProjectCreateForm() {
 
     const handleChangeImage = (userInput) => {
         if (userInput.target.files.length){
-            URL.revokeObjectURL(poster);
+            URL.revokeObjectURL(feature_poster);
             setProjectData({
                 ...projectData,
-                poster: URL.createObjectURL(userInput.target.files[0]),
+                feature_poster: URL.createObjectURL(userInput.target.files[0]),
             })
         }
     };
@@ -44,13 +44,13 @@ function ProjectCreateForm() {
         userInput.preventDefault()
         const formData = new FormData();
 
-        formData.append('title', title)
-        formData.append('description', description)
-        formData.append('poster', posterInput.current.files[0])
+        formData.append('project_title', project_title)
+        formData.append('project_description', project_description)
+        formData.append('feature_poster', posterInput.current.files[0])
 
         // possibly broken?
         try {
-            const {data} = await axiosReq.projects('/projects/', formData);
+            const {data} = await axiosReq.post('/projects/', formData);
             history.push(`/projects/${data.id}`)
         } catch(err){
             console.log(err)
@@ -66,8 +66,8 @@ function ProjectCreateForm() {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                 type="text"
-                name="title"
-                value={title}
+                name="project_title"
+                value={project_title}
                 onChange={handleInput}
                 />
             </Form.Group>
@@ -76,8 +76,8 @@ function ProjectCreateForm() {
                 <Form.Control
                 as="textarea"
                 rows={8}
-                name="description"
-                value={description}
+                name="project_description"
+                value={project_description}
                 onChange={handleInput}
                 />
             </Form.Group>
@@ -100,10 +100,10 @@ function ProjectCreateForm() {
                     <Col>
                         <Container>
                             <Form.Group>
-                                {poster ? (
+                                {feature_poster ? (
                                     <>
                                         <figure>
-                                            <Image src={poster} />
+                                            <Image src={feature_poster} />
                                         </figure>
                                         <div>
                                             <Form.Label
