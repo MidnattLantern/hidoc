@@ -34,10 +34,10 @@ function SignInForm() {
     }
   };
 
-  const handleInput = (user_input) => {
+  const handleInput = (userInput) => {
     setSignInData({
         ...signInData,
-        [user_input.target.name]: user_input.target.value,
+        [userInput.target.name]: userInput.target.value,
     });
   };
 

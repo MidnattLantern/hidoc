@@ -26,3 +26,9 @@ Clicking my page return an undefined url. The question is, how does currentUser?
 Theory: HiDoc follow a different naming convention, using art account instead of profile. Causing conflict.
 Cause: Backend issue. Serializsers.py inside drf_api were written as "profile_id" and "profile.id". HiDoc is setup to expect artaccount_id.
 How: rename backend setup.
+
+"use" when naming in hooks
+---
+Anything with hooks should be named "use", otherwise React will reject it. 
+Incorrect: camelCase
+Correct: useCamelCase

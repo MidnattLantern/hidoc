@@ -7,10 +7,14 @@ import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
+    const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
     const handleSignOut = async () => {
         try{
             await axios.post('dj-rest-auth/logout/');
@@ -19,6 +23,17 @@ const NavBar = () => {
             console.log(err)
         }
     };
+
+const addProjectIcon = (
+    <NavLink
+    to="/projects/create"
+    exact
+    className={styles.NavLink}
+    activeClassName={styles.Active}
+    >
+        <i class="far fa-plus-square"></i> New project
+    </NavLink>
+)
 
 
     const loggedInIcons = (
@@ -49,7 +64,6 @@ const NavBar = () => {
             />
 
         </NavLink>
-    {currentUser?.username}
     </>)
 
 
@@ -70,13 +84,11 @@ const NavBar = () => {
             <i className="fa-solid fa-user-plus"></i>
             Sign up
         </NavLink>
-        <p>signed out</p>
         </>)
 
 
     return (
-        <Navbar expand="lg" className={styles.NavBar} >
-                    
+        <Navbar expanded={expanded} expand="lg" className={styles.NavBar} >
                 <Container>
 
                     <NavLink to="/">
@@ -87,7 +99,13 @@ const NavBar = () => {
                         </Navbar.Brand>
                     </NavLink>
 
-                    <Navbar.Toggle />
+                    {currentUser && addProjectIcon}
+
+                    <Navbar.Toggle
+                    ref={ref}
+                    onClick={() => setExpanded(!expanded)}
+                    aria-controls="basic-navbar-nav"
+                    />
                     <Navbar.Collapse>
                         <Nav>
 
@@ -108,8 +126,6 @@ const NavBar = () => {
                             </NavLink>
 
                             {currentUser ? loggedInIcons : loggedOutIcons}
-
-                            {currentUser?.artaccount_id}
 
                         </Nav>
                     </Navbar.Collapse>
