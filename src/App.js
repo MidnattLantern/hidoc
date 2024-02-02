@@ -8,7 +8,10 @@ import './api/axiosDefaults';
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignOutForm from './pages/auth/SignOutForm';
+
 import ProjectCreateForm from './pages/projects/ProjectCreateForm';
+import ProjectPage from './pages/projects/ProjectPage';
+
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
@@ -47,23 +50,20 @@ function App() {
             </Switch>
 
             <Switch>
-              <Route exact path="/watch-list" render={() => <h1>Watch list view</h1>} />
+              <Route exact path="/watch-list" render={() => <h1>Watch list menu view</h1>} />
+              <Route exact path="/watch-list/projects" render={() => <h1>Watch list projects view</h1>} />
+              <Route exact path="/watch-list/artists" render={() => <h1>Watch list artists view</h1>} />
             </Switch>
 
             <Switch>
               <Route exact path="/sign-up" render={() => <SignUpForm/>} />
-            </Switch>
-
-            <Switch>
               <Route exact path="/sign-in" render={() => <SignInForm/>} />
-            </Switch>
-
-            <Switch>
               <Route exact path="/sign-out" render={() => <SignOutForm/>} />
             </Switch>
 
             <Switch>
               <Route exact path="/projects/create" render={() => <ProjectCreateForm/>} />
+              <Route exact path="/projects/:id" render={()=> <ProjectPage/>} />
             </Switch>
 
           </Container>

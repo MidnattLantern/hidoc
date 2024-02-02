@@ -96,6 +96,10 @@ Sign-in page:
 - This feature satisfy the "Sign-in" user story.
 - This page is located inside `src > pages > auth`.
 
+Project(s):
+---
+This should be adressed, there's "project" as in singular, and there's "projects" as in plural with an S at the end. During maintainance and future development, keep an eye on the S/ or lack there of, at the end when working with project(s).
+
 
 Agile development:
 ===
