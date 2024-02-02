@@ -27,7 +27,7 @@ function ProjectPage() {
 
     return (
         <div>
-            <h1>Hello walrus (ProjectPage.js)</h1>
+            <h1>Project view</h1>
             <div>
                 <Project {...project.results[0]} setProjects={setProject} ProjectPage />
             </div>
