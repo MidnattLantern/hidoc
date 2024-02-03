@@ -4,8 +4,9 @@ import {
     Row,
     Col,
     Container,
-} from "react-bootstrap"
+} from "react-bootstrap";
 
+import Project from "./Project";
 //import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -35,11 +36,12 @@ function ProjectsPage({ message, filter = "" }) {
             <Col>
                 {hasLoaded ? (
                     <>
-                        <p> test </p>
+                        <p> test loaded </p>
+
                     </>
                 ) : (
                     <Container>
-                        <p> test 2 </p>
+                        <p> test loading </p>
                     </Container>
                 )}
             </Col>
