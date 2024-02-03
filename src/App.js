@@ -11,6 +11,7 @@ import SignOutForm from './pages/auth/SignOutForm';
 
 import ProjectCreateForm from './pages/projects/ProjectCreateForm';
 import ProjectPage from './pages/projects/ProjectPage';
+import ProjectsPage from './pages/projects/ProjectsPage';
 
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
@@ -42,7 +43,7 @@ function App() {
           <Container>
             
             <Switch>
-              <Route exact path="/" render={() => <h1>Browse view</h1>} />
+              <Route exact path="/" render={() =>  <ProjectsPage message="No results." />}/>
             </Switch>
 
             <Switch>

@@ -3,6 +3,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
+import axios from "axios";
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
 const Project = (props) => {
@@ -13,6 +14,7 @@ const Project = (props) => {
         project_description,
         feature_poster,
         updated_at,
+        watch_proj_id,
         setProjects,
     } = props;
 
@@ -26,7 +28,7 @@ const Project = (props) => {
                 ...prevProjects,
                 results: prevProjects.results.map((post) => {
                     return post.id === id
-                    ? {...post, watch_proj_count: post.watch_proj_count +1, watch_proj_id: data.id}
+                    ? {...post, watch_proj_count: post.watch_proj_count + 1, watch_proj_id: data.id}
                     : post;
                 }),
             }));
@@ -34,6 +36,22 @@ const Project = (props) => {
             console.log(err);
         }
     };
+
+    const handleUnwatchProject = async () => {
+        try {
+            await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
+            setProjects((prevProjects) => ({
+                ...prevProjects,
+                results: prevProjects.results.mpa((post) => {
+                    return post.id === id
+                    ? {...post, watch_proj_count: post.watch_proj_count -1, watch_proj_id: null }
+                    : post;
+                }),
+            }));
+        } catch(err){
+            console.log(err);
+        }
+    }
 
     return (
         <Card>
@@ -55,6 +73,15 @@ const Project = (props) => {
                     <div onClick={handleWatchProject}>
                         <p>
                         <i className="fa-solid fa-eye" /> Watch project
+                        </p>
+                        <p>
+                            Comment
+                        </p>
+                    </div>
+                ) : watch_proj_id ? (
+                    <div inClick={handleUnwatchProject}>
+                        <p>
+                        <i className="fa-solid fa-eye" /> unwatch project
                         </p>
                         <p>
                             Comment
