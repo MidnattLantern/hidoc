@@ -1,11 +1,18 @@
 import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card } from "react-bootstrap";
+import {
+    Card,
+    Col,
+    Container,
+    Row,
+    Button,
+ } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../../styles/Project.module.css";
 
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
@@ -19,7 +26,7 @@ const Project = (props) => {
         updated_at,
         watch_proj_id,
         setProjects,
-        projectPage,
+//        projectPage,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -75,30 +82,46 @@ const Project = (props) => {
     }
 
     return (
-        <Card>
-            <h1>Project: {project_title}</h1>
-            <Card.Body>
-                {is_owner && <MoreDropdown
+        <div className={styles.WindowCard}>
+            <Row>
+            <Col>
+            <Container>
+                <Card.Img
+                className={styles.PosterFrame}
+                src={feature_poster}
+                />
+            </Container>
+            </Col>
+
+            <Col>
+            <Container>
+            <h1>{owner}: <Link className={styles.Link} to={`/projects/${id}`}>{project_title}</Link></h1>
+
+            <p className={styles.DescriptionFrame}>
+                {project_description}
+            </p>
+
+            {is_owner && <MoreDropdown
                 handleEditProject={handleEditProject}
                 handleDeleteProject={handleDeleteProject}
                 />}
-                <Link to={`/artist-page/${id}`}>Artist: {owner}</Link>
                 <p>Latest update: {updated_at}</p>
-                <Card.Img src={feature_poster}/>
-            </Card.Body>
-            <p>{project_description}</p>
-
             <div>
                 {is_owner ? (
                     <div>
-                        <p> Document paragraph (comming soon) </p>
-                        <p> Document image (comming soon )</p>
+                        <Button
+                        className={styles.Button}
+                        > 
+                        Add documentation (comming soon)
+                        </Button>
                     </div>
                 ) : currentUser ? (
                     <div onClick={handleWatchProject}>
-                        <p>
+                        <Button
+                        className={styles.WatchButton}
+                        >
                         <i className="fa-solid fa-eye" /> Watch project
-                        </p>
+                        </Button>
                     </div>
                 ) : watch_proj_id ? (
                     <div inClick={handleUnwatchProject}>
@@ -114,7 +137,10 @@ const Project = (props) => {
                     </div>
                 )}
             </div>
-        </Card>
+            </Container>
+            </Col>
+            </Row>
+        </div>
     )
 }
 
