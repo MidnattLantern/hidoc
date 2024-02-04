@@ -1,5 +1,6 @@
 HiDoc is built upon React/ React Bootstrap.
 
+Theme colour HEX: #e35e8a
 
 Setup:
 ===

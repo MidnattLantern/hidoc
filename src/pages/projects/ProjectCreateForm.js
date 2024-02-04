@@ -67,7 +67,8 @@ function ProjectCreateForm() {
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                type="text"
+                type="Title"
+                placeholder=""
                 name="project_title"
                 value={project_title}
                 onChange={handleInput}
@@ -77,6 +78,7 @@ function ProjectCreateForm() {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                 as="textarea"
+                placeholder=""
                 rows={8}
                 name="project_description"
                 value={project_description}
@@ -84,11 +86,13 @@ function ProjectCreateForm() {
                 />
             </Form.Group>
             <Button
+            className={styles.Button}
             onClick={() => history.goBack()}
             >
                     Discard
             </Button>
             <Button
+            className={styles.Button}
             type="submit"
             >
                 Create project
@@ -98,10 +102,11 @@ function ProjectCreateForm() {
 
     return (
             <Form onSubmit={handleSubmit}>
-                <Row className={styles.Testborder}>
+                <Row className={styles.WindowCard}>
                     <Col>
                         <Container>
-                            <Form.Group >
+                            <Form.Group
+                            >
                                 {feature_poster ? (
                                     <>
                                         <figure
@@ -139,12 +144,14 @@ function ProjectCreateForm() {
                             </div>
                         </Container>
                     </Col>
-                    <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+                    <Col>
                         <Container>{textFields}</Container>
                     </Col>
                 </Row>
             </Form>
     );
 }
+// Note about `<div className="d-md-none">`: this is the 'invisible duplicate'
+// <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
 
 export default ProjectCreateForm;
