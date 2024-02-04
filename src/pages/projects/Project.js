@@ -44,7 +44,8 @@ const Project = (props) => {
             const {data} = await axiosRes.post('/watch-projects/', {post:id});
             setProjects((prevProjects) => ({
                 ...prevProjects,
-                results: prevProjects.results.map((post) => {
+//                results: prevProjects.results.map((post) => {
+                results: prevProjects.map((post) => {
                     return post.id === id
                     ? {...post, watch_proj_count: post.watch_proj_count + 1, watch_proj_id: data.id}
                     : post;
@@ -60,7 +61,8 @@ const Project = (props) => {
             await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
             setProjects((prevProjects) => ({
                 ...prevProjects,
-                results: prevProjects.results.map((post) => {
+//                results: prevProjects.results.map((post) => {
+                results: prevProjects.map((post) => {
                     return post.id === id
                     ? {...post, watch_proj_count: post.watch_proj_count -1, watch_proj_id: null }
                     : post;

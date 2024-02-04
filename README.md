@@ -35,16 +35,24 @@ Routing
 This setup will enable the navigation bar to render content depending on what button the user click.
 - Inside App.js, add <Route> for each individual item that should be rendered. Include exact.
 
+
 Font Awesome:
 ---
 - HiDoc use icons borrowed from Font Awesome.
 - Installment of Font Awesome is a string inside `public > index.html`
+
 
 Axios and API request:
 ---
 - In the Heroku app for the API, there are two client origins with link to the front-end URL.
 - Axios is used to link the frontend and backend. In terminal:
 `npm install axios`
+
+
+Infinite scroll:
+---
+- In terminal:
+`npm install react-infinite-scroll-component`
 
 
 Deployment

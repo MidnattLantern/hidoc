@@ -10,6 +10,8 @@ import Project from "./Project";
 //import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
@@ -38,9 +40,18 @@ function ProjectsPage({ message, filter = "" }) {
                 {hasLoaded ? (
                     <>
                         {projects.length ? (
-                            projects.map((post) => (
-                                <Project key={post.id} {...post} setProjects={setProjects} />
-                            ))
+                            <InfiniteScroll
+                                children={
+                                    projects.map((post) => (
+                                        <Project key={post.id} {...post} setProjects={setProjects} />
+                                    ))
+                                }
+                                dataLength={projects.length}
+                                loader={"Loading..."}
+                                hasMore={!!projects.next}
+                                next={() => fetchMoreData(projects, setProjects)}
+                            />
+
                         ) : (
                             <Container>
                                 <p> test 3</p>
