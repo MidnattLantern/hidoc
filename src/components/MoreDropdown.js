@@ -16,7 +16,7 @@ const ContextDots = React.forwardRef(({ onClick }, ref) => (
     />
 ));
 
-export const MoreDropdown = () => {
+export const MoreDropdown = ({handleEditProject, handleDeleteProject}) => {
     return (
         <Dropdown drop="left">
             <Dropdown.Toggle as={ContextDots} />
@@ -24,13 +24,13 @@ export const MoreDropdown = () => {
             <Dropdown.Menu>
                 <Dropdown.Item
                 className={styles.DropdownItem}
-                onClick={() => {}}
+                onClick={handleEditProject}
                 aria-label="edit"
                 >
                     <i className="fas fa-edit" /> Edit</Dropdown.Item>
                 <Dropdown.Item
                 className={styles.DropdownItem}
-                onClick={() => {}}
+                onClick={handleDeleteProject}
                 aria-label="delete"
                 >
                     <i className="fas fa-trash-alt" /> Delete</Dropdown.Item>

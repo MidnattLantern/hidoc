@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
 const Project = (props) => {
@@ -22,6 +23,21 @@ const Project = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    // Edit according to the training ref model. Different from edit parag-doc or img-doc (future features)
+    const handleEditProject = () => {
+        history.push(`/projects/${id}/edit`)
+    }
+
+    const handleDeleteProject = async () => {
+        try {
+            await axiosRes.delete(`/projects/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handleWatchProject = async () => {
         try {
@@ -59,7 +75,10 @@ const Project = (props) => {
         <Card>
             <h1>Project: {project_title}</h1>
             <Card.Body>
-                {is_owner && <MoreDropdown/>}
+                {is_owner && <MoreDropdown
+                handleEditProject={handleEditProject}
+                handleDeleteProject={handleDeleteProject}
+                />}
                 <Link to={`/artist-page/${id}`}>Artist: {owner}</Link>
                 <p>Latest update: {updated_at}</p>
                 <Card.Img src={feature_poster}/>
