@@ -7,7 +7,7 @@ import {
     Row,
     Button,
  } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -32,6 +32,11 @@ const Project = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+
+    // options that won't appear in browse page
+    const location = useLocation();
+    const CurrentPath = location.pathname;
+    const isProjDetail = CurrentPath === `/projects/${id}`
 
     // Edit according to the training ref model. Different from edit parag-doc or img-doc (future features)
     const handleEditProject = () => {
@@ -101,13 +106,13 @@ const Project = (props) => {
                 {project_description}
             </p>
 
-            {is_owner && <MoreDropdown
+            {is_owner && isProjDetail && <MoreDropdown
                 handleEditProject={handleEditProject}
                 handleDeleteProject={handleDeleteProject}
                 />}
                 <p>Latest update: {updated_at}</p>
             <div>
-                {is_owner ? (
+                {is_owner && isProjDetail ? (
                     <div>
                         <Button
                         className={styles.Button}
@@ -115,7 +120,7 @@ const Project = (props) => {
                         Add documentation (comming soon)
                         </Button>
                     </div>
-                ) : currentUser ? (
+                ) : currentUser && isProjDetail ? (
                     <div onClick={handleWatchProject}>
                         <Button
                         className={styles.WatchButton}
@@ -123,13 +128,13 @@ const Project = (props) => {
                         <i className="fa-solid fa-eye" /> Watch project
                         </Button>
                     </div>
-                ) : watch_proj_id ? (
+                ) : watch_proj_id && isProjDetail ? (
                     <div inClick={handleUnwatchProject}>
                         <p>
                         <i className="fa-solid fa-eye" /> unwatch project
                         </p>
                     </div>
-                ) : (
+                ) : isProjDetail && (
                     <div>
                         <p>
                         <i className="fa-solid fa-eye" /> Caught you interest? <Link to={`/sign-in`}>Sign In</Link> or <Link to={`/sign-up`}>Sign Up</Link> to save this project in you watch list!
