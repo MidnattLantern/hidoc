@@ -25,15 +25,26 @@ function ArtistPage() {
      <>
      <p>Image</p>
      <p>Username</p>
-     <p>List of projects</p>
      </>   
     );
 
+    const mainAccountProjects = (
+        <>
+        <p>List of projects by artist</p>
+        </>
+    )
+
+    const loadingMessage = (
+        <>
+        <p>Loading artist page...</p>
+        </>
+    )
+
     return (
         <div>
-            <h1>Hello walrus</h1>
+            <h1>Artist page</h1>
         </div>
     )
 }
 
-export default ArtistPage
+export default ArtistPage;
