@@ -1,0 +1,28 @@
+.Testborder {
+    border: solid black 1px;
+}
+
+.WindowCard {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border: solid black 1px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.UploadIcon {
+    border: solid black 1px;
+    border-radius: 5px;
+    max-height: 500px;
+}
+
+.Button {
+    border: solid black 1px;
+    background-color: #e35e8a;
+}
+
+.Button:hover {
+    border: solid black 1px;
+    background-color: #dc175c;
+}

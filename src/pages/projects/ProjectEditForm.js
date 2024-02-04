@@ -13,7 +13,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
 
-import styles from "../../styles/ProjectCRUD.module.css";
+import styles from "../../styles/ProjectEdit.module.css";
+//import styles from "../../styles/ProjectCRUD.module.css";
 
 function ProjectEditForm() {
     const [errors, setErrors] = useState({});
@@ -86,6 +87,7 @@ function ProjectEditForm() {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                 type="text"
+                placeholder=""
                 name="project_title"
                 value={project_title}
                 onChange={handleInput}
@@ -95,6 +97,7 @@ function ProjectEditForm() {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                 as="textarea"
+                placeholder=""
                 rows={8}
                 name="project_description"
                 value={project_description}
@@ -102,11 +105,13 @@ function ProjectEditForm() {
                 />
             </Form.Group>
             <Button
+            className={styles.Button}
             onClick={() => history.goBack()}
             >
                     Discard
             </Button>
             <Button
+            className={styles.Button}
             type="submit"
             >
                 Save changes
@@ -116,14 +121,16 @@ function ProjectEditForm() {
 
     return (
             <Form onSubmit={handleSubmit}>
-                <Row>
+                <Row className={styles.WindowCard}>
                     <Col>
                         <Container>
-                            <Form.Group className={styles.borderTest} >
+                            <Form.Group >
                                 {feature_poster ? (
                                     <>
                                         <figure>
-                                            <Image src={feature_poster} />
+                                            <Image
+                                            className={styles.UploadIcon}
+                                            src={feature_poster} />
                                         </figure>
                                         <div>
                                             <Form.Label
@@ -154,12 +161,14 @@ function ProjectEditForm() {
                             </div>
                         </Container>
                     </Col>
-                    <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+                    <Col>
                         <Container>{textFields}</Container>
                     </Col>
                 </Row>
             </Form>
     );
 }
+// Note about `<div className="d-md-none">`: this is the 'invisible duplicate'
+// <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
 
 export default ProjectEditForm;
