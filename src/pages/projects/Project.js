@@ -7,6 +7,7 @@ import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
 const Project = (props) => {
     const {

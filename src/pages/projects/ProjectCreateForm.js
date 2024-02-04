@@ -12,7 +12,7 @@ import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
-import styles from "../../styles/ProjectCRUD.module.css";
+import styles from "../../styles/ProjectCreate.module.css";
 
 function ProjectCreateForm() {
     const [errors, setErrors] = useState({});
@@ -98,14 +98,17 @@ function ProjectCreateForm() {
 
     return (
             <Form onSubmit={handleSubmit}>
-                <Row>
+                <Row className={styles.Testborder}>
                     <Col>
                         <Container>
-                            <Form.Group className={styles.borderTest} >
+                            <Form.Group >
                                 {feature_poster ? (
                                     <>
-                                        <figure>
-                                            <Image src={feature_poster} />
+                                        <figure
+                                        >
+                                            <Image
+                                            className={styles.UploadIcon}
+                                            src={feature_poster} />
                                         </figure>
                                         <div>
                                             <Form.Label
@@ -121,7 +124,7 @@ function ProjectCreateForm() {
                                     >
                                         <Asset
                                         src={Upload}
-                                        message="Upload JPG or PNG" />
+                                        message="JPG or PNG, max 1 MB" />
                                     </Form.Label>
                                 )}
                                 <Form.File

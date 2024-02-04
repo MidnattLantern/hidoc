@@ -1,0 +1,9 @@
+.Testborder {
+    border: solid black 1px;
+}
+
+.UploadIcon {
+    border: solid black 1px;
+    border-radius: 5px;
+    max-height: 500px;
+}
