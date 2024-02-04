@@ -14,6 +14,8 @@ import ProjectPage from './pages/projects/ProjectPage';
 import ProjectsPage from './pages/projects/ProjectsPage';
 import ProjectEditForm from './pages/projects/ProjectEditForm';
 
+import PopularArtAccounts from './pages/art_accounts/PopularArtAccounts';
+
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
@@ -48,7 +50,7 @@ function App() {
             </Switch>
 
             <Switch>
-              <Route exact path="/search" render={() => <h1>Search artist view</h1>} />
+              <Route exact path="/search" render={() => <PopularArtAccounts />} />
             </Switch>
 
             <Switch>

@@ -53,3 +53,9 @@ The API for HiDoc don't use generic models, so it operates differently from the 
 The array of HiDoc API is a simple array, making the user of `.results` inapropriate.
 - correct: `projects.length ?`
 - incorrect: `projects.results.length ?`
+
+Undefined anything from API
+---
+The first encounter with "undefined" data was happening on development during watch project. Instead of facing the problem imediatelly, the other componentes were coded to see if there's a pattern to this problem.
+For popular artists: TypeErrpr: `populatArtists.restults` is undefined.
+Theory: Because the API don't use generics, HiDoc shouldn't reference the code for the Moments tutorial.

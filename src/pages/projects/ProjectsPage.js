@@ -34,7 +34,12 @@ function ProjectsPage({ message, filter = "" }) {
         };
 
         setHasLoaded(false);
-        fetchProjects();
+        const timer = setTimeout(() => {
+            fetchProjects();
+        }, 2000)
+        return () => {
+            clearTimeout(timer);
+        }
     }, [filter, query, pathname]);
 
     return (
