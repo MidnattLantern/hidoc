@@ -12,6 +12,7 @@ import SignOutForm from './pages/auth/SignOutForm';
 import ProjectCreateForm from './pages/projects/ProjectCreateForm';
 import ProjectPage from './pages/projects/ProjectPage';
 import ProjectsPage from './pages/projects/ProjectsPage';
+import ProjectEditForm from './pages/projects/ProjectEditForm';
 
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
@@ -65,6 +66,7 @@ function App() {
             <Switch>
               <Route exact path="/projects/create" render={() => <ProjectCreateForm/>} />
               <Route exact path="/projects/:id" render={()=> <ProjectPage/>} />
+              <Route exact path="/projects/:id/edit" render={()=> <ProjectEditForm/>} />
             </Switch>
 
           </Container>

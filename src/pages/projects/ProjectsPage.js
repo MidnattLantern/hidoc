@@ -60,7 +60,7 @@ function ProjectsPage({ message, filter = "" }) {
                     </>
                 ) : (
                     <Container>
-                        <p> test loading </p>
+                        <p> loading server... </p>
                     </Container>
                 )}
             </Col>
