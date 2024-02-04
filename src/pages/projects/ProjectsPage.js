@@ -36,8 +36,15 @@ function ProjectsPage({ message, filter = "" }) {
             <Col>
                 {hasLoaded ? (
                     <>
-                        <p> test loaded </p>
-
+                        {projects.results.length ? (
+                            projects.results.map((post) => (
+                                <Project key={post.id} {...post} setProjects={setProjects} />
+                            ))
+                        ) : (
+                            <Container>
+                                <p> test 3</p>
+                            </Container>
+                        )}
                     </>
                 ) : (
                     <Container>

@@ -4,6 +4,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import axios from "axios";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
 const Project = (props) => {
@@ -16,10 +17,11 @@ const Project = (props) => {
         updated_at,
         watch_proj_id,
         setProjects,
+        projectPage,
     } = props;
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
 
     const handleWatchProject = async () => {
         try {
@@ -42,7 +44,7 @@ const Project = (props) => {
             await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
             setProjects((prevProjects) => ({
                 ...prevProjects,
-                results: prevProjects.results.mpa((post) => {
+                results: prevProjects.results.map((post) => {
                     return post.id === id
                     ? {...post, watch_proj_count: post.watch_proj_count -1, watch_proj_id: null }
                     : post;
@@ -56,9 +58,10 @@ const Project = (props) => {
     return (
         <Card>
             <h1>Project: {project_title}</h1>
-            <Link to={`/artist-page/${id}`}>Artist: {owner}</Link>
-            <p>Latest update: {updated_at}</p>
             <Card.Body>
+                {is_owner && <MoreDropdown/>}
+                <Link to={`/artist-page/${id}`}>Artist: {owner}</Link>
+                <p>Latest update: {updated_at}</p>
                 <Card.Img src={feature_poster}/>
             </Card.Body>
             <p>{project_description}</p>
@@ -74,17 +77,11 @@ const Project = (props) => {
                         <p>
                         <i className="fa-solid fa-eye" /> Watch project
                         </p>
-                        <p>
-                            Comment
-                        </p>
                     </div>
                 ) : watch_proj_id ? (
                     <div inClick={handleUnwatchProject}>
                         <p>
                         <i className="fa-solid fa-eye" /> unwatch project
-                        </p>
-                        <p>
-                            Comment
                         </p>
                     </div>
                 ) : (
