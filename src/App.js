@@ -15,6 +15,7 @@ import ProjectsPage from './pages/projects/ProjectsPage';
 import ProjectEditForm from './pages/projects/ProjectEditForm';
 
 import PopularArtAccounts from './pages/art_accounts/PopularArtAccounts';
+import ArtistPage from './pages/art_accounts/ArtistPage';
 
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
@@ -47,10 +48,12 @@ function App() {
             
             <Switch>
               <Route exact path="/" render={() =>  <ProjectsPage message="No results." />}/>
+              <Route exact path="/artist-page" render={() =>  <p>No results</p>} />
             </Switch>
 
             <Switch>
               <Route exact path="/search" render={() => <PopularArtAccounts />} />
+              <Route exact path="/artist-page/:id" render ={() => <ArtistPage />} />
             </Switch>
 
             <Switch>

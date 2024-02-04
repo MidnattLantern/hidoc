@@ -1,0 +1,13 @@
+.AvatarImage {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    margin: 2px;
+}
+
+@media screen and (max-width: 991px) {
+    .AvatarImage {
+        width: 250px;
+        height: 250px;
+    }
+}

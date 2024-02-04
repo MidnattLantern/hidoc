@@ -54,7 +54,7 @@ const addProjectIcon = (
             Sign out
         </NavLink>
 
-        <NavLink to={`/my-page/${currentUser?.artaccount_id}`}
+        <NavLink to={`/artist-page/${currentUser?.artaccount_id}`}
         className={styles.AccountNavLink}
         activeClassName={styles.Active}
         >
