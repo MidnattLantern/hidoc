@@ -4,6 +4,7 @@ import {
     Row,
     Col,
     Container,
+    Form,
 } from "react-bootstrap";
 
 import Project from "./Project";
@@ -18,10 +19,12 @@ function ProjectsPage({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
+    const [query, setQuery] = useState("");
+
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const { data } = await axiosReq.get(`/projects/?${filter}`);
+                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
                 console.log(data);
                 setProjects(data);
                 setHasLoaded(true);
@@ -32,11 +35,23 @@ function ProjectsPage({ message, filter = "" }) {
 
         setHasLoaded(false);
         fetchProjects();
-    }, [filter, pathname]);
+    }, [filter, query, pathname]);
 
     return (
         <Row>
             <Col>
+            <i className={`fas fa-search`} />
+            <Form
+            onSubmit={(event) => event.preventDefault()}
+            >
+                <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                placeholder="search projects"
+                />
+            </Form>
                 {hasLoaded ? (
                     <>
                         {projects.length ? (

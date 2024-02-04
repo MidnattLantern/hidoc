@@ -109,7 +109,7 @@ function ProjectEditForm() {
             <Button
             type="submit"
             >
-                Create project
+                Save changes
             </Button>
         </div>
     );
