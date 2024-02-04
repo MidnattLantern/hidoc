@@ -32,9 +32,6 @@ function ProjectsPage({ message, filter = "" }) {
         fetchProjects();
     }, [filter, pathname]);
 
-    console.log('projects:')
-    console.log(projects);
-
     return (
         <Row>
             <Col>

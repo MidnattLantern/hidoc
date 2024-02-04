@@ -46,3 +46,10 @@ Cause: The names for submittion didn't user the same as for the API.
 - Used names (causeing failure): "title", "description", "poster",
 - API names (to fix the issue): "project_title", "project_description", "feature_poster".
 How: ProjectCreateForm.js need to match the same names from the API.
+
+Failed to load projects page
+---
+The API for HiDoc don't use generic models, so it operates differently from the Moments tutorial. This issue was caused because the incorrect way expect a generic model.
+The array of HiDoc API is a simple array, making the user of `.results` inapropriate.
+- correct: `projects.length ?`
+- incorrect: `projects.results.length ?`
