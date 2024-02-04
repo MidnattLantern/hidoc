@@ -41,7 +41,7 @@ const Project = (props) => {
 
     const handleWatchProject = async () => {
         try {
-            const {data} = await axiosRes.post('/watch-projects/', {post:id})
+            const {data} = await axiosRes.post('/watch-projects/', {post:id});
             setProjects((prevProjects) => ({
                 ...prevProjects,
                 results: prevProjects.results.map((post) => {

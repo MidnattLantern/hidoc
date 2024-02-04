@@ -20,6 +20,7 @@ function ProjectsPage({ message, filter = "" }) {
         const fetchProjects = async () => {
             try {
                 const { data } = await axiosReq.get(`/projects/?${filter}`);
+                console.log(data);
                 setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -31,13 +32,16 @@ function ProjectsPage({ message, filter = "" }) {
         fetchProjects();
     }, [filter, pathname]);
 
+    console.log('projects:')
+    console.log(projects);
+
     return (
         <Row>
             <Col>
                 {hasLoaded ? (
                     <>
-                        {projects.results.length ? (
-                            projects.results.map((post) => (
+                        {projects.length ? (
+                            projects.map((post) => (
                                 <Project key={post.id} {...post} setProjects={setProjects} />
                             ))
                         ) : (
