@@ -1,0 +1,9 @@
+/* dev test class */
+.Test {
+    border: 1px solid black;
+}
+
+.SearchBar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

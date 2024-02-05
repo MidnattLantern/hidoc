@@ -33,7 +33,7 @@ const Project = (props) => {
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
-    // options that won't appear in browse page
+    // && isProjDetail will hide some options in Browse view, and reveal in Project detail view
     const location = useLocation();
     const CurrentPath = location.pathname;
     const isProjDetail = CurrentPath === `/projects/${id}`
@@ -137,7 +137,16 @@ const Project = (props) => {
                 ) : isProjDetail && (
                     <div>
                         <p>
-                        <i className="fa-solid fa-eye" /> Caught you interest? <Link to={`/sign-in`}>Sign In</Link> or <Link to={`/sign-up`}>Sign Up</Link> to save this project in you watch list!
+                        <i className="fa-solid fa-eye" /> Caught you interest? <Link
+                        to={`/sign-in`}
+                        className={styles.Link}
+                        >
+                        Sign In </Link> or <Link
+                        to={`/sign-up`}
+                        className={styles.Link}
+                        >
+                        Sign Up </Link>
+                        to save this project in you watch list!
                         </p>
                     </div>
                 )}

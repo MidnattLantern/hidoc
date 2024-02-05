@@ -4,6 +4,8 @@
 }
 
 .WindowCard {
+    margin-top: 25px;
+    margin-bottom: 25px;
     padding-top: 40px;
     padding-bottom: 40px;
     border: solid black 1px;

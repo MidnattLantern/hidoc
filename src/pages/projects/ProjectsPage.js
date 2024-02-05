@@ -13,6 +13,7 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import style from "../../styles/ProjectsPage.module.css"
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
@@ -45,15 +46,14 @@ function ProjectsPage({ message, filter = "" }) {
     return (
         <Row>
             <Col>
-            <i className={`fas fa-search`} />
             <Form
+            className={style.SearchBar}
             onSubmit={(event) => event.preventDefault()}
             >
                 <Form.Control
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 type="text"
-                className="mr-sm-2"
                 placeholder="search projects"
                 />
             </Form>
@@ -63,7 +63,9 @@ function ProjectsPage({ message, filter = "" }) {
                             <InfiniteScroll
                                 children={
                                     projects.map((post) => (
-                                        <Project key={post.id} {...post} setProjects={setProjects} />
+                                        <Project
+                                        key={post.id} {...post}
+                                        setProjects={setProjects} />
                                     ))
                                 }
                                 dataLength={projects.length}
@@ -74,13 +76,13 @@ function ProjectsPage({ message, filter = "" }) {
 
                         ) : (
                             <Container>
-                                <p> test 3</p>
+                                <p> failed to load </p>
                             </Container>
                         )}
                     </>
                 ) : (
                     <Container>
-                        <p> loading server... </p>
+                        <p> loading projects... </p>
                     </Container>
                 )}
             </Col>
