@@ -26,7 +26,8 @@ export const SetCurrentUserContext = createContext();
 
 function App() {
   const currentUser = useCurrentUser();
-  const art_acc_id = currentUser?.art_acc_id || "";
+  const art_acc_id = currentUser?.artaccount_id || "";
+  console.log(art_acc_id)
 
 
   return (

@@ -70,3 +70,9 @@ Note: "project" in `const {data} = await axiosRes.post('/watch-projects/', {proj
 Note: At this point, it seem like the bug was solved. Previously, the cause was that the code was written as `{post:id}` instead of `{project:id}`, but the consensus isn't clear.
 Theory: the watch_proj_id is retrieved as "null"
 Note: when it worked, the `prevProjects.results.map` was uncommented. does ".results" play a role? Without ".results", the site crashes, however, the /watch-projects/ in the API don't seem to make sense, as the id and project index don't match for some reason. With ".results" these two will have the same index.
+
+Failed to filter projects
+---
+The text box that let you filter by keywords should only return projects with any content having that filter criteria.
+Theory from tutor: the field cannot filter by text input because the API don't have filters.
+IMPORTANT NOTE: The API originaly used non-generic views. After a revisit to the Moments DRF-API tutorial, I discovered that the cause why there's no filter options, was because the model was non-generic. After switching to genric view, the filter appeared. I don't know if it is possible to add filter options using non-generic views, but regardless, this is one reason to use generic views.

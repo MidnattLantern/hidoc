@@ -14,6 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import style from "../../styles/ProjectsPage.module.css"
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
