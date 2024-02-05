@@ -67,3 +67,6 @@ Note cause: project in `const {data} = await axiosRes.post('/watch-projects/', {
 Theory: Because this API don't use generic views, this use case isn't appropriate.
 Note: the API does update when you click watch the first time, then the page goes blank.
 Note: "project" in `const {data} = await axiosRes.post('/watch-projects/', {project:id});` is correct. "project" make the API update the data in a way that seem to make sense.
+Note: At this point, it seem like the bug was solved. Previously, the cause was that the code was written as `{post:id}` instead of `{project:id}`, but the consensus isn't clear.
+Theory: the watch_proj_id is retrieved as "null"
+Note: when it worked, the `prevProjects.results.map` was uncommented. does ".results" play a role? Without ".results", the site crashes, however, the /watch-projects/ in the API don't seem to make sense, as the id and project index don't match for some reason. With ".results" these two will have the same index.

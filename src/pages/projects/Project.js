@@ -61,37 +61,48 @@ const Project = (props) => {
             const {data} = await axiosRes.post('/watch-projects/', {project:id});
 
             // Log the response data after a successful API call
-            console.log('Received data from the API:', data);
+            console.log('Successfully received data from the API:', data);
+            console.log('Watching project')
 
             setProjects((prevProjects) => ({
                 ...prevProjects,
-                results: prevProjects.results.map((post) => {
-//                results: prevProjects.map((post) => {
-                    return post.id === id
-                    ? {...post, watch_proj_count: post.watch_proj_count + 1, watch_proj_id: data.id}
-                    : post;
+                results: prevProjects.results.map((project) => {
+                    return project.id === id
+                    ? {...project, watch_proj_count: project.watch_proj_count + 1, watch_proj_id: data.id}
+                    : project;
                 }),
             }));
         } catch(err){
             // Log any errors that occur during the API call
             console.error('Error during API call:', err);
+            console.log('Likely error: already watching project')
         }
     };
 
     const handleUnwatchProject = async () => {
         try {
+
+        // Log a message before making the API call
+        console.log('Sending DELETE request to /watch-projects/ with data:', { project: id, watch_proj_id });
+
             await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
+
+        // Log a message after a successful API call
+        console.log('Successfully deleted watch project:', watch_proj_id);
+        console.log('Unwatching project')
+        
             setProjects((prevProjects) => ({
                 ...prevProjects,
-//                results: prevProjects.results.map((post) => {
-                results: prevProjects.map((post) => {
+                results: prevProjects.results.map((post) => {
                     return post.id === id
                     ? {...post, watch_proj_count: post.watch_proj_count -1, watch_proj_id: null }
                     : post;
                 }),
             }));
         } catch(err){
-            console.log(err);
+    // Log any errors that occur during the API call
+    console.error('Error during API call:', err);
+    console.log('Likely error: already unwatched project')
         }
     }
 
@@ -130,19 +141,23 @@ const Project = (props) => {
                         </Button>
                     </div>
                 ) : currentUser && isProjDetail ? (
-                    <div onClick={handleWatchProject}>
+                    <div>
                         <Button
+                        onClick={handleWatchProject}
                         className={styles.WatchButton}
                         >
                         <i className="fa-solid fa-eye" /> Watch project
                         </Button>
+
+                        <Button
+                        onClick={handleUnwatchProject}
+                        className={styles.UnwatchButton}
+                        >
+                        <i className="fa-solid fa-eye" /> Unwatch project
+                        </Button>
+
                     </div>
-                ) : watch_proj_id && isProjDetail ? (
-                    <div inClick={handleUnwatchProject}>
-                        <p>
-                        <i className="fa-solid fa-eye" /> unwatch project
-                        </p>
-                    </div>
+
                 ) : isProjDetail && (
                     <div>
                         <p>
