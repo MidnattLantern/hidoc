@@ -76,3 +76,8 @@ Failed to filter projects
 The text box that let you filter by keywords should only return projects with any content having that filter criteria.
 Theory from tutor: the field cannot filter by text input because the API don't have filters.
 IMPORTANT NOTE: The API originaly used non-generic views. After a revisit to the Moments DRF-API tutorial, I discovered that the cause why there's no filter options, was because the model was non-generic. After switching to genric view, the filter appeared. I don't know if it is possible to add filter options using non-generic views, but regardless, this is one reason to use generic views.
+
+Transitioning to generic models
+---
+This is related to the "Failed to load projects page" error. Now that the models in the backend were transitined to generic models, the ".results" may be neccessary. However, putting them back would crash the site.
+Solution: Not every .results will have "projects" and "length" as pears. One had "next", another had "map". At this point, the ".results" are back in ProjectPage.js and is compatible with backend generics.

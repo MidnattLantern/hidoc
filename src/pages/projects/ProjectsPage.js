@@ -60,18 +60,18 @@ function ProjectsPage({ message, filter = "" }) {
             </Form>
                 {hasLoaded ? (
                     <>
-                        {projects.length ? (
+                        {projects.results.length ? (
                             <InfiniteScroll
                                 children={
-                                    projects.map((post) => (
+                                    projects.results.map((post) => (
                                         <Project
                                         key={post.id} {...post}
                                         setProjects={setProjects} />
                                     ))
                                 }
-                                dataLength={projects.length}
+                                dataLength={projects.results.length}
                                 loader={"Loading..."}
-                                hasMore={!!projects.next}
+                                hasMore={!!projects.results.next}
                                 next={() => fetchMoreData(projects, setProjects)}
                             />
 
