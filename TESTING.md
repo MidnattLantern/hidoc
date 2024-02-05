@@ -59,3 +59,11 @@ Undefined anything from API
 The first encounter with "undefined" data was happening on development during watch project. Instead of facing the problem imediatelly, the other componentes were coded to see if there's a pattern to this problem.
 For popular artists: TypeErrpr: `populatArtists.restults` is undefined.
 Theory: Because the API don't use generics, HiDoc shouldn't reference the code for the Moments tutorial.
+
+Unable to watch project
+---
+Attempting to watch any project return a 400 error.
+Note cause: project in `const {data} = await axiosRes.post('/watch-projects/', {project:id});` don't seem to be correct?
+Theory: Because this API don't use generic views, this use case isn't appropriate.
+Note: the API does update when you click watch the first time, then the page goes blank.
+Note: "project" in `const {data} = await axiosRes.post('/watch-projects/', {project:id});` is correct. "project" make the API update the data in a way that seem to make sense.

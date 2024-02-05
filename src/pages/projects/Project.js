@@ -54,18 +54,27 @@ const Project = (props) => {
 
     const handleWatchProject = async () => {
         try {
-            const {data} = await axiosRes.post('/watch-projects/', {post:id});
+
+            // Log a message before making the API call
+            console.log('Sending POST request to /watch-projects/ with data:', { project:id });
+
+            const {data} = await axiosRes.post('/watch-projects/', {project:id});
+
+            // Log the response data after a successful API call
+            console.log('Received data from the API:', data);
+
             setProjects((prevProjects) => ({
                 ...prevProjects,
-//                results: prevProjects.results.map((post) => {
-                results: prevProjects.map((post) => {
+                results: prevProjects.results.map((post) => {
+//                results: prevProjects.map((post) => {
                     return post.id === id
                     ? {...post, watch_proj_count: post.watch_proj_count + 1, watch_proj_id: data.id}
                     : post;
                 }),
             }));
         } catch(err){
-            console.log(err);
+            // Log any errors that occur during the API call
+            console.error('Error during API call:', err);
         }
     };
 
