@@ -174,6 +174,15 @@ const Project = (props) => {
                         </p>
                     </div>
                 )}
+
+                <div className={styles.Test}>
+                    <p> hello walrus </p>
+                    { currentUser && watch_proj_id ? (
+                        <p> Watching </p>
+                    ) : (
+                        <p> Not watching </p>
+                    )}
+                </div>
             </div>
             </Container>
             </Col>
