@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const PopularArtAccounts = () => {
     const [artistData, setArtistData] = useState({
+        // pageArtist is used for artist page
         pageArtist: { results: [] },
         popularArtists: { results: [] },
     });
@@ -33,7 +34,10 @@ const PopularArtAccounts = () => {
             <h1>
                 Search artists view
             </h1>
-            <p>Filtered by most followed artists. Other filter options comming soon.</p>
+            <p>Filtered by most watched artists. Other filter options comming soon.</p>
+            {popularArtists.results.map((art_acc) => (
+                <p key={art_acc.id}>{art_acc.owner}</p>
+            ))}
         </div>
     )
 }
