@@ -26,8 +26,8 @@ function ArtistPage() {
     const setAccountData = useSetAccountData();
     const {pageAccount} = useAccountData();
 
-    // credits: help from tutor Jason
-    const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;
+    // causing blank page
+//   const [account] = pageAccount.results;
 
    const is_owner = currentUser?.username === account?.owner;
 
@@ -49,13 +49,10 @@ function ArtistPage() {
         fetchData();
     }, [id, setAccountData]);
 
-    console.log(account)
-
     const mainAccount = (
      <>
      <p>Image</p>
      <p>Username</p>
-     {account?.owner}
      </>   
     );
 

@@ -13,7 +13,6 @@ Sign in error:
 "errors is undefined" in Firefox, "TypeError: Cannot read properties of undefined (reading 'username')" in Chrome.
 Theory: API isn't properly set up with the front end.
 Cause: typo at DEFAULT_RENDERER_CLASSES in backend, and <CurrentUserProvided> in index.js didn't wrap around <App />
-How: 
 
 Weird API UI:
 ---
@@ -25,7 +24,7 @@ undefined account:
 Clicking my page return an undefined url. The question is, how does currentUser?. get its data?
 Theory: HiDoc follow a different naming convention, using art account instead of profile. Causing conflict.
 Cause: Backend issue. Serializsers.py inside drf_api were written as "profile_id" and "profile.id". HiDoc is setup to expect artaccount_id.
-How: rename backend setup.
+Solution: rename backend setup.
 
 "use" when naming in hooks
 ---
@@ -83,3 +82,9 @@ Transitioning to generic models
 ---
 This is related to the "Failed to load projects page" error. Now that the models in the backend were transitined to generic models, the ".results" may be neccessary. However, putting them back would crash the site.
 Solution: Not every .results will have "projects" and "length" as pears. One had "next", another had "map". At this point, the ".results" are back in ProjectPage.js and is compatible with backend generics.
+
+blank profile page
+---
+`const [account] = pageAccount.results;` from ArtistPage.js cause a blank page, with the error in the terminal "TypeError: pageAccount is undefined".
+Solution: Instead of using `const [account] = pageAccount.results;` HiDoc use: `const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;`
+This solution is more complicated beyone my comprehension. I didn't write this line, credits goes to a tutor: Jason. This line will check whether `pageAccount` has been defined or not, and if it has a `results` section. Then it will render content.

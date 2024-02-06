@@ -26,7 +26,7 @@ function ArtistPage() {
     const setAccountData = useSetAccountData();
     const {pageAccount} = useAccountData();
 
-    // credits: help from tutor Jason
+    // causing blank page
     const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;
 
    const is_owner = currentUser?.username === account?.owner;
