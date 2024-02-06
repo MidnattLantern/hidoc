@@ -77,7 +77,7 @@ function ArtistPage() {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const { data } = await axiosReq.get(`/projects/`);
+                const { data } = await axiosReq.get(`/projects/?owner__artaccount=${id}`);
                 setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
