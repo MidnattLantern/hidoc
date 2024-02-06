@@ -5,7 +5,7 @@ import {
 //    Col,
 //    Row,
 //    Container,
-//    Image,
+    Image,
     Button,
 } from "react-bootstrap";
 
@@ -53,9 +53,9 @@ function ArtistPage() {
 
     const mainAccount = (
      <>
-     <p>Image</p>
-     <p>Username</p>
-     {account?.owner}
+     <h1>{account?.owner}</h1>
+     <Image src={account?.image}/>
+     <p>Projects: {account?.projects_count}</p>
      </>   
     );
 
@@ -67,17 +67,25 @@ function ArtistPage() {
 
     return (
         <div>
-            <h1>Artist page</h1>
             {hasLoaded ? (
-                <p>loaded</p>
+                <>
+                {mainAccount}
+                {mainAccountProjects}
+                </>
             ) : (
                 <p>loading...</p>
             ) }
-            {mainAccount}
-            {mainAccountProjects}
-            <Button>
-                Create project
-            </Button>
+
+            { hasLoaded && is_owner ? (
+                <>
+                    <Button>
+                    Create project
+                    </Button>
+                </>
+            ) : (
+                <></>
+            ) }
+
         </div>
     )
 }
