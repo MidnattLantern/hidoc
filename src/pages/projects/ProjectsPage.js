@@ -14,7 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import style from "../../styles/ProjectsPage.module.css"
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+//import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
@@ -27,7 +27,7 @@ function ProjectsPage({ message, filter = "" }) {
         const fetchProjects = async () => {
             try {
                 const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
-                console.log(data);
+//                console.log(data);
                 setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
