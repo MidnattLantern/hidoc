@@ -50,7 +50,7 @@ function App() {
               <Route exact path="/watch-list" render={() => <ProjectsPage
                 message="Projects you're watching will appear on this page."
 //                filter={`likes__owner__profile=${art_acc_id}&ordering=-likes__created_at&`}
-                filter={`watching_project__owner__art_acc=${art_acc_id}&ordering=-watching_project__created_at&`}
+                filter={`watching_project__owner__artaccount=${art_acc_id}&ordering=-watching_project__created_at&`}
                 />} />
               <Route exact path="/watch-list/projects" render={() => <h1>Watch list projects view</h1>} />
               <Route exact path="/watch-list/artists" render={() => <h1>Watch list artists view</h1>} />
