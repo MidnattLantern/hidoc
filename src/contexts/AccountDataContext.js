@@ -20,6 +20,7 @@ export const AccountDataProvider = ({ children }) => {
 
     useEffect(() => {
         const handleMount = async () => {
+            
             try {
                 const {data} = await axiosReq.get(
                     // future feature: sort by artist who recently made an update goes here
@@ -31,7 +32,17 @@ export const AccountDataProvider = ({ children }) => {
                 }));
             } catch(err){
                 console.log(err)
-            }
+            } 
+
+            /*
+            try {
+                const { data } = await axiosReq.get(`/art-accounts/?ordering=-watchers_art_count`);
+                setArtistData(prev => ({ ...prev, results: data}));
+                //setHasLoaded(true);
+            } catch (err) {
+                console.log(err);
+            }*/
+
         };
 
         handleMount()

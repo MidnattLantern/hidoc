@@ -25,11 +25,11 @@ const SearchArtists = () => {
                 />
             </Form>
 
-            {popularArtists.results.length ? (
+            {popularArtists?.results?.length ? (
                 <>
-                    {popularArtists.results.map((art_acc) => (
+                    {popularArtists?.results?.map((art_account) => (
                         <>
-                            <Artist key={art_acc.id} art_acc={art_acc} mobile />
+                            <Artist key={art_account.id} art_account={art_account} mobile />
                         </>
                     ))}
                 </>
