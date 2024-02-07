@@ -15,7 +15,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/ProjectCreate.module.css";
 
 function ProjectCreateForm() {
-    const [errors, setErrors] = useState({});
+    //const [errors, setErrors] = useState({});
+    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",

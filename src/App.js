@@ -18,8 +18,9 @@ import ProjectEditForm from './pages/projects/ProjectEditForm';
 import SearchArtists from './pages/art_accounts/SearchArtists';
 import ArtistPage from './pages/art_accounts/ArtistPage';
 
-import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
+//import axios from 'axios';
+//import { createContext, useEffect, useState } from 'react';
+import { createContext } from 'react';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 
 export const CurrentUserContext = createContext();

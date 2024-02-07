@@ -15,10 +15,10 @@ import style from "../../styles/ProjectsPage.module.css"
 const SearchArtAccounts = () => {
 /*    const [ artAccountData, setArtAccountData] = useState({
         // will use for the artist page later
-        pageArtAccount: { results: [] },
-        searchArtAccounts: { results: [] },
+//        pageArtAccount: { results: [] },
+//        searchArtAccounts: { results: [] },
 
-    }); */
+    });*/
 
     const [ artAccountData, setArtAccountData ] = useState([]);
 
@@ -53,7 +53,7 @@ const SearchArtAccounts = () => {
 
 
 
-            {artAccountData.length ? (
+            {artAccountData?.length ? (
                 <>
                     {artAccountData?.map((art_account) => (
                         <>
@@ -63,7 +63,7 @@ const SearchArtAccounts = () => {
                 </>
             ) : (
                 <>
-                    <p>failed to load</p>
+                    <p>loading...</p>
                 </>
             ) }
         </>

@@ -17,7 +17,8 @@ import styles from "../../styles/ProjectEdit.module.css";
 //import styles from "../../styles/ProjectCRUD.module.css";
 
 function ProjectEditForm() {
-    const [errors, setErrors] = useState({});
+    //const [errors, setErrors] = useState({});
+    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",

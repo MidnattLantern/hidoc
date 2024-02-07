@@ -9,7 +9,7 @@ import {
  } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
-import axios from "axios";
+//import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/Project.module.css";
@@ -108,6 +108,7 @@ const Project = (props) => {
 
     return (
         <div className={styles.WindowCard}>
+
             <Row>
             <Col>
             <Container>
