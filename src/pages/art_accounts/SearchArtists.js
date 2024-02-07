@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import {
+    Form,
+//    Container,
+} from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Asset from "../../components/Asset";
 import Artist from "./Artist";
 import { useAccountData } from "../../contexts/AccountDataContext";
+import style from "../../styles/ProjectsPage.module.css"
 
-const PopularArtAccounts = () => {
+//const PopularArtAccounts = () => {
+const SearchArtists = () => {
     const { popularArtists } = useAccountData();
 
     return (
         <div>
-            <h1>
-                Search artists view
-            </h1>
+            <Form
+            className={style.SearchBar}
+            >
+                <Form.Control
+                type="text"
+                placeholder="search artists"
+                />
+            </Form>
 
             {popularArtists.results.length ? (
                 <>
@@ -35,4 +45,4 @@ const PopularArtAccounts = () => {
     )
 }
 
-export default PopularArtAccounts
+export default SearchArtists

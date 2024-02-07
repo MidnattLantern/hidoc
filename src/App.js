@@ -14,7 +14,8 @@ import ProjectPage from './pages/projects/ProjectPage';
 import ProjectsPage from './pages/projects/ProjectsPage';
 import ProjectEditForm from './pages/projects/ProjectEditForm';
 
-import PopularArtAccounts from './pages/art_accounts/PopularArtAccounts';
+//import PopularArtAccounts from './pages/art_accounts/PopularArtAccounts';
+import SearchArtists from './pages/art_accounts/SearchArtists';
 import ArtistPage from './pages/art_accounts/ArtistPage';
 
 import axios from 'axios';
@@ -41,7 +42,7 @@ function App() {
             </Switch>
 
             <Switch>
-              <Route exact path="/search" render={() => <PopularArtAccounts />} />
+              <Route exact path="/search" render={() => <SearchArtists />} />
               <Route exact path="/artist-page/:id" render ={() => <ArtistPage />} />
             </Switch>
 

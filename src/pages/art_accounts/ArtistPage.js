@@ -78,7 +78,8 @@ function ArtistPage() {
         const fetchProjects = async () => {
             try {
                 const { data } = await axiosReq.get(`/projects/?owner__artaccount=${id}`);
-                setProjects(data);
+//                setProjects(data);
+                setProjects(prev => ({ ...prev, results: data}));
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);

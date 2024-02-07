@@ -27,8 +27,7 @@ function ProjectsPage({ message, filter = "" }) {
         const fetchProjects = async () => {
             try {
                 const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
-//                console.log(data);
-                setProjects(data);
+                setProjects(prev => ({ ...prev, results: data}));
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -60,7 +59,7 @@ function ProjectsPage({ message, filter = "" }) {
             </Form>
                 {hasLoaded ? (
                     <>
-                        {projects.results.length ? (
+                        {projects?.results?.length ? (
                             <InfiniteScroll
                                 children={
                                     projects.results.map((post) => (

@@ -6,6 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Link } from "react-router-dom";
 import styles from "../../styles/ProjectPage.module.css";
 
+
 function ProjectPage() {
     const { id } = useParams();
     const [project, setProject] = useState({ results: [] });
@@ -16,6 +17,7 @@ function ProjectPage() {
             try {
                 const [{ data: project }] = await Promise.all([
                     axiosReq.get(`/projects/${id}`),
+
                 ]);
                 setProject({ results: [project] });
                 console.log(project);
@@ -35,6 +37,7 @@ function ProjectPage() {
             <div>
                 <Project {...project.results[0]} setProjects={setProject} ProjectPage />
             </div>
+
         </div>
     )
 }
