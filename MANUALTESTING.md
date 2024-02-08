@@ -8,3 +8,6 @@ Install in terminal:
 `npm install msw --save-dev`
 
 The mocks folder inside src will store test
+
+Run in terminal:
+`npm audit fix`

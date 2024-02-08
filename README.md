@@ -136,6 +136,10 @@ The "watch project" feature remain "watch project" in the source code, but have 
 
 As of documenting this, there's five days left. I need to cut out on features so that I can polish the user interface and clean up the code.
 
+Artistic therapy as agile development
+---
+As I'm documenting this, I've gone trough enough stress and many panic attacks troughout the development of HiDoc, and at this point, I'm drained. I can't do much more backend and logic, my hands are shaking and my head is hot. At the bottom of the abyss, I remembered what I enjoyed the most troughout my journey in Full Stack Course: CSS styling. There are five days left until my deadline. Instead of recovering the features that require filtering, I'm spending my energy on the visual presentation. HiDoc didn't have much visuals going on before this point, but that lack became my therapy for the moment.
+
 
 User stories:
 ===

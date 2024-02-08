@@ -23,6 +23,8 @@ import ArtistPage from './pages/art_accounts/ArtistPage';
 import { createContext } from 'react';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 
+import NotFound from './components/NotFound';
+
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
@@ -67,6 +69,10 @@ function App() {
               <Route exact path="/projects/create" render={() => <ProjectCreateForm/>} />
               <Route exact path="/projects/:id" render={()=> <ProjectPage/>} />
               <Route exact path="/projects/:id/edit" render={()=> <ProjectEditForm/>} />
+            </Switch>
+
+            <Switch>
+              <Route render={() => <NotFound/>} />
             </Switch>
 
           </Container>
