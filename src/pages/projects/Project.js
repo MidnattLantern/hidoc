@@ -123,7 +123,27 @@ const Project = (props) => {
 
                 <Col>
                     <Container>
-                    <h1>{owner}: <Link className={styles.Link} to={`/projects/${id}`}>{project_title}</Link></h1>
+                    <h1>{owner}</h1>
+
+                    {isProjDetail ? (
+                            <>
+                                <h2>{project_title}</h2>
+                            </>
+                        ) : (
+                            <>
+                                <Link
+                                to={`/projects/${id}`}
+                            >
+                                <Button
+                                className={styles.ProjectTitle}
+                                >
+                                    <h2>{project_title}</h2>
+                                </Button>
+                            </Link>
+                            </>
+                        )}
+
+
 
                     <p className={styles.DescriptionFrame}>
                         {project_description}
@@ -183,6 +203,8 @@ const Project = (props) => {
                                 </p>
                             </div>
                         )}
+
+
                     </div>
                     </Container>
                 </Col>

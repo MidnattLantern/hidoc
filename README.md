@@ -196,6 +196,7 @@ Deployment
 `"heroku-prebuild": "npm install -g serve"`
 - The Procfile was added with the following content:
 `web: serve -s build`
+`"engines": {"node": "16.13.0"}`
 
 
 Credits:

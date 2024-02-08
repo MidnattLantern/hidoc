@@ -26,7 +26,7 @@
 }
 
 .Link {
-    color: #e35e8a;
+    color: #ffffff;
 }
 
 .Link:hover {
@@ -54,4 +54,17 @@
     border: solid black 1px;
     color: #ffffff;
     background-color: #e35e8a;
+}
+
+.ProjectTitle{
+    border: solid black 1px;
+    min-height: 60px;
+    min-width: 200px;
+    background-color: #e35e8a;
+    padding: 10px;
+}
+
+.ProjectTitle:hover {
+    border: solid black 1px;
+    background-color: #dc175c;
 }
