@@ -1,10 +1,7 @@
 import React from "react";
 import NotFoundImage from "../../src/assets/HiDoc-notfound.png";
 import styles from "../../src/styles/NotFound.module.css";
-import {
-    Image,
-    Link,
-} from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 
 function NotFound() {
 
