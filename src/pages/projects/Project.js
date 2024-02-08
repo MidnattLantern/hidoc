@@ -110,82 +110,82 @@ const Project = (props) => {
         <div className={styles.WindowCard}>
 
             <Row>
-            <Col>
-            <Container>
-                <Link to={`/projects/${id}`}>
-                    <Card.Img
-                    className={styles.PosterFrame}
-                    src={feature_poster}
-                    />
-                </Link>
-            </Container>
-            </Col>
+                <Col>
+                    <Container>
+                        <Link to={`/projects/${id}`}>
+                            <Card.Img
+                            className={styles.PosterFrame}
+                            src={feature_poster}
+                            />
+                        </Link>
+                    </Container>
+                </Col>
 
-            <Col>
-            <Container>
-            <h1>{owner}: <Link className={styles.Link} to={`/projects/${id}`}>{project_title}</Link></h1>
+                <Col>
+                    <Container>
+                    <h1>{owner}: <Link className={styles.Link} to={`/projects/${id}`}>{project_title}</Link></h1>
 
-            <p className={styles.DescriptionFrame}>
-                {project_description}
-            </p>
+                    <p className={styles.DescriptionFrame}>
+                        {project_description}
+                    </p>
 
-            {is_owner && isProjDetail && <MoreDropdown
-                handleEditProject={handleEditProject}
-                handleDeleteProject={handleDeleteProject}
-                />}
-                <p>Latest update: {updated_at}</p>
-            <div>
-                {is_owner && isProjDetail ? (
+                    {is_owner && isProjDetail && <MoreDropdown
+                        handleEditProject={handleEditProject}
+                        handleDeleteProject={handleDeleteProject}
+                        />}
+                        <p>Latest update: {updated_at}</p>
                     <div>
-                        <Button
-                        className={styles.Button}
-                        onClick={handleEditProject}
-                        > 
-                        Edit project
-                        </Button>
-                    </div>
-                ) : currentUser && isProjDetail ? (
-                    <div>
-
-                        <div className={styles.Test}>
-                            { currentUser && watch_proj_id ? (
-
+                        {is_owner && isProjDetail ? (
+                            <div>
                                 <Button
-                                onClick={handleUnwatchProject}
-                                className={styles.UnwatchButton}
-                                >
-                                <i className="fa-solid fa-heart" /> Unlike project
+                                className={styles.Button}
+                                onClick={handleEditProject}
+                                > 
+                                Edit project
                                 </Button>
-                            ) : (
-                                <Button
-                                onClick={handleWatchProject}
-                                className={styles.WatchButton}
-                                >
-                                <i className="fa-solid fa-heart" /> Like project
-                                </Button>
-                            )}
-                        </div>
-                    </div>
+                            </div>
+                        ) : currentUser && isProjDetail ? (
+                            <div>
 
-                ) : isProjDetail && (
-                    <div>
-                        <p>
-                        <Link
-                        to={`/sign-in`}
-                        className={styles.Link}
-                        >
-                        Sign In </Link> or <Link
-                        to={`/sign-up`}
-                        className={styles.Link}
-                        >
-                        Sign Up </Link>
-                        to like this project!
-                        </p>
+                                <div className={styles.Test}>
+                                    { currentUser && watch_proj_id ? (
+
+                                        <Button
+                                        onClick={handleUnwatchProject}
+                                        className={styles.UnwatchButton}
+                                        >
+                                        <i className="fa-solid fa-heart" /> Unlike project
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                        onClick={handleWatchProject}
+                                        className={styles.WatchButton}
+                                        >
+                                        <i className="fa-solid fa-heart" /> Like project
+                                        </Button>
+                                    )}
+                                </div>
+                            </div>
+
+                        ) : isProjDetail && (
+                            <div>
+                                <p>
+                                <Link
+                                to={`/sign-in`}
+                                className={styles.Link}
+                                >
+                                Sign In </Link> or <Link
+                                to={`/sign-up`}
+                                className={styles.Link}
+                                >
+                                Sign Up </Link>
+                                to like this project!
+                                </p>
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-            </Container>
-            </Col>
+                    </Container>
+                </Col>
             </Row>
         </div>
     )
