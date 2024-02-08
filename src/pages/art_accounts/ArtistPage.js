@@ -93,7 +93,7 @@ function ArtistPage() {
         return () => {
             clearTimeout(timer);
         }
-    }, [query, pathname]);
+    }, [query, pathname, id]);
 
 //    console.log(account)
     console.log("test: ", artistProjects.results.length)

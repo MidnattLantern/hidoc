@@ -7,8 +7,8 @@ import {
     Container,
     Image,
 } from "react-bootstrap";
-import Upload from "../../assets/upload.png";
-import Asset from "../../components/Asset";
+//import Upload from "../../assets/upload.png";
+//import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
@@ -49,7 +49,7 @@ function ProjectEditForm() {
             [userInput.target.name]: userInput.target.value,
         });
     };
-
+/*
     const handleChangeImage = (userInput) => {
         if (userInput.target.files.length){
             URL.revokeObjectURL(feature_poster);
@@ -59,6 +59,7 @@ function ProjectEditForm() {
             })
         }
     };
+*/
 
     const handleSubmit = async (userInput) => {
         userInput.preventDefault()

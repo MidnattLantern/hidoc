@@ -8,7 +8,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 //import Asset from "../../components/Asset";
 import Artist from "./Artist";
-import { useAccountData } from "../../contexts/AccountDataContext";
+//import { useAccountData } from "../../contexts/AccountDataContext";
 import style from "../../styles/ProjectsPage.module.css"
 
 //const PopularArtAccounts = () => {
@@ -22,8 +22,9 @@ const SearchArtAccounts = () => {
 
     const [ artAccountData, setArtAccountData ] = useState([]);
 
-    const { findArtAccounts } = useAccountData();
-    const [hasLoaded, setHasLoaded] = useState(false);
+//    const { findArtAccounts } = useAccountData();
+//    const [hasLoaded, setHasLoaded] = useState(false);
+    const [ setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ const SearchArtAccounts = () => {
         };
 
         handleMount()
-    }, [currentUser]);
+    }, [currentUser, setHasLoaded]);
 
     return (
         <>
