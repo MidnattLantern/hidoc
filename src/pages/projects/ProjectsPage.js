@@ -50,12 +50,7 @@ function ProjectsPage({ message, filter = "" }) {
             className={style.SearchBar}
             onSubmit={(event) => event.preventDefault()}
             >
-                <Form.Control
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                type="text"
-                placeholder="search projects"
-                />
+
             </Form>
                 {hasLoaded ? (
                     <>

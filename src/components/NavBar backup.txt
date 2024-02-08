@@ -38,6 +38,13 @@ const addProjectIcon = (
 
     const loggedInIcons = (
     <>
+        <NavLink to="/watch-list" exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        >
+            <i className="fa-solid fa-eye"></i>
+            Watch List
+        </NavLink>
 
         <NavLink to="/"
         className={styles.NavLink}
@@ -47,6 +54,16 @@ const addProjectIcon = (
             Sign out
         </NavLink>
 
+        <NavLink to={`/artist-page/${currentUser?.artaccount_id}`}
+        className={styles.AccountNavLink}
+        activeClassName={styles.Active}
+        >
+            <Avatar
+            src={currentUser?.artaccount_image}
+            text="My Page"
+            />
+
+        </NavLink>
     </>)
 
 
@@ -98,6 +115,14 @@ const addProjectIcon = (
                             >
                                 <i className="fa-solid fa-binoculars"></i>
                                 Browse
+                            </NavLink>
+
+                            <NavLink to="/search" exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            >
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                                Search Artist
                             </NavLink>
 
                             {currentUser ? loggedInIcons : loggedOutIcons}

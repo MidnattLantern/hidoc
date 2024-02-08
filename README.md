@@ -124,6 +124,16 @@ HiDoc is a project following a criteria with expectations set by Code Institute.
 - follow - watch list
 The HiDoc equivalents however, are not copies masked behind a different name. For instance, the comment from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are seperate features from the training project, whereas HiDoc merge them into one.
 
+Very unfortunate filter struggles:
+---
+There are no recorded evidence, but at a point during development, HiDoc's functionality was all set. There were a search bar that would filter the Browse page according to its text input. There were a watching projects section that would filter according to who was signed in and what projects they were watching. There were a search artist that would reveal a list of all the artists on HiDoc, and the "my page" would list all the projects of that artist.
+
+I regret to document this, but I had to cut out of these valuable features.
+
+These features are not available on the first release. With these named features, you couldn't sign up, create a new project or delete a project. During the attempt to recover the CRUD functionality, the filtering system crashed. I did all I could to recover both the CRUD functionality and the filtering options before the first release (13:th february), however, not I, nor my mentor, nor my very patient tutors were able to recover them both. After severe panic attacks and hopeless evenings, I unfortunatelly had to take the agile approach to hide the filter features on the front-end. The code and attempts for the filtering options are still in the source code, so that they can be implimented as future features.
+
+As of documenting this, there's five days left. I need to cut out on features so that I can polish the user interface and clean up the code.
+
 
 User stories:
 ===
