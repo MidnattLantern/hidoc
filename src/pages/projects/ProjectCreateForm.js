@@ -11,10 +11,12 @@ import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import styles from "../../styles/ProjectCreate.module.css";
 
 function ProjectCreateForm() {
+    useRedirect("loggedOut");
     //const [errors, setErrors] = useState({});
     const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
