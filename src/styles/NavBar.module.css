@@ -1,15 +1,20 @@
+.Test{
+    border: solid black 1px;
+}
+
 a {
     text-decoration: none;
 }
 
 .NavBar {
-    border: 1px none black;
+    border: 1px solid black;
+    background-color: #ffffff;
 }
 
 .NavLink {
     margin: 5px;
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     color: black;
     border-radius: 3px;
     height: 40px;
@@ -20,7 +25,7 @@ a {
 .AccountNavLink {
     margin: 5px;
     padding: 0px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     color: black;
     border-radius: 3px;
     height: 40px;
@@ -34,7 +39,6 @@ a {
 
 .Logo {
     margin: 5px;
-    padding: 5px;
     color: black;
     font-size: 50px;
     border-radius: 3px;

@@ -77,7 +77,7 @@ const addProjectIcon = (
 
 
     return (
-        <Navbar expanded={expanded} expand="lg" className={styles.NavBar} >
+        <Navbar expanded={expanded} expand="md" fixed="top" className={styles.NavBar} >
                 <Container>
 
                     <NavLink to="/">
