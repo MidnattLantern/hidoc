@@ -42,11 +42,14 @@ function SignInForm() {
   };
 
     return (
-        <div>
+        <div className={styles.SignInCard}>
             <h1>Sign in</h1>
-            <Form onSubmit={handleSubmit}  className={styles.FormGroup}>
+            <Form onSubmit={handleSubmit}
+            className={styles.FormGroup}>
 
-                <Form.Group controlId="username" className={styles.FormControl}>
+                <Form.Group controlId="username"
+                className={styles.FormControl}
+                >
                     <Form.Label>Username</Form.Label>
                     <Form.Control
                     type="text"
@@ -57,12 +60,18 @@ function SignInForm() {
                     />
                 </Form.Group>
                 {errors.username?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert
+                    variant="warning"
+                    key={idx}
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password" className={styles.FormControl}>
+                <Form.Group controlId="password"
+                className={styles.FormControl}
+                >
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                     type="password"
@@ -73,16 +82,27 @@ function SignInForm() {
                     />
                 </Form.Group>
                 {errors.password?.map((message, idx) => (
-                    <Alert key={idx} variant="warning">
+                    <Alert
+                    key={idx}
+                    variant="warning"
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
-                <Button type="submit" className={styles.Button}>
+                <Button
+                type="submit"
+                className={styles.Button}
+                >
                     Sign in
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
-                    <Alert key={idx} variant="warning">
+                    <Alert
+                    key={idx}
+                    variant="warning"
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}

@@ -6,12 +6,13 @@ import {
     Form,
     Button,
     //Image,
-    Col,
+    //Col,
     //Row,
     //Container,
     Alert,
   } from "react-bootstrap";
   import axios from 'axios';
+  import styles from "../../styles/SignUpForm.module.css";
 
   const SignUpForm = () => {
     const [signUpData, setSignUpData,] = useState({
@@ -43,12 +44,15 @@ import {
     };
 
     return (
-        <div>
-            <Col md={6}>
+        <div className={styles.SignUpCard}>
             <h1>Sign up</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}
+            className={styles.FormGroup}>
 
-                <Form.Group controlId="username">
+                <Form.Group
+                controlId="username"
+                className={styles.FormControl}
+                >
                     <Form.Label>Username</Form.Label>
                     <Form.Control
                     type="text"
@@ -59,12 +63,19 @@ import {
                     />
                 </Form.Group>
                 {errors.username?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert
+                    variant="warning"
+                    key={idx}
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password1">
+                <Form.Group
+                controlId="password1"
+                className={styles.FormControl}
+                >
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                     type="password"
@@ -75,12 +86,19 @@ import {
                     />
                 </Form.Group>
                 {errors.password1?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert
+                    variant="warning"
+                    key={idx}
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password2">
+                <Form.Group
+                controlId="password2"
+                className={styles.FormControl}
+                >
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                     type="password"
@@ -91,24 +109,32 @@ import {
                     />
                 </Form.Group>
                 {errors.password2?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert
+                    variant="warning"
+                    key={idx}
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
                 <Button
                 type="submit"
+                className={styles.Button}
                 >
                     Sign up
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
-                    <Alert key={idx} variant="warning">
+                    <Alert
+                    key={idx}
+                    variant="warning"
+                    className={styles.FormControl}
+                    >
                         {message}
                     </Alert>
                 ))}
 
             </Form>
-            </Col>
         </div>
     )
 };
