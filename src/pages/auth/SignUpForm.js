@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useDeferredValue, useState } from "react";
 //import { Link, useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 //import styles from "../../styles/SignUpForm.module.css";
@@ -13,8 +13,10 @@ import {
   } from "react-bootstrap";
   import axios from 'axios';
   import styles from "../../styles/SignUpForm.module.css";
+  import { useRedirect } from "../../hooks/useRedirect";
 
   const SignUpForm = () => {
+    useRedirect('loggedIn')
     const [signUpData, setSignUpData,] = useState({
         username: "",
         password1: "",
