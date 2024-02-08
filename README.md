@@ -190,6 +190,14 @@ As a signed in user, who have clicked the watch button for any project, I can cl
 - Watch count: As a user, I can see how many people are watching a project. So that I know how much attention the project has.
 
 
+Deployment
+===
+- In package.json, the following line have been added inside the "scripts" section:
+`"heroku-prebuild": "npm install -g serve"`
+- The Procfile was added with the following content:
+`web: serve -s build`
+
+
 Credits:
 ===
 Heavy references from other projects are commented
