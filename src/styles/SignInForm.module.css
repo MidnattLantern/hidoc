@@ -1,0 +1,33 @@
+h1{
+    margin-left: 50px;
+}
+
+.Test{
+    border: solid black 1px;
+    text-align: center;
+}
+
+.FormGroup{
+    margin-left: 50px;
+}
+
+.FormControl{
+    width: 400px;
+}
+
+.Button {
+    margin-top: 20px;
+    border: solid black 1px;
+    background-color: #e35e8a;
+}
+
+.Button:hover {
+    border: solid black 1px;
+    background-color: #dc175c;
+}
+
+@media only screen and (max-width: 600px) {
+    .FormControl{
+        width: 100%
+    };
+};

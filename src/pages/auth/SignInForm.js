@@ -5,11 +5,10 @@ import {
     Form,
     Button,
     Alert,
-    Col,
   } from "react-bootstrap";
-
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/SignInForm.module.css";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -44,11 +43,10 @@ function SignInForm() {
 
     return (
         <div>
-          <Col md={6}>
             <h1>Sign in</h1>
-            <Form onSubmit={handleSubmit} ClassName="col-md-6">
+            <Form onSubmit={handleSubmit}  className={styles.FormGroup}>
 
-                <Form.Group controlId="username">
+                <Form.Group controlId="username" className={styles.FormControl}>
                     <Form.Label>Username</Form.Label>
                     <Form.Control
                     type="text"
@@ -64,7 +62,7 @@ function SignInForm() {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password">
+                <Form.Group controlId="password" className={styles.FormControl}>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                     type="password"
@@ -80,7 +78,7 @@ function SignInForm() {
                     </Alert>
                 ))}
 
-                <Button type="submit">
+                <Button type="submit" className={styles.Button}>
                     Sign in
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
@@ -90,7 +88,6 @@ function SignInForm() {
                 ))}
 
             </Form>
-          </Col>
         </div>
     )
 };
