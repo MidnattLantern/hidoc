@@ -1,13 +1,19 @@
 //import React, { useContext } from "react";
 import React from "react";
 import styles from '../styles/NavBar.module.css';
-import { Navbar, Container, Nav, } from "react-bootstrap";
+import {
+    Navbar,
+    Container,
+    Nav,
+    Image,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 //import { CurrentUserContext, SetCurrentUserContext } from "../App";
 import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
+//import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import Logo from "../assets/HiDoc-logo.png";
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
@@ -76,9 +82,10 @@ const addProjectIcon = (
 
                     <NavLink to="/">
                         <Navbar.Brand className={styles.Logo}>
-                            
-                                <i className="fa-solid fa-list-alt"></i>HiDoc
-                            
+                                <Image
+                                src={Logo}
+                                className={styles.Logo}
+                                />
                         </Navbar.Brand>
                     </NavLink>
 

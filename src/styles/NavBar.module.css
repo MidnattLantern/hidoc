@@ -38,4 +38,5 @@ a {
     color: black;
     font-size: 50px;
     border-radius: 3px;
+    max-height: 70px;
 }
