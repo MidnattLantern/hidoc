@@ -137,32 +137,38 @@ const Project = (props) => {
                     <div>
                         <Button
                         className={styles.Button}
+                        onClick={handleEditProject}
                         > 
-                        Add documentation (comming soon)
+                        Edit project
                         </Button>
                     </div>
                 ) : currentUser && isProjDetail ? (
                     <div>
-                        <Button
-                        onClick={handleWatchProject}
-                        className={styles.WatchButton}
-                        >
-                        <i className="fa-solid fa-eye" /> Watch project
-                        </Button>
 
-                        <Button
-                        onClick={handleUnwatchProject}
-                        className={styles.UnwatchButton}
-                        >
-                        <i className="fa-solid fa-eye" /> Unwatch project
-                        </Button>
+                        <div className={styles.Test}>
+                            { currentUser && watch_proj_id ? (
 
+                                <Button
+                                onClick={handleUnwatchProject}
+                                className={styles.UnwatchButton}
+                                >
+                                <i className="fa-solid fa-heart" /> Unlike project
+                                </Button>
+                            ) : (
+                                <Button
+                                onClick={handleWatchProject}
+                                className={styles.WatchButton}
+                                >
+                                <i className="fa-solid fa-heart" /> Like project
+                                </Button>
+                            )}
+                        </div>
                     </div>
 
                 ) : isProjDetail && (
                     <div>
                         <p>
-                        <i className="fa-solid fa-eye" /> Caught you interest? <Link
+                        <Link
                         to={`/sign-in`}
                         className={styles.Link}
                         >
@@ -171,18 +177,10 @@ const Project = (props) => {
                         className={styles.Link}
                         >
                         Sign Up </Link>
-                        to save this project in you watch list!
+                        to like this project!
                         </p>
                     </div>
                 )}
-
-                <div className={styles.Test}>
-                    { currentUser && watch_proj_id ? (
-                        <p> Watching </p>
-                    ) : (
-                        <p> Not watching </p>
-                    )}
-                </div>
             </div>
             </Container>
             </Col>
