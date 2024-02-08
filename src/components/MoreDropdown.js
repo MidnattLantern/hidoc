@@ -18,7 +18,7 @@ const ContextDots = React.forwardRef(({ onClick }, ref) => (
 
 export const MoreDropdown = ({handleEditProject, handleDeleteProject}) => {
     return (
-        <Dropdown drop="left">
+        <Dropdown className="ml-auto" drop="left">
             <Dropdown.Toggle as={ContextDots} />
 
             <Dropdown.Menu>

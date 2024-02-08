@@ -125,34 +125,35 @@ const Project = (props) => {
                     <Container>
                     <h1>{owner}</h1>
 
-                    {isProjDetail ? (
-                            <>
-                                <h2>{project_title}</h2>
-                            </>
-                        ) : (
-                            <>
-                                <Link
-                                to={`/projects/${id}`}
-                            >
-                                <Button
-                                className={styles.ProjectTitle}
-                                >
+                    <div>
+                        {isProjDetail ? (
+                                <>
                                     <h2>{project_title}</h2>
-                                </Button>
-                            </Link>
-                            </>
-                        )}
-
+                                </>
+                            ) : (
+                                <>
+                                    <Link
+                                    to={`/projects/${id}`}
+                                >
+                                    <Button
+                                    className={styles.ProjectTitle}
+                                    >
+                                        <h2>{project_title}</h2>
+                                    </Button>
+                                </Link>
+                                </>
+                            )}
+                        {is_owner && <MoreDropdown
+                        handleEditProject={handleEditProject}
+                        handleDeleteProject={handleDeleteProject}
+                        />}
+                    </div>
 
 
                     <p className={styles.DescriptionFrame}>
                         {project_description}
                     </p>
 
-                    {is_owner && isProjDetail && <MoreDropdown
-                        handleEditProject={handleEditProject}
-                        handleDeleteProject={handleDeleteProject}
-                        />}
                         <p>Latest update: {updated_at}</p>
                     <div>
                         {is_owner && isProjDetail ? (
