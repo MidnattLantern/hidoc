@@ -112,10 +112,12 @@ const Project = (props) => {
             <Row>
             <Col>
             <Container>
-                <Card.Img
-                className={styles.PosterFrame}
-                src={feature_poster}
-                />
+                <Link to={`/projects/${id}`}>
+                    <Card.Img
+                    className={styles.PosterFrame}
+                    src={feature_poster}
+                    />
+                </Link>
             </Container>
             </Col>
 
