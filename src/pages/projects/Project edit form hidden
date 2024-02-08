@@ -133,10 +133,29 @@ function ProjectEditForm() {
                                             className={styles.UploadIcon}
                                             src={feature_poster} />
                                         </figure>
+                                        <div>
+                                            <Form.Label
+                                            htmlFor="image-upload"
+                                            >
+                                                Change Poster
+                                            </Form.Label>
+                                        </div>
                                     </>
                                 ) : (
-                                    <></>
+                                    <Form.Label
+                                    htmlFor="image-upload"
+                                    >
+                                        <Asset
+                                        src={Upload}
+                                        message="Upload JPG or PNG" />
+                                    </Form.Label>
                                 )}
+                                <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                onChange={handleChangeImage}
+                                ref={posterInput}
+                                />
                             </Form.Group>
                             <div className="d-md-none">
                                 {textFields}
