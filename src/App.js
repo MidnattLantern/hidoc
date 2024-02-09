@@ -47,7 +47,7 @@ function App() {
               <Route exact path="/artist-page/:id" render ={() => <ArtistPage />} />
 
               <Route exact path="/watch-list" render={() => <ProjectsPage
-                message="Projects you're watching will appear on this page."
+                message="Projects you're watching will appear here."
                 filter={`watching_project__owner__artaccount=${art_acc_id}&ordering=-watching_project__created_at&`}
                 />} />
               <Route exact path="/watch-list/projects" render={() => <h1>Watch list projects view</h1>} />

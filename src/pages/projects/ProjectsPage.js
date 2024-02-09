@@ -10,7 +10,7 @@ import {
 import styles from "../../styles/ProjectsPage.module.css";
 
 import Project from "./Project";
-//import Asset from "../../components/Asset";
+import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -78,7 +78,7 @@ function ProjectsPage({ message, filter = "" }) {
 
                         ) : (
                             <Container>
-                                <p> failed to load </p>
+                                <Asset message={message} />
                             </Container>
                         )}
                     </>

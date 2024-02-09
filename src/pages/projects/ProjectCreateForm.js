@@ -19,7 +19,6 @@ import styles from "../../styles/ProjectCreate.module.css";
 function ProjectCreateForm() {
     useRedirect("loggedOut");
     const [errors, setErrors] = useState({});
-//    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",
@@ -57,7 +56,6 @@ function ProjectCreateForm() {
         formData.append('feature_poster', posterInput.current.files[0])
         formData.append('deployed_link', deployed_link)
 
-        // possibly broken?
         try {
             const {data} = await axiosReq.post('/projects/', formData);
             history.push(`/projects/${data.id}`)
@@ -122,7 +120,7 @@ function ProjectCreateForm() {
             ))}
 
             <Button
-            className={styles.Button}
+            className={styles.DiscardButton}
             onClick={() => history.goBack()}
             >
                     Discard
@@ -148,7 +146,7 @@ function ProjectCreateForm() {
                                         <figure
                                         >
                                             <Image
-                                            className={styles.UploadIcon}
+                                            className={styles.UploadBorder}
                                             src={feature_poster} />
                                         </figure>
                                         <div>
@@ -162,6 +160,7 @@ function ProjectCreateForm() {
                                 ) : (
                                     <Form.Label
                                     htmlFor="image-upload"
+                                    className={styles.UploadBorder}
                                     >
                                         <Asset
                                         src={Upload}
