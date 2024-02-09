@@ -127,7 +127,16 @@ const Project = (props) => {
                     <Container>
                     <h1>{owner}</h1>
 
-                    <p>link: {deployed_link}</p>
+                        {deployed_link !== "" ? (
+                            <>
+                            <a href={deployed_link} target="_blank" rel="noopener noreferrer">
+                                <p>Deployed at: {deployed_link}</p>
+                            </a>
+                            </>
+                        ) : (
+                            <></>
+                        ) }
+
 
                     <div>
                         {isProjDetail ? (
