@@ -46,6 +46,13 @@ const addProjectIcon = (
 
     const loggedInIcons = (
     <>
+        <NavLink to="/watch-list" exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        >
+            <i className="fa-solid fa-eye"></i>
+            Watch List
+        </NavLink>
 
         <NavLink to="/"
         className={styles.NavLink}

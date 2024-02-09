@@ -88,3 +88,7 @@ blank profile page
 `const [account] = pageAccount.results;` from ArtistPage.js cause a blank page, with the error in the terminal "TypeError: pageAccount is undefined".
 Solution: Instead of using `const [account] = pageAccount.results;` HiDoc use: `const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;`
 This solution is more complicated beyone my comprehension. I didn't write this line, credits goes to a tutor: Jason. This line will check whether `pageAccount` has been defined or not, and if it has a `results` section. Then it will render content.
+
+Adressing CRUD issues
+---
+Whenever HiDoc couldn't CRUD properly, the first question to be asked: is it possible to CRUD from the api? The API may be similar to its training data, this is because the CRUD didn't function upon trying to figure things out on my own, so I falled back to the training data.

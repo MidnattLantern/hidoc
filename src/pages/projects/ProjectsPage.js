@@ -22,14 +22,16 @@ function ProjectsPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
 
-//    const [query, setQuery] = useState("");
-    const [query] = useState("");
+    const [query, setQuery] = useState("");
+//    const [query] = useState("");
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
-                setProjects(prev => ({ ...prev, results: data}));
+//                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(`/projects/?${filter}`);
+//                setProjects(prev => ({ ...prev, results: data}));
+                setProjects(data)
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);

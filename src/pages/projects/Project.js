@@ -175,14 +175,14 @@ const Project = (props) => {
                                         onClick={handleUnwatchProject}
                                         className={styles.UnwatchButton}
                                         >
-                                        <i className="fa-solid fa-heart" /> Unlike project
+                                        <i className="fa-solid fa-eye" /> Unwatch project
                                         </Button>
                                     ) : (
                                         <Button
                                         onClick={handleWatchProject}
                                         className={styles.WatchButton}
                                         >
-                                        <i className="fa-solid fa-heart" /> Like project
+                                        <i className="fa-solid fa-eye" /> Watch project
                                         </Button>
                                     )}
                                 </div>
