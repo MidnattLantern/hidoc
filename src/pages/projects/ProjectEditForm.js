@@ -97,7 +97,7 @@ function ProjectEditForm() {
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                type="text"
+                type="title"
                 placeholder=""
                 name="project_title"
                 value={project_title}
@@ -145,7 +145,7 @@ function ProjectEditForm() {
             ))}
 
             <Button
-            className={styles.Button}
+            className={styles.DiscardButton}
             onClick={() => history.goBack()}
             >
                     Discard
@@ -169,7 +169,7 @@ function ProjectEditForm() {
                                     <>
                                         <figure>
                                             <Image
-                                            className={styles.UploadIcon}
+                                            className={styles.UploadBorder}
                                             src={feature_poster} />
                                         </figure>
                                     </>

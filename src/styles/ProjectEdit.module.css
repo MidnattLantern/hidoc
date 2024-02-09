@@ -12,18 +12,34 @@
     background-color: #ffffff;
 }
 
-.UploadIcon {
-    border: solid black 1px;
+.UploadBorder {
+    border: solid black 2px;
+    background-color: #e35e8a;
     border-radius: 5px;
     max-height: 500px;
+    color: #ffffff;
+}
+
+.UploadBorder:hover {
+    background-color: #dc175c;
 }
 
 .Button {
     border: solid black 1px;
     background-color: #e35e8a;
+    margin: 20px;
+    min-width: 150px;
 }
 
-.Button:hover {
+.DiscardButton {
+    border: solid black 1px;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 20px;
+    min-width: 150px;
+}
+
+.Button:hover, .DiscardButton:hover {
     border: solid black 1px;
     background-color: #dc175c;
 }

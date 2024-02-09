@@ -72,7 +72,7 @@ function ProjectCreateForm() {
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                type="Title"
+                type="title"
                 placeholder=""
                 name="project_title"
                 value={project_title}
