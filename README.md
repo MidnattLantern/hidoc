@@ -206,3 +206,4 @@ Reference: Code Institute
 Icons: Font Awesome
 Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/about?classification=Handwriting
 Paragraph Font: Quicksand https://fonts.google.com/specimen/Quicksand/about?query=Quicksand&stroke=Sans+Serif
+The "Asset" asset is borrowed from Code Institute's project Moments

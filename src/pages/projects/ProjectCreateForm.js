@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
+import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -17,8 +18,8 @@ import styles from "../../styles/ProjectCreate.module.css";
 
 function ProjectCreateForm() {
     useRedirect("loggedOut");
-    //const [errors, setErrors] = useState({});
-    const [setErrors] = useState({});
+    const [errors, setErrors] = useState({});
+//    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",
@@ -80,6 +81,12 @@ function ProjectCreateForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+            {errors?.project_title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
             <Form.Group>
                 <Form.Label>Description</Form.Label>
                 <Form.Control
@@ -91,6 +98,12 @@ function ProjectCreateForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+            {errors?.project_description?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
             <Form.Group>
                 <Form.Label>Deployed link</Form.Label>
                 <Form.Control
@@ -102,6 +115,12 @@ function ProjectCreateForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+            {errors?.deployed_link?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
             <Button
             className={styles.Button}
             onClick={() => history.goBack()}
@@ -156,6 +175,12 @@ function ProjectCreateForm() {
                                 ref={posterInput}
                                 />
                             </Form.Group>
+                            {errors?.feature_poster?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
+
                             <div className="d-md-none">
                                 {textFields}
                             </div>
