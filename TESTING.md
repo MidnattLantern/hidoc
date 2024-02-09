@@ -92,3 +92,9 @@ This solution is more complicated beyone my comprehension. I didn't write this l
 Adressing CRUD issues
 ---
 Whenever HiDoc couldn't CRUD properly, the first question to be asked: is it possible to CRUD from the api? The API may be similar to its training data, this is because the CRUD didn't function upon trying to figure things out on my own, so I falled back to the training data.
+
+Not found always available
+---
+The page not found image would appear on all the sites.
+cause: App.js had multiple <Switch> elements, causing confusion with the app.
+solution: wrap all the <Route(s)> to one single <Switch>

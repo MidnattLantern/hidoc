@@ -42,37 +42,26 @@ function App() {
             <Switch>
               <Route exact path="/" render={() =>  <ProjectsPage message="No results." />}/>
               <Route exact path="/artist-page" render={() =>  <p>No results</p>} />
-            </Switch>
 
-            <Switch>
               <Route exact path="/search" render={() => <SearchArtists />} />
               <Route exact path="/artist-page/:id" render ={() => <ArtistPage />} />
-            </Switch>
 
-            <Switch>
               <Route exact path="/watch-list" render={() => <ProjectsPage
                 message="Projects you're watching will appear on this page."
-//                filter={`likes__owner__profile=${art_acc_id}&ordering=-likes__created_at&`}
                 filter={`watching_project__owner__artaccount=${art_acc_id}&ordering=-watching_project__created_at&`}
                 />} />
               <Route exact path="/watch-list/projects" render={() => <h1>Watch list projects view</h1>} />
               <Route exact path="/watch-list/artists" render={() => <h1>Watch list artists view</h1>} />
-            </Switch>
-
-            <Switch>
+ 
               <Route exact path="/sign-up" render={() => <SignUpForm/>} />
               <Route exact path="/sign-in" render={() => <SignInForm/>} />
               <Route exact path="/sign-out" render={() => <SignOutForm/>} />
-            </Switch>
 
-            <Switch>
               <Route exact path="/projects/create" render={() => <ProjectCreateForm/>} />
               <Route exact path="/projects/:id" render={()=> <ProjectPage/>} />
               <Route exact path="/projects/:id/edit" render={()=> <ProjectEditForm/>} />
-            </Switch>
 
-            <Switch>
-              <Route render={() => <NotFound/>} />
+              <Route render={() => <NotFound />} />
             </Switch>
 
           </Container>

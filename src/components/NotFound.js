@@ -2,8 +2,9 @@ import React from "react";
 import NotFoundImage from "../../src/assets/HiDoc-notfound.png";
 import styles from "../../src/styles/NotFound.module.css";
 import Image from "react-bootstrap/Image";
+//import Asset from "./Asset";
 
-function NotFound() {
+const NotFound = () => {
 
     return (
         <div
@@ -14,7 +15,7 @@ function NotFound() {
             className={styles.NotFoundImage}
             />
         </div>
-    )
-}
+    );
+};
 
 export default NotFound
