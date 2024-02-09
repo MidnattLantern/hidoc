@@ -14,7 +14,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
 
 import styles from "../../styles/ProjectEdit.module.css";
-//import styles from "../../styles/ProjectCRUD.module.css";
 
 function ProjectEditForm() {
     //const [errors, setErrors] = useState({});
@@ -23,8 +22,9 @@ function ProjectEditForm() {
         project_title: "",
         project_description: "",
         feature_poster: "",
+        deployed_link: "",
     });
-    const { project_title, project_description, feature_poster } = projectData;
+    const { project_title, project_description, feature_poster, deployed_link } = projectData;
     const posterInput = useRef(null);
     const history = useHistory();
     const {id} = useParams();
@@ -32,9 +32,10 @@ function ProjectEditForm() {
         const handleMount = async () => {
             try {
                 const {data} = await axiosReq.get(`/projects/${id}/`)
-                const {project_title, project_description, feature_poster, is_owner,} = data;
-                // edit form is visible if is_owner is true
-                is_owner ? setProjectData({project_title, project_description, feature_poster}) : history.push('/')
+                // here, the edit form won't be blank
+                const {project_title, project_description, feature_poster, deployed_link, is_owner,} = data;
+                // here, the edit form is visible if is_owner is true
+                is_owner ? setProjectData({project_title, project_description, feature_poster, deployed_link}) : history.push('/')
             } catch(err) {
                 console.log(err);
             }
@@ -49,8 +50,8 @@ function ProjectEditForm() {
             [userInput.target.name]: userInput.target.value,
         });
     };
-/*
-    const handleChangeImage = (userInput) => {
+
+    const handleChangePoster = (userInput) => {
         if (userInput.target.files.length){
             URL.revokeObjectURL(feature_poster);
             setProjectData({
@@ -59,7 +60,7 @@ function ProjectEditForm() {
             })
         }
     };
-*/
+
 
     const handleSubmit = async (userInput) => {
         userInput.preventDefault()
@@ -67,6 +68,8 @@ function ProjectEditForm() {
 
         formData.append('project_title', project_title)
         formData.append('project_description', project_description)
+        formData.append('feature_poster', posterInput.current.files[0])
+        formData.append('deployed_link', deployed_link)
 
         if (userInput?.current?.files[0]){
             formData.append('feature_poster', posterInput.current.files[0])
@@ -106,6 +109,19 @@ function ProjectEditForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+
+
+            <Form.Group>
+                <Form.Label>Deployed link</Form.Label>
+                <Form.Control
+                as="textarea"
+                placeholder="Optional, this can be changed at any time"
+                rows={1}
+                name="deployed_link"
+                value={deployed_link}
+                onChange={handleInput}
+                />
+            </Form.Group>
             <Button
             className={styles.Button}
             onClick={() => history.goBack()}
@@ -138,6 +154,14 @@ function ProjectEditForm() {
                                 ) : (
                                     <></>
                                 )}
+
+                                <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                onChange={handleChangePoster}
+                                ref={posterInput}
+                                />
+
                             </Form.Group>
                             <div className="d-md-none">
                                 {textFields}

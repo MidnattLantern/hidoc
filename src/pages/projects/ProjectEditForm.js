@@ -12,12 +12,13 @@ import {
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
+import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/ProjectEdit.module.css";
 
 function ProjectEditForm() {
-    //const [errors, setErrors] = useState({});
-    const [setErrors] = useState({});
+    const [errors, setErrors] = useState({});
+//    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",
@@ -68,7 +69,12 @@ function ProjectEditForm() {
 
         formData.append('project_title', project_title)
         formData.append('project_description', project_description)
-        formData.append('feature_poster', posterInput.current.files[0])
+
+        // unlike create, this additional code will prevent error message
+        if (posterInput?.current?.files[0]) {
+           formData.append('feature_poster', posterInput.current.files[0])
+        }
+
         formData.append('deployed_link', deployed_link)
 
         if (userInput?.current?.files[0]){
@@ -98,6 +104,12 @@ function ProjectEditForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+            {errors?.project_title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
             <Form.Group>
                 <Form.Label>Description</Form.Label>
                 <Form.Control
@@ -109,7 +121,11 @@ function ProjectEditForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
-
+            {errors?.project_description?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
 
             <Form.Group>
                 <Form.Label>Deployed link</Form.Label>
@@ -122,6 +138,12 @@ function ProjectEditForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+            {errors?.deployed_link?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
             <Button
             className={styles.Button}
             onClick={() => history.goBack()}
@@ -163,6 +185,12 @@ function ProjectEditForm() {
                                 />
 
                             </Form.Group>
+                            {errors?.feature_poster?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
+
                             <div className="d-md-none">
                                 {textFields}
                             </div>

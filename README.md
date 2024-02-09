@@ -140,6 +140,27 @@ Artistic therapy as agile development
 ---
 As I'm documenting this, I've gone trough enough stress and many panic attacks troughout the development of HiDoc, and at this point, I'm drained. I can't do much more backend and logic, my hands are shaking and my head is hot. At the bottom of the abyss, I remembered what I enjoyed the most troughout my journey in Full Stack Course: CSS styling. There are five days left until my deadline. Instead of recovering the features that require filtering, I'm spending my energy on the visual presentation. HiDoc didn't have much visuals going on before this point, but that lack became my therapy for the moment.
 
+Abounded features
+---
+There are some unused features left in the code. These features during development was deemed unndeccessary, or unprioritized. This was an agile approach, to not delete them in case they would be of value in the future. Some of those features are:
+- the ability to watch an artist,
+- the ability to search artists,
+- a watch project counter,
+- a watch artist counter,
+- commenting on a project.
+
+
+
+Features
+===
+
+Project create and edit form
+---
+Spare the naming anxiety:
+- When an artist account creates a new project, they have four options: upload an image ("feature poster"), give the project a title, give the project a description, and a hyperlink to any website, such as Artstation where they've also uploaded the project.
+- The feature poster is manditory, an error message will appear if they refuse to publish one, but the other fields are optional. For many artists/ illustrators, making up a name or a description for their project can be a source of anxiety, so HiDoc don't expect them to provided that right away.
+- Warning messages are present on all fields, which makes sense for the Deplyed Link that will reject an invalid URL. But for Title and description, they don't have any known uses but they do provide merits for potential unknown bugs.
+
 
 User stories:
 ===
