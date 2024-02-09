@@ -11,6 +11,7 @@ function ProjectPage() {
     const { id } = useParams();
     const [project, setProject] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [project404, setProject404] = useState(false);
 
 // useEffect tells Project.js what to render
     useEffect(() => {
@@ -20,10 +21,15 @@ function ProjectPage() {
                     axiosReq.get(`/projects/${id}`),
 
                 ]);
+
                 setProject({ results: [project] });
                 setHasLoaded(true);
-                console.log(project);
             } catch (err) {
+                // in case user ends up in a non existing project
+                if (err.response && err.response.status === 404) {
+                    console.log("404 error, this project does not exist.")
+                    setProject404(true);
+                }
                 console.log(err);
             }
         };
@@ -33,20 +39,34 @@ function ProjectPage() {
 
     return (
         <div className={styles.ProjectPageCard}>
-            {hasLoaded ? (
+
+            {project404 === true ? (
                 <>
-                    <Link className={styles.Link} to={`/`}>
-                        <h2><i class="fa-solid fa-arrow-left"></i> Go back</h2>
-                    </Link>
-                    <div>
-                    <Project {...project.results[0]} setProjects={setProject} ProjectPage />
-                    </div>
+                <p>this project does not exist</p>
                 </>
             ) : (
                 <>
-                    <p>loading project...</p>
-                </>
+
+                {hasLoaded ? (
+                    <>
+
+                        <Link className={styles.Link} to={`/`}>
+                            <h2><i class="fa-solid fa-arrow-left"></i> Go back</h2>
+                        </Link>
+                        <div>
+                        <Project {...project.results[0]} setProjects={setProject} ProjectPage />
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <p>loading project...</p>
+                    </>
+                )}
+
+                    </>
             )}
+
+
 
 
 
