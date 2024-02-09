@@ -9,7 +9,6 @@ export const useAccountData = () => useContext(AccountDataContext);
 export const useSetAccountData = () => useContext(setAccountDataContext);
 
 export const AccountDataProvider = ({ children }) => {
-
     const [artistData, setArtistData] = useState({
         // pageArtist is used for artist page
         pageArtist: { results: [] },
@@ -20,7 +19,6 @@ export const AccountDataProvider = ({ children }) => {
 
     useEffect(() => {
         const handleMount = async () => {
-            
             try {
                 const {data} = await axiosReq.get(
                     // future feature: sort by artist who recently made an update goes here
