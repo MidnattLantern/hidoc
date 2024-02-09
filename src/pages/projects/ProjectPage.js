@@ -10,6 +10,7 @@ import styles from "../../styles/ProjectPage.module.css";
 function ProjectPage() {
     const { id } = useParams();
     const [project, setProject] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
 
 // useEffect tells Project.js what to render
     useEffect(() => {
@@ -20,6 +21,7 @@ function ProjectPage() {
 
                 ]);
                 setProject({ results: [project] });
+                setHasLoaded(true);
                 console.log(project);
             } catch (err) {
                 console.log(err);
@@ -31,12 +33,22 @@ function ProjectPage() {
 
     return (
         <div className={styles.ProjectPageCard}>
-            <Link className={styles.Link} to={`/`}>
-                <h2><i class="fa-solid fa-arrow-left"></i> Go back</h2>
-            </Link>
-            <div>
-                <Project {...project.results[0]} setProjects={setProject} ProjectPage />
-            </div>
+            {hasLoaded ? (
+                <>
+                    <Link className={styles.Link} to={`/`}>
+                        <h2><i class="fa-solid fa-arrow-left"></i> Go back</h2>
+                    </Link>
+                    <div>
+                    <Project {...project.results[0]} setProjects={setProject} ProjectPage />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <p>loading project...</p>
+                </>
+            )}
+
+
 
         </div>
     )
