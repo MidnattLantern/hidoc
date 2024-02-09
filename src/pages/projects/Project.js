@@ -107,7 +107,7 @@ const Project = (props) => {
     }
 
     return (
-        <div className={styles.WindowCard}>
+        <div className={styles.ProjectCard}>
 
             <Row>
                 <Col>

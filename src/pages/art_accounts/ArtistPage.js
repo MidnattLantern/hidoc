@@ -6,12 +6,11 @@ import {
 //    Row,
     Container,
     Image,
-    Button,
+//    Button,
 } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 
-//import Asset from "../../components/Asset";
-//import styles from "../../styles/ArtistPage.module.css";
+import styles from "../../styles/ArtistPage.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -35,7 +34,7 @@ function ArtistPage() {
     // credits: help from tutor Jason
     const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;
 
-   const is_owner = currentUser?.username === account?.owner;
+//    const is_owner = currentUser?.username === account?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -68,7 +67,7 @@ function ArtistPage() {
         };
         fetchProjects();
         setHasLoaded(false);
-    }, [currentUser]);
+    }, [currentUser, id]);
 //    }, [filter, query, pathname, currentUser]);
 
     console.log(account)
@@ -107,7 +106,7 @@ function ArtistPage() {
     )
 
     return (
-        <div>
+        <div className={styles.ArtistPageCard}>
             {hasLoaded ? (
                 <>
                 {mainAccount}
@@ -116,17 +115,6 @@ function ArtistPage() {
             ) : (
                 <p>loading...</p>
             ) }
-
-            { hasLoaded && is_owner ? (
-                <>
-                    <Button>
-                    Create project
-                    </Button>
-                </>
-            ) : (
-                <></>
-            ) }
-
         </div>
     )
 }

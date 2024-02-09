@@ -1,11 +1,13 @@
 // plural projectS
 import React, { useEffect, useState } from "react";
 import {
-    Row,
+//    Row,
     Col,
     Container,
     Form,
 } from "react-bootstrap";
+
+import styles from "../../styles/ProjectsPage.module.css";
 
 import Project from "./Project";
 //import Asset from "../../components/Asset";
@@ -22,7 +24,8 @@ function ProjectsPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
 
-    const [query, setQuery] = useState("");
+    const [query] = useState("");
+//    const [query, setQuery] = useState("");
 //    const [query] = useState("");
 
     useEffect(() => {
@@ -48,7 +51,7 @@ function ProjectsPage({ message, filter = "" }) {
     }, [filter, query, pathname, currentUser]);
 
     return (
-        <Row>
+        <div className={styles.ProjectsPageCard}>
             <Col>
             <Form
             className={style.SearchBar}
@@ -85,7 +88,7 @@ function ProjectsPage({ message, filter = "" }) {
                     </Container>
                 )}
             </Col>
-        </Row>
+        </div>
     );
 }
 

@@ -1,10 +1,9 @@
 /* dev class */
-.Testborder {
+.Test {
     border: solid black 1px;
 }
 
-.WindowCard {
-    margin-top: 100px;
+.ProjectCard {
     padding-top: 40px;
     padding-bottom: 40px;
     border: solid black 1px;

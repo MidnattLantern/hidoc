@@ -30,7 +30,7 @@ function ProjectPage() {
     }, [id]);
 
     return (
-        <div>
+        <div className={styles.ProjectPageCard}>
             <Link className={styles.Link} to={`/`}>
                 <h2><i class="fa-solid fa-arrow-left"></i> Go back</h2>
             </Link>
