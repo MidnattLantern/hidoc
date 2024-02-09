@@ -1,12 +1,8 @@
-// referenced from Moments tutorial
 import React, { useEffect , useState} from "react";
 
 import {
-//    Col,
-//    Row,
     Container,
     Image,
-//    Button,
 } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 
@@ -28,13 +24,11 @@ function ArtistPage() {
     const setAccountData = useSetAccountData();
     const {pageAccount} = useAccountData();
 
-    // test get projects
+    // get projects
     const [projects, setProjects] = useState({ results: [] });
 
     // credits: help from tutor Jason
     const account = pageAccount && pageAccount.results && pageAccount.results.length > 0 ? pageAccount.results[0] : null;
-
-//    const is_owner = currentUser?.username === account?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -68,11 +62,10 @@ function ArtistPage() {
         fetchProjects();
         setHasLoaded(false);
     }, [currentUser, id]);
-//    }, [filter, query, pathname, currentUser]);
 
     console.log(account)
 
-    const mainAccount = (
+    const ArtAccInfo = (
      <>
      <h1>{account?.owner}</h1>
      <Image src={account?.image}/>
@@ -80,7 +73,7 @@ function ArtistPage() {
      </>   
     );
 
-    const mainAccountProjects = (
+    const ArtistProjects = (
         <>
         {projects?.results?.length ? (
             <InfiniteScroll
@@ -109,8 +102,8 @@ function ArtistPage() {
         <div className={styles.ArtistPageCard}>
             {hasLoaded ? (
                 <>
-                {mainAccount}
-                {mainAccountProjects}
+                {ArtAccInfo}
+                {ArtistProjects}
                 </>
             ) : (
                 <p>loading...</p>

@@ -23,8 +23,9 @@ function ProjectCreateForm() {
         project_title: "",
         project_description: "",
         feature_poster: "",
+        deployed_link: "",
     });
-    const { project_title, project_description, feature_poster } = projectData;
+    const { project_title, project_description, feature_poster, deployed_link } = projectData;
     const posterInput = useRef(null)
     const history = useHistory()
 
@@ -35,6 +36,7 @@ function ProjectCreateForm() {
         });
     };
 
+    // handleChangePoster
     const handleChangeImage = (userInput) => {
         if (userInput.target.files.length){
             URL.revokeObjectURL(feature_poster);
@@ -52,6 +54,7 @@ function ProjectCreateForm() {
         formData.append('project_title', project_title)
         formData.append('project_description', project_description)
         formData.append('feature_poster', posterInput.current.files[0])
+        formData.append('deployed_link', deployed_link)
 
         // possibly broken?
         try {
@@ -81,10 +84,21 @@ function ProjectCreateForm() {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                 as="textarea"
-                placeholder=""
+                placeholder="This can be changed at any time"
                 rows={8}
                 name="project_description"
                 value={project_description}
+                onChange={handleInput}
+                />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Deployed link</Form.Label>
+                <Form.Control
+                as="textarea"
+                placeholder="Optional, this can be changed at any time"
+                rows={1}
+                name="deployed_link"
+                value={deployed_link}
                 onChange={handleInput}
                 />
             </Form.Group>

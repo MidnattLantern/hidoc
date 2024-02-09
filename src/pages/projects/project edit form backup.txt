@@ -14,6 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
 
 import styles from "../../styles/ProjectEdit.module.css";
+//import styles from "../../styles/ProjectCRUD.module.css";
 
 function ProjectEditForm() {
     //const [errors, setErrors] = useState({});
@@ -22,9 +23,8 @@ function ProjectEditForm() {
         project_title: "",
         project_description: "",
         feature_poster: "",
-        deployed_link: "",
     });
-    const { project_title, project_description, feature_poster, deployed_link } = projectData;
+    const { project_title, project_description, feature_poster } = projectData;
     const posterInput = useRef(null);
     const history = useHistory();
     const {id} = useParams();
@@ -32,10 +32,9 @@ function ProjectEditForm() {
         const handleMount = async () => {
             try {
                 const {data} = await axiosReq.get(`/projects/${id}/`)
-                // here, the edit form won't be blank
-                const {project_title, project_description, feature_poster, deployed_link, is_owner,} = data;
-                // here, the edit form is visible if is_owner is true
-                is_owner ? setProjectData({project_title, project_description, feature_poster, deployed_link}) : history.push('/')
+                const {project_title, project_description, feature_poster, is_owner,} = data;
+                // edit form is visible if is_owner is true
+                is_owner ? setProjectData({project_title, project_description, feature_poster}) : history.push('/')
             } catch(err) {
                 console.log(err);
             }
@@ -68,7 +67,6 @@ function ProjectEditForm() {
 
         formData.append('project_title', project_title)
         formData.append('project_description', project_description)
-        formData.append('deployed_link', deployed_link)
 
         if (userInput?.current?.files[0]){
             formData.append('feature_poster', posterInput.current.files[0])
@@ -105,17 +103,6 @@ function ProjectEditForm() {
                 rows={8}
                 name="project_description"
                 value={project_description}
-                onChange={handleInput}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Deployed link</Form.Label>
-                <Form.Control
-                as="textarea"
-                placeholder="Optional, this can be changed at any time"
-                rows={1}
-                name="deployed_link"
-                value={deployed_link}
                 onChange={handleInput}
                 />
             </Form.Group>

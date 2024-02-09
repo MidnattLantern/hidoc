@@ -26,6 +26,8 @@ const Project = (props) => {
         updated_at,
         watch_proj_id,
         setProjects,
+        deployed_link,
+
 //        projectPage,
     } = props;
 
@@ -124,6 +126,8 @@ const Project = (props) => {
                 <Col>
                     <Container>
                     <h1>{owner}</h1>
+
+                    <p>link: {deployed_link}</p>
 
                     <div>
                         {isProjDetail ? (
