@@ -50,8 +50,8 @@ function ProjectEditForm() {
             [userInput.target.name]: userInput.target.value,
         });
     };
-/*
-    const handleChangeImage = (userInput) => {
+
+    const handleChangePoster = (userInput) => {
         if (userInput.target.files.length){
             URL.revokeObjectURL(feature_poster);
             setProjectData({
@@ -60,7 +60,7 @@ function ProjectEditForm() {
             })
         }
     };
-*/
+
 
     const handleSubmit = async (userInput) => {
         userInput.preventDefault()
@@ -68,6 +68,7 @@ function ProjectEditForm() {
 
         formData.append('project_title', project_title)
         formData.append('project_description', project_description)
+        formData.append('feature_poster', posterInput.current.files[0])
         formData.append('deployed_link', deployed_link)
 
         if (userInput?.current?.files[0]){
@@ -108,6 +109,8 @@ function ProjectEditForm() {
                 onChange={handleInput}
                 />
             </Form.Group>
+
+
             <Form.Group>
                 <Form.Label>Deployed link</Form.Label>
                 <Form.Control
@@ -151,6 +154,14 @@ function ProjectEditForm() {
                                 ) : (
                                     <></>
                                 )}
+
+                                <Form.File
+                                id="image-upload"
+                                accept="image/*"
+                                onChange={handleChangePoster}
+                                ref={posterInput}
+                                />
+
                             </Form.Group>
                             <div className="d-md-none">
                                 {textFields}

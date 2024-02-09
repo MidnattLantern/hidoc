@@ -2,7 +2,6 @@ import React, { useEffect , useState} from "react";
 
 import {
     Container,
-    Image,
 } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 
@@ -68,7 +67,6 @@ function ArtistPage() {
     const ArtAccInfo = (
      <>
      <h1>{account?.owner}</h1>
-     <Image src={account?.image}/>
      <p>Projects: {account?.projects_count}</p>
      </>   
     );

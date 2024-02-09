@@ -36,7 +36,7 @@ function ProjectCreateForm() {
         });
     };
 
-    // handleChangePoster
+    // rename to handleChangePoster
     const handleChangeImage = (userInput) => {
         if (userInput.target.files.length){
             URL.revokeObjectURL(feature_poster);
