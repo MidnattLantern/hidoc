@@ -11,8 +11,8 @@ import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Documentation from "../documentations/Documentation";
 
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
+//import InfiniteScroll from "react-infinite-scroll-component";
+//import { fetchMoreData } from "../../utils/utils";
 
 
 function ProjectPage() {

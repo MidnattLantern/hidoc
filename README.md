@@ -149,6 +149,12 @@ There are some unused features left in the code. These features during developme
 - a watch artist counter,
 - commenting on a project.
 
+Underdelivered features
+---
+These features couldn't be delivered due to incompetence:
+- include an image as a part of project documentation.
+There are traces of code with attempts to achieve these features, which remains undeleted, so that they can be implimented as future features, when I've had more time to figure things out.
+
 
 
 Features
