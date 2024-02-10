@@ -1,33 +1,43 @@
 // plural projectS
 import React, { useEffect, useState } from "react";
 import {
-    Row,
+//    Row,
     Col,
     Container,
     Form,
 } from "react-bootstrap";
 
+import styles from "../../styles/ProjectsPage.module.css";
+
 import Project from "./Project";
-//import Asset from "../../components/Asset";
+import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import style from "../../styles/ProjectsPage.module.css"
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+
+// test
+//import Documentation from "../documentations/Documentation"
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+    const currentUser = useCurrentUser();
 
-    const [query, setQuery] = useState("");
+    const [query] = useState("");
+//    const [query, setQuery] = useState("");
+//    const [query] = useState("");
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
-                console.log(data);
-                setProjects(data);
+//                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(`/projects/?${filter}`);
+//                setProjects(prev => ({ ...prev, results: data}));
+                setProjects(data)
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -41,42 +51,37 @@ function ProjectsPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         }
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, currentUser]);
 
     return (
-        <Row>
+        <div className={styles.ProjectsPageCard}>
             <Col>
             <Form
             className={style.SearchBar}
             onSubmit={(event) => event.preventDefault()}
             >
-                <Form.Control
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                type="text"
-                placeholder="search projects"
-                />
+
             </Form>
                 {hasLoaded ? (
                     <>
-                        {projects.length ? (
+                        {projects?.results?.length ? (
                             <InfiniteScroll
                                 children={
-                                    projects.map((post) => (
+                                    projects.results.map((post) => (
                                         <Project
                                         key={post.id} {...post}
                                         setProjects={setProjects} />
                                     ))
                                 }
-                                dataLength={projects.length}
+                                dataLength={projects.results.length}
                                 loader={"Loading..."}
-                                hasMore={!!projects.next}
+                                hasMore={!!projects.results.next}
                                 next={() => fetchMoreData(projects, setProjects)}
                             />
 
                         ) : (
                             <Container>
-                                <p> failed to load </p>
+                                <Asset message={message} />
                             </Container>
                         )}
                     </>
@@ -86,7 +91,7 @@ function ProjectsPage({ message, filter = "" }) {
                     </Container>
                 )}
             </Col>
-        </Row>
+        </div>
     );
 }
 

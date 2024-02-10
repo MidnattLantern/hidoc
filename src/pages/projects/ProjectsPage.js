@@ -18,6 +18,9 @@ import { fetchMoreData } from "../../utils/utils";
 import style from "../../styles/ProjectsPage.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
+// test
+//import Documentation from "../documentations/Documentation"
+
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);

@@ -6,6 +6,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Link } from "react-router-dom";
 import styles from "../../styles/ProjectPage.module.css";
 
+// test
+import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
+
 
 function ProjectPage() {
     const { id } = useParams();
@@ -13,16 +16,26 @@ function ProjectPage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [project404, setProject404] = useState(false);
 
+    // test
+    const [documentations, setDocumentations] = useState({ results: [] });
+
 // useEffect tells Project.js what to render
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: project }] = await Promise.all([
+//                const [{ data: project }] = await Promise.all([
+                const [{ data: project }, { data: documentations }] = await Promise.all([
                     axiosReq.get(`/projects/${id}`),
 
-                ]);
+                    // test
+                    axiosReq.get(`/documentations/?project=${id}`),
 
+                ]);
                 setProject({ results: [project] });
+
+                // test
+                setDocumentations(documentations);
+
                 setHasLoaded(true);
             } catch (err) {
                 // in case user ends up in a non existing project
@@ -66,7 +79,19 @@ function ProjectPage() {
                     </>
             )}
 
+            <DocumentaitonCreateForm
+            project={id}
+            setProject={setProject}
+            />
 
+            {documentations.results.length ? (
+                <>
+                <p>test true</p></>
+            ) : (
+                <>
+                <p>test false</p>
+                </>
+            )}
 
 
 

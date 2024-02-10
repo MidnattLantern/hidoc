@@ -177,6 +177,13 @@ const Project = (props) => {
                                 > 
                                 Edit project
                                 </Button>
+
+                                <Button
+                                className={styles.Button}
+                                onClick={handleEditProject}
+                                > 
+                                Add documentation
+                                </Button>
                             </div>
                         ) : currentUser && isProjDetail ? (
                             <div>
@@ -203,7 +210,7 @@ const Project = (props) => {
 
                         ) : isProjDetail && (
                             <div>
-                                <p>
+                                <p> Don't lose this project, <br/>
                                 <Link
                                 to={`/sign-in`}
                                 className={styles.Link}
@@ -212,8 +219,8 @@ const Project = (props) => {
                                 to={`/sign-up`}
                                 className={styles.Link}
                                 >
-                                Sign Up </Link>
-                                to like this project!
+                                Sign Up </Link> <br/>
+                                to watch this project!
                                 </p>
                             </div>
                         )}
