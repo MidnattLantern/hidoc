@@ -1,71 +1,67 @@
 import React, { useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import styles from "../../styles/DocumentationCreateForm.module.css";
+
 import { axiosRes } from "../../api/axiosDefaults";
 
-function DocumentaitonCreateForm(props) {
-    // consider renaming setDocumentations
-    const {
-        project,
-        setProject,
-        setDocumentations,
-    } = props;
-    const [documentaiton_paragraph, set_documentation_paragraph] = useState("");
+function DocumentationCreateForm(props) {
+//    const { project, setProject, setDocumentations, documentation_paragraph } = props;
+    const { project, setProject, setDocumentations } = props;
+    const [documentation_paragraph, setDocumentationParagraph] = useState("");
 
-    const handleUserInput = (event) => {
-        set_documentation_paragraph(event.target.value);
+    const handleInput = (event) => {
+        setDocumentationParagraph(event.target.value);
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axiosRes.post("/documentations/", {
-                documentaiton_paragraph,
+            const { data } = await axiosRes.post('/documentations/', {
+                documentation_paragraph,
                 project,
             });
             setDocumentations((prevDocumentations) => ({
                 ...prevDocumentations,
-                resuls: [data, ...prevDocumentations.results],
+                results: [data, ...prevDocumentations.results],
             }));
-            setDocumentations((prevDocumentations) => ({
+            setProject((prevProject) => ({
                 results: [
                     {
-                        ...prevDocumentations.results[0],
-//                        documentations_count: prevDocumentations.results[0].documentations_count + 1,
+                        ...prevProject.results[0],
+//                        documentations_count: prevProject.results[0].documentations_count + 1,
                     },
                 ],
             }));
-            set_documentation_paragraph("");
+            setDocumentationParagraph("");
         } catch (err) {
             console.log(err)
         }
     };
 
     return (
-        <div className={styles.DocumentaitonCreateFormCard}>
+        <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <InputGroup>
                         <Form.Control
                         placeholder="paragraph"
                         as="textarea"
-                        value={documentaiton_paragraph}
-                        onChange={handleUserInput}
-                        rows={7}
+                        value={documentation_paragraph}
+                        onChange={handleInput}
                         />
                     </InputGroup>
                 </Form.Group>
                 <button
-                disabled={!documentaiton_paragraph.trim()}
+                disabled={!documentation_paragraph.trim()}
                 type="submit"
                 >
-                    Post
+                    submit
                 </button>
             </Form>
         </div>
+    )
 
-    );
 }
 
-export default DocumentaitonCreateForm;
+export default DocumentationCreateForm

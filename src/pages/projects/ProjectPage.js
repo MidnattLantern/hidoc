@@ -8,6 +8,7 @@ import styles from "../../styles/ProjectPage.module.css";
 
 // test
 import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Documentation from "../documentations/Documentation";
 
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -21,6 +22,7 @@ function ProjectPage() {
     const [project404, setProject404] = useState(false);
 
     // test
+    const currentUser = useCurrentUser();
     const [documentations, setDocumentations] = useState({ results: [] });
 
 // useEffect tells Project.js what to render
@@ -83,10 +85,15 @@ function ProjectPage() {
                     </>
             )}
 
-            <DocumentaitonCreateForm
-            project={id}
-            setProject={setProject}
-            />
+            {currentUser ? (
+                            <DocumentaitonCreateForm
+                            project={id}
+                            setProject={setProject}
+                            setDocumentations={setDocumentations}
+                            />
+            ) : (<></>)}
+
+
 
             {documentations.results.length ? (
                 <>
@@ -97,7 +104,6 @@ function ProjectPage() {
                     <Documentation
                     key={documentation.id}
                     {...documentation}
-                    setDocumentations={setDocumentations}
                     />
                 ))}
                 dataLength={documentations.results.length}

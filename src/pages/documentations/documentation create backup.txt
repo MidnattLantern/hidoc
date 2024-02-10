@@ -1,0 +1,84 @@
+import React, { useState, useRef } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import styles from "../../styles/DocumentationCreateForm.module.css";
+import { axiosReq } from "../../api/axiosDefaults";
+import Alert from "react-bootstrap/Alert";
+
+function DocumentationCreateForm() {
+    const [errors, setErrors] = useState({});
+    const [documentationData, setDocumentationData] = useState({
+        documentation_title: "",
+        documentaiton_paragraph: "",
+//        documentation_image: "",
+    });
+    const {documentation_title, documentaiton_paragraph, documentation_image,} = documentationData;
+//    const documentationImageInput = useRef(null)
+    
+    const handleInput = (userInput) => {
+        setDocumentationData({
+            ...documentationData,
+            [userInput.target.name]: userInput.target.value,
+        });
+    };
+
+    // rename to handleChangeDocumentationImage
+    /*
+    const handleChangeImage = (userInput) => {
+        if (userInput.target.files.length){
+            URL.revokeObjectURL(documentation_image);
+            setDocumentationData({
+                ...documentationData,
+                feature_poster: URL.createObjectURL(userInput.target.files[0]),
+            })
+        }
+    };
+    */
+
+    const handleSubmit = async (userInput) => {
+        userInput.preventDefault()
+        const formData = new FormData();
+
+        formData.append('documentation_title', documentation_title)
+        formData.append('documentaiton_paragraph', documentaiton_paragraph)
+//        formData.append('documentation_image', documentationImageInput.current.files[0])
+
+        try{
+            const {data} = await axiosReq.post('/documentations/', formData);
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    return (
+        <div className={styles.DocumentaitonCreateFormCard}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control
+                    type="title"
+                    placeholder=""
+                    name="documentation_title"
+                    value={documentation_title}
+                    onChange={handleInput}
+                    />
+                </Form.Group>
+                {errors?.documentation_title?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Button
+                type="submit"
+                >
+                    document
+                </Button>
+            </Form>
+        </div>
+
+    );
+}
+
+export default DocumentationCreateForm
