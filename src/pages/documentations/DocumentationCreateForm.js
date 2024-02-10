@@ -26,12 +26,12 @@ function DocumentaitonCreateForm(props) {
             });
             setDocumentations((prevDocumentations) => ({
                 ...prevDocumentations,
-                resuls: [data, ...prevDocumentations.reults],
+                resuls: [data, ...prevDocumentations.results],
             }));
             setDocumentations((prevDocumentations) => ({
                 results: [
                     {
-                        ...prevDocumentations.reults[0],
+                        ...prevDocumentations.results[0],
 //                        documentations_count: prevDocumentations.results[0].documentations_count + 1,
                     },
                 ],
@@ -47,13 +47,13 @@ function DocumentaitonCreateForm(props) {
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <InputGroup>
-                    <Form.Control
-                    placeholder="paragraph"
-                    as="textarea"
-                    value={documentaiton_paragraph}
-                    onChange={handleUserInput}
-                    rows={7}
-                    />
+                        <Form.Control
+                        placeholder="paragraph"
+                        as="textarea"
+                        value={documentaiton_paragraph}
+                        onChange={handleUserInput}
+                        rows={7}
+                        />
                     </InputGroup>
                 </Form.Group>
                 <button

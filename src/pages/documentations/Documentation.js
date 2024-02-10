@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import DocumentationEditForm from "./DocumentationEditForm";
+import Button from "react-bootstrap/Button";
+//import DocumentationEditForm from "./DocumentationEditForm";
 import styles from "../../styles/Documentation.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -18,13 +19,13 @@ const Documentation = (props) => {
         setDocumentations,
     } = props;
 
-    const [showDocumentationForm, setShowDocumentationForm] = useState(false);
+    const [showEditDocumentationForm, setShowEditDocumentationForm] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/documentations/${id}`);
+            await axiosRes.delete(`/documentations/${id}/`);
             setProject((prevProject) => ({
                 results: [
                     {
@@ -36,7 +37,7 @@ const Documentation = (props) => {
 
             setDocumentations((prevDocumentations => ({
                 ...prevDocumentations,
-                results: prevDocumentations.results.filter((Documentation) => Documentation.id !== id),
+                results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
             })));
         } catch (err) {
             console.log(err)
@@ -45,17 +46,14 @@ const Documentation = (props) => {
 
     return (
         <div className={styles.DocumentationCard}>
-            {showDocumentationForm ? (
-                <>
-                <p>true</p>
-                </>
-            ) : (
-                <>
-                    <p>false</p>
-                    <p>{documentaiton_paragraph}</p>
-                </>
-            )}
-
+            <p>{updated_at}</p>
+            <p>owner: {owner}</p>
+            <p>content: {documentaiton_paragraph}</p>
+            <Button
+            onClick={handleDelete}
+            >
+                Delete
+            </Button>
         </div>
     );
 };

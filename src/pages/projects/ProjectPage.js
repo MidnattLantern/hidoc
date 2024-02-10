@@ -8,6 +8,10 @@ import styles from "../../styles/ProjectPage.module.css";
 
 // test
 import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
+import Documentation from "../documentations/Documentation";
+
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 
 function ProjectPage() {
@@ -86,7 +90,22 @@ function ProjectPage() {
 
             {documentations.results.length ? (
                 <>
-                <p>test true</p></>
+                <p>test true</p>
+
+                <InfiniteScroll
+                children={documentations.results.map((documentation) => (
+                    <Documentation
+                    key={documentation.id}
+                    {...documentation}
+                    setDocumentations={setDocumentations}
+                    />
+                ))}
+                dataLength={documentations.results.length}
+                hasMore={!!documentations.next}
+                next={() => fetchMoreData(documentations, setDocumentations)}
+                />
+
+                </>
             ) : (
                 <>
                 <p>test false</p>
