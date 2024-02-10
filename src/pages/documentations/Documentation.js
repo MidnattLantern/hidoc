@@ -13,13 +13,13 @@ const Documentation = (props) => {
         owner,
         updated_at,
         documentation_title,
-        documentaiton_paragraph,
+        documentation_paragraph,
         documentation_image,
         setProject,
         setDocumentations,
     } = props;
 
-    const [showEditDocumentationForm, setShowEditDocumentationForm] = useState(false);
+//    const [showEditDocumentationForm, setShowEditDocumentationForm] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
@@ -46,9 +46,9 @@ const Documentation = (props) => {
 
     return (
         <div className={styles.DocumentationCard}>
-            <p>{updated_at}</p>
-            <p>owner: {owner}</p>
-            <p>content: {documentaiton_paragraph}</p>
+            <p>title: {documentation_title}</p>
+            <p>content: {documentation_paragraph}</p>
+            <img src={documentation_image}/>
             <Button
             onClick={handleDelete}
             >

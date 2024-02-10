@@ -99,8 +99,11 @@ function ProjectPage() {
             {documentations.results.length ? (
                 documentations.results.map(documentations => (
                     <>
-                        <p>{documentations.id}</p>
-                        <p>{documentations.documentation_paragraph}</p>
+                        <p>Documentation: {documentations.id}</p>
+                        <Documentation
+                        key={documentations.id}
+                        {...documentations}
+                        />
                     </>
                 ))
             ) : (
