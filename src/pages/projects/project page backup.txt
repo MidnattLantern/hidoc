@@ -103,8 +103,6 @@ function ProjectPage() {
                         <Documentation
                         key={documentations.id}
                         {...documentations}
-                        setProject={setProject}
-                        setDocumentations={setDocumentations}
                         />
                     </>
                 ))

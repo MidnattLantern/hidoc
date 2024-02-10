@@ -1,3 +1,4 @@
+// referenced from CI Moments
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 //import DocumentationEditForm from "./DocumentationEditForm";
@@ -8,6 +9,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 const Documentation = (props) => {
     // mainly retrieved from API /documentations/
+    // setProject and setDocumentation prevent appearing on all projects
     const {
         id,
         owner,
@@ -35,6 +37,7 @@ const Documentation = (props) => {
                 ],
             }));
 
+            // after deletion, the array is updated
             setDocumentations((prevDocumentations => ({
                 ...prevDocumentations,
                 results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
