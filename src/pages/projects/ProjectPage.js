@@ -40,6 +40,7 @@ function ProjectPage() {
                 setProject({ results: [project] });
 
                 // test
+//                setDocumentations({ results: [documentations] });
                 setDocumentations(documentations);
 
                 setHasLoaded(true);
@@ -81,37 +82,27 @@ function ProjectPage() {
                         <p>loading project...</p>
                     </>
                 )}
-
-                    </>
+                </>
             )}
 
-            {currentUser ? (
-                            <DocumentaitonCreateForm
-                            project={id}
-                            setProject={setProject}
-                            setDocumentations={setDocumentations}
-                            />
-            ) : (<></>)}
-
+                {currentUser ? (
+                    <DocumentaitonCreateForm
+                    project={id}
+                    setProject={setProject}
+                    setDocumentations={setDocumentations}
+                    />
+                ) : (
+                <></>
+                )}
 
 
             {documentations.results.length ? (
-                <>
-                <p>test true</p>
-
-                <InfiniteScroll
-                children={documentations.results.map((documentation) => (
-                    <Documentation
-                    key={documentation.id}
-                    {...documentation}
-                    />
-                ))}
-                dataLength={documentations.results.length}
-                hasMore={!!documentations.next}
-                next={() => fetchMoreData(documentations, setDocumentations)}
-                />
-
-                </>
+                documentations.results.map(documentations => (
+                    <>
+                        <p>{documentations.id}</p>
+                        <p>{documentations.documentation_paragraph}</p>
+                    </>
+                ))
             ) : (
                 <>
                 <p>test false</p>
