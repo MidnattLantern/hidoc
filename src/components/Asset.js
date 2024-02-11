@@ -1,4 +1,4 @@
-// from CI Moments
+// referenced from Code Institute Moment project
 import React from "react";
 import { Spinner } from "react-bootstrap";
 import styles from "../styles/Asset.module.css";

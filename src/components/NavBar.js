@@ -1,16 +1,13 @@
-//import React, { useContext } from "react";
 import React from "react";
 import styles from '../styles/NavBar.module.css';
-import {
-    Navbar,
-    Container,
-    Nav,
-    Image,
-} from "react-bootstrap";
+
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Image from "react-bootstrap/Image";
+
 import { NavLink } from "react-router-dom";
-//import { CurrentUserContext, SetCurrentUserContext } from "../App";
 import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
-//import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import Logo from "../assets/HiDoc-logo.png";

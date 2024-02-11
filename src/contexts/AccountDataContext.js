@@ -31,16 +31,6 @@ export const AccountDataProvider = ({ children }) => {
             } catch(err){
                 console.log(err)
             } 
-
-            /*
-            try {
-                const { data } = await axiosReq.get(`/art-accounts/?ordering=-watchers_art_count`);
-                setArtistData(prev => ({ ...prev, results: data}));
-                //setHasLoaded(true);
-            } catch (err) {
-                console.log(err);
-            }*/
-
         };
 
         handleMount()

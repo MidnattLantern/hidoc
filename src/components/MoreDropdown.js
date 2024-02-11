@@ -4,10 +4,10 @@ import {
     Dropdown,
 } from "react-bootstrap";
 
-// Following code referenced from React-bootstrap Dropdown Component
-const ContextDots = React.forwardRef(({ onClick }, ref) => (
+// ContextDots referenced from React-bootstrap Dropdown Component
+const ContextIcon = React.forwardRef(({ onClick }, ref) => (
     <i
-    className="fas fa-ellipsis-v"
+    className="fas fa-sliders"
     ref={ref}
     onClick={(e) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const ContextDots = React.forwardRef(({ onClick }, ref) => (
 export const MoreDropdown = ({handleEditProject, handleDeleteProject}) => {
     return (
         <Dropdown className="ml-auto" drop="left">
-            <Dropdown.Toggle as={ContextDots} />
+            <Dropdown.Toggle as={ContextIcon} />
 
             <Dropdown.Menu>
                 <Dropdown.Item
