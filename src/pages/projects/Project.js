@@ -176,7 +176,12 @@ const handleDeleteDocumentation = async () => {
 
                         {deployed_link !== "" ? (
                             <>
-                            <a href={deployed_link} target="_blank" rel="noopener noreferrer">
+                            <a
+                            href={deployed_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.Link}
+                            >
                                 <p>Deployed at: {deployed_link}</p>
                             </a>
                             </>
@@ -228,7 +233,7 @@ const handleDeleteDocumentation = async () => {
                         ) : currentUser && isProjDetail ? (
                             <div>
 
-                                <div className={styles.Test}>
+                                <div>
                                     { currentUser && watch_proj_id ? (
 
                                         <Button
