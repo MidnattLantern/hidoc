@@ -1,14 +1,12 @@
-// referenced from CI Moments
+// Future feature
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-//import DocumentationEditForm from "./DocumentationEditForm";
 import styles from "../../styles/Documentation.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 
 const Documentation = (props) => {
-    // mainly retrieved from API /documentations/
     // setProject and setDocumentation prevent appearing on all projects
     const {
         id,
@@ -29,7 +27,6 @@ const Documentation = (props) => {
                 results: [
                     {
                         ...prevProject.results[0],
-//                        documentations_count: prevProject.results[0].documentations_count -1,
                     },
                 ],
             }));

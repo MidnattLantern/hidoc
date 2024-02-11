@@ -1,16 +1,15 @@
+// Future feature
 import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-//import Image from "react-bootstrap/Image";
 
 import { axiosRes } from "../../api/axiosDefaults";
 
 function DocumentationCreateForm(props) {
-//    const { project, setProject, setDocumentations, documentation_paragraph } = props;
     const { project, setProject, setDocumentations } = props;
     const [documentation_paragraph, setDocumentationParagraph] = useState("");
-    //test null is compatible with image
+    // null is compatible with image
     const [documentation_image, setDocumentationImage] = useState(null);
 
 
@@ -18,7 +17,6 @@ function DocumentationCreateForm(props) {
         setDocumentationParagraph(event.target.value);
     };
 
-    // test
     const handleImageInput = (event) => {
         const selectedImage = event.target.files[0];
       
@@ -56,7 +54,6 @@ function DocumentationCreateForm(props) {
                 results: [
                     {
                         ...prevProject.results[0],
-//                        documentations_count: prevProject.results[0].documentations_count + 1,
                     },
                 ],
             }));

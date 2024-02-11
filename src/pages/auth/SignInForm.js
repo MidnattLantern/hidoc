@@ -1,11 +1,10 @@
-//import React, { useContext, useState, } from "react";
 import React, { useState, } from "react";
 import axios from 'axios';
-import {
-    Form,
-    Button,
-    Alert,
-  } from "react-bootstrap";
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/SignInForm.module.css";

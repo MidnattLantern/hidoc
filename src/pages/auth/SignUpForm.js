@@ -1,22 +1,15 @@
-//import React, { useDeferredValue, useState } from "react";
 import React, { useState } from "react";
-//import { Link, useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-//import styles from "../../styles/SignUpForm.module.css";
-import {
-    Form,
-    Button,
-    //Image,
-    //Col,
-    //Row,
-    //Container,
-    Alert,
-  } from "react-bootstrap";
-  import axios from 'axios';
-  import styles from "../../styles/SignUpForm.module.css";
-  import { useRedirect } from "../../hooks/useRedirect";
 
-  const SignUpForm = () => {
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+
+import axios from 'axios';
+import styles from "../../styles/SignUpForm.module.css";
+import { useRedirect } from "../../hooks/useRedirect";
+
+const SignUpForm = () => {
     useRedirect('loggedIn')
     const [signUpData, setSignUpData,] = useState({
         username: "",
