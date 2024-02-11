@@ -10,7 +10,7 @@ import {
 import { NavLink } from "react-router-dom";
 //import { CurrentUserContext, SetCurrentUserContext } from "../App";
 import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
+//import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import Logo from "../assets/HiDoc-logo.png";

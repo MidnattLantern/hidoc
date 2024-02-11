@@ -1,4 +1,4 @@
-.Test{
+.Test {
     border: solid black 1px;
 }
 
@@ -20,16 +20,6 @@ a {
     height: 40px;
     width: 140px;
     text-align: center;
-}
-
-.AccountNavLink {
-    margin: 5px;
-    padding: 0px;
-    border: 1px solid #000000;
-    color: black;
-    border-radius: 3px;
-    height: 40px;
-    width: 140px;
 }
 
 .Active {

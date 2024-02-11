@@ -14,3 +14,10 @@
     color: #e35e8a;
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+    .ProjectPageCard {
+        border-radius: 5px;
+        padding: 0px;
+    }
+}
