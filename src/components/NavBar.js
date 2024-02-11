@@ -64,7 +64,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         >
-            <i className="fa-solid fa-user"></i>
+            <i className="fa-solid fa-address-book"></i>
             My projects
         </NavLink>
 

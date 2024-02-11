@@ -173,7 +173,7 @@ const handleDeleteDocumentation = async () => {
                 <Col>
                     <Container>
 
-                    <div className={styles.Test}>
+                    <div className={styles.MoreDropdown}>
                         {is_owner && <MoreDropdown
                         handleEditProject={handleEditProject}
                         handleDeleteProject={handleDeleteProject}
@@ -214,6 +214,13 @@ const handleDeleteDocumentation = async () => {
                                     className={styles.ProjectTitle}
                                     >
                                         <h2>{project_title}</h2>
+                                        {project_title === "" ? (
+                                            <>
+                                            <h3><i class="fa-solid fa-book-open-reader"></i></h3>
+                                            </>
+                                        ) : (
+                                            <></>
+                                        )}
                                     </Button>
                                 </Link>
                                 </>

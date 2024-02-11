@@ -136,15 +136,14 @@ function ProjectCreateForm() {
 
     return (
             <Form onSubmit={handleSubmit}>
-                <Row className={styles.WindowCard}>
+                <Row className={styles.ProjectCreateFormCard}>
                     <Col>
                         <Container>
                             <Form.Group
                             >
                                 {feature_poster ? (
                                     <>
-                                        <figure
-                                        >
+                                        <figure>
                                             <Image
                                             className={styles.UploadBorder}
                                             src={feature_poster} />
