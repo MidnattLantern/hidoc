@@ -180,13 +180,15 @@ function ProjectCreateForm() {
                                 </Alert>
                             ))}
 
-                            <div className="d-md-none">
-                                {textFields}
-                            </div>
+
                         </Container>
                     </Col>
                     <Col>
-                        <Container>{textFields}</Container>
+                        <Container>
+                            <div>
+                                {textFields}
+                            </div>
+                        </Container>
                     </Col>
                 </Row>
             </Form>
