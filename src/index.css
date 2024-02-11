@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(234, 234, 234);
+  background-image: url("/src/assets/HiDoc-wallpaper.png");
+  background-size: 60px;
 }
 
 code {

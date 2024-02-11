@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import NavBar from "./components/NavBar";
 
 import Container from 'react-bootstrap/Container';
@@ -14,12 +14,9 @@ import ProjectPage from './pages/projects/ProjectPage';
 import ProjectsPage from './pages/projects/ProjectsPage';
 import ProjectEditForm from './pages/projects/ProjectEditForm';
 
-//import PopularArtAccounts from './pages/art_accounts/PopularArtAccounts';
 import SearchArtists from './pages/art_accounts/SearchArtists';
 import ArtistPage from './pages/art_accounts/ArtistPage';
 
-//import axios from 'axios';
-//import { createContext, useEffect, useState } from 'react';
 import { createContext } from 'react';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 
