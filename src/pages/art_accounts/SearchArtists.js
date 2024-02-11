@@ -1,24 +1,15 @@
+// Future feature
 import React, { useEffect, useState } from "react";
-// import React, { useEffect } from "react";
 import {
     Form,
-//    Container,
 } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-//import Asset from "../../components/Asset";
 import Artist from "./Artist";
-//import { useAccountData } from "../../contexts/AccountDataContext";
 import style from "../../styles/ProjectsPage.module.css"
 
-//const PopularArtAccounts = () => {
 const SearchArtAccounts = () => {
-/*    const [ artAccountData, setArtAccountData] = useState({
-        // will use for the artist page later
-        pageArtAccount: { results: [] },
-        searchArtAccounts: { results: [] },
 
-    }); */
 
     const [ artAccountData, setArtAccountData ] = useState([]);
 
