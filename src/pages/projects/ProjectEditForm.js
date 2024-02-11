@@ -1,24 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-    Form,
-    Button,
-    Row,
-    Col,
-    Container,
-    Image,
-} from "react-bootstrap";
-//import Upload from "../../assets/upload.png";
-//import Asset from "../../components/Asset";
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Alert from "react-bootstrap/Alert";
+
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
-import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/ProjectEdit.module.css";
 
 function ProjectEditForm() {
     const [errors, setErrors] = useState({});
-//    const [setErrors] = useState({});
     const [projectData, setProjectData] = useState({
         project_title: "",
         project_description: "",
@@ -205,7 +202,5 @@ function ProjectEditForm() {
             </Form>
     );
 }
-// Note about `<div className="d-md-none">`: this is the 'invisible duplicate'
-// <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
 
 export default ProjectEditForm;

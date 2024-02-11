@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
     Card,
@@ -8,11 +8,15 @@ import {
     Button,
  } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 //import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/Project.module.css";
+
+// test
+import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
+import Documentation from "../documentations/Documentation";
 
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
@@ -31,9 +35,29 @@ const Project = (props) => {
 //        projectPage,
     } = props;
 
+    // test
+    const [project, setProject] = useState({ results: [] });
+    const [documentations, setDocumentations] = useState({ results: [] });
+
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const [{ data: project}, { data: documentations}] = await Promise.all([
+                    axiosReq.get(`/documentations/?project=${id}`),
+                ]);
+                setProject({ results: [project] });
+                setDocumentations(documentations);
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        handleMount();
+    }, [id]);
 
     // && isProjDetail will hide some options in Browse view, and reveal in Project detail view
     const location = useLocation();
@@ -53,6 +77,29 @@ const Project = (props) => {
             console.log(err);
         }
     };
+
+// test
+const handleDeleteDocumentation = async () => {
+    try {
+        await axiosRes.delete(`/documentations/${id}/`);
+        setProject((prevProject) => ({
+            results: [
+                {
+                    ...prevProject.results[0],
+//                        documentations_count: prevProject.results[0].documentations_count -1,
+                },
+            ],
+        }));
+
+        // after deletion, the array is updated
+        setDocumentations((prevDocumentations => ({
+            ...prevDocumentations,
+            results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
+        })));
+    } catch (err) {
+        console.log(err)
+    }
+};
 
     const handleWatchProject = async () => {
         try {
@@ -108,6 +155,15 @@ const Project = (props) => {
         }
     }
 
+    const moreDropdown = (
+        <div className={styles.MoreDropdown}>
+            {is_owner && <MoreDropdown
+            handleEditProject={handleEditProject}
+            handleDeleteProject={handleDeleteProject}
+            />}
+        </div>
+    )
+
     return (
         <div className={styles.ProjectCard}>
 
@@ -125,14 +181,21 @@ const Project = (props) => {
 
                 <Col>
                     <Container>
+
+                    {moreDropdown}
+
                     <h1>{owner}</h1>
 
-                        {deployed_link !== "" ? (
-                            <>
-                            <a href={deployed_link} target="_blank" rel="noopener noreferrer">
-                                <p>Deployed at: {deployed_link}</p>
-                            </a>
-                            </>
+                        {isProjDetail && deployed_link !== "" ? (
+                            <div>
+                                <a
+                                href={deployed_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.Link}>
+                                    <p>Deployed at: {deployed_link}</p>
+                                </a>
+                            </div>
                         ) : (
                             <></>
                         ) }
@@ -140,32 +203,44 @@ const Project = (props) => {
 
                     <div>
                         {isProjDetail ? (
-                                <>
+                                <div>
                                     <h2>{project_title}</h2>
-                                </>
+                                </div>
                             ) : (
-                                <>
+                                <div>
                                     <Link
-                                    to={`/projects/${id}`}
-                                >
+                                    to={`/projects/${id}`}>
                                     <Button
                                     className={styles.ProjectTitle}
                                     >
-                                        <h2>{project_title}</h2>
+                                        {project_title === "" ? (
+                                            <>
+                                            <h3><i class="fa-solid fa-book-open-reader"></i></h3>
+                                            </>
+                                        ) : (
+                                            <>
+                                            <h2>{project_title}</h2>
+                                            </>
+                                        )}
                                     </Button>
                                 </Link>
-                                </>
+                                </div>
                             )}
-                        {is_owner && <MoreDropdown
-                        handleEditProject={handleEditProject}
-                        handleDeleteProject={handleDeleteProject}
-                        />}
+
                     </div>
 
 
-                    <p className={styles.DescriptionFrame}>
-                        {project_description}
-                    </p>
+                    <div className={styles.DescriptionFrame}>
+                        {project_description === "" ? (
+                            <>
+                            <p>Created by {owner}</p>
+                            </>
+                        ) : (
+                            <>
+                            <p>{project_description}</p>
+                            </>
+                        )}
+                    </div>
 
                         <p>Latest update: {updated_at}</p>
                     <div>
@@ -181,7 +256,7 @@ const Project = (props) => {
                         ) : currentUser && isProjDetail ? (
                             <div>
 
-                                <div className={styles.Test}>
+                                <div>
                                     { currentUser && watch_proj_id ? (
 
                                         <Button
@@ -225,6 +300,22 @@ const Project = (props) => {
             </Row>
 
 
+
+                {documentations.results.length ? (
+                documentations.results.map(documentations => (
+                    <>
+                        <p>Documentation: {documentations.id}</p>
+                        <Documentation
+                        key={documentations.id}
+                        {...documentations}
+                        setProject={setProject}
+                        setDocumentations={setDocumentations}
+                        />
+                    </>
+                ))
+            ) : (
+                <></>
+            )}
 
         </div>
     )

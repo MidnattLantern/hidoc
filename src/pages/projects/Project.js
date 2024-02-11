@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import {
-    Card,
-    Col,
-    Container,
-    Row,
-    Button,
- } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
-//import axios from "axios";
-import { MoreDropdown } from "../../components/MoreDropdown";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+
 import styles from "../../styles/Project.module.css";
 
-// test
+import { Link, useLocation } from "react-router-dom";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+// future feature
 import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
 import Documentation from "../documentations/Documentation";
 
 
-// most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
+// most from the api: https://hidoc-api-80e680483d64.herokuapp.com/
 const Project = (props) => {
     const {
         id,
@@ -155,6 +155,15 @@ const handleDeleteDocumentation = async () => {
         }
     }
 
+    const moreDropdown = (
+        <div className={styles.MoreDropdown}>
+            {is_owner && <MoreDropdown
+            handleEditProject={handleEditProject}
+            handleDeleteProject={handleDeleteProject}
+            />}
+        </div>
+    )
+
     return (
         <div className={styles.ProjectCard}>
 
@@ -173,28 +182,20 @@ const handleDeleteDocumentation = async () => {
                 <Col>
                     <Container>
 
-                    <div className={styles.MoreDropdown}>
-                        {is_owner && <MoreDropdown
-                        handleEditProject={handleEditProject}
-                        handleDeleteProject={handleDeleteProject}
-                        />}
-                        </div>
+                    {moreDropdown}
 
                     <h1>{owner}</h1>
 
-
-
                         {isProjDetail && deployed_link !== "" ? (
-                            <>
-                            <a
-                            href={deployed_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.Link}
-                            >
-                                <p>Deployed at: {deployed_link}</p>
-                            </a>
-                            </>
+                            <div>
+                                <a
+                                href={deployed_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.Link}>
+                                    <p>Deployed at: {deployed_link}</p>
+                                </a>
+                            </div>
                         ) : (
                             <></>
                         ) }
@@ -202,14 +203,13 @@ const handleDeleteDocumentation = async () => {
 
                     <div>
                         {isProjDetail ? (
-                                <>
+                                <div>
                                     <h2>{project_title}</h2>
-                                </>
+                                </div>
                             ) : (
-                                <>
+                                <div>
                                     <Link
-                                    to={`/projects/${id}`}
-                                >
+                                    to={`/projects/${id}`}>
                                     <Button
                                     className={styles.ProjectTitle}
                                     >
@@ -224,7 +224,7 @@ const handleDeleteDocumentation = async () => {
                                         )}
                                     </Button>
                                 </Link>
-                                </>
+                                </div>
                             )}
 
                     </div>

@@ -10,17 +10,12 @@ import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Documentation from "../documentations/Documentation";
 
-//import InfiniteScroll from "react-infinite-scroll-component";
-//import { fetchMoreData } from "../../utils/utils";
-
-
 function ProjectPage() {
     const { id } = useParams();
     const [project, setProject] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const [project404, setProject404] = useState(false);
 
-    // test
     const currentUser = useCurrentUser();
     const [documentations, setDocumentations] = useState({ results: [] });
 
@@ -28,18 +23,12 @@ function ProjectPage() {
     useEffect(() => {
         const handleMount = async () => {
             try {
-//                const [{ data: project }] = await Promise.all([
                 const [{ data: project }, { data: documentations }] = await Promise.all([
                     axiosReq.get(`/projects/${id}`),
-
-                    // test
                     axiosReq.get(`/documentations/?project=${id}`),
 
                 ]);
                 setProject({ results: [project] });
-
-                // test
-//                setDocumentations({ results: [documentations] });
                 setDocumentations(documentations);
 
                 setHasLoaded(true);

@@ -1,11 +1,9 @@
 // plural projectS
 import React, { useEffect, useState } from "react";
-import {
-//    Row,
-    Col,
-    Container,
-    Form,
-} from "react-bootstrap";
+
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/ProjectsPage.module.css";
 
@@ -18,8 +16,6 @@ import { fetchMoreData } from "../../utils/utils";
 import style from "../../styles/ProjectsPage.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
-// test
-//import Documentation from "../documentations/Documentation"
 
 function ProjectsPage({ message, filter = "" }) {
     const [projects, setProjects] = useState({ results: [] });

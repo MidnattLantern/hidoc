@@ -136,15 +136,14 @@ function ProjectCreateForm() {
 
     return (
             <Form onSubmit={handleSubmit}>
-                <Row className={styles.WindowCard}>
+                <Row className={styles.ProjectCreateFormCard}>
                     <Col>
                         <Container>
                             <Form.Group
                             >
                                 {feature_poster ? (
                                     <>
-                                        <figure
-                                        >
+                                        <figure>
                                             <Image
                                             className={styles.UploadBorder}
                                             src={feature_poster} />
@@ -180,13 +179,15 @@ function ProjectCreateForm() {
                                 </Alert>
                             ))}
 
-                            <div className="d-md-none">
-                                {textFields}
-                            </div>
+
                         </Container>
                     </Col>
                     <Col>
-                        <Container>{textFields}</Container>
+                        <Container>
+                            <div>
+                                {textFields}
+                            </div>
+                        </Container>
                     </Col>
                 </Row>
             </Form>
