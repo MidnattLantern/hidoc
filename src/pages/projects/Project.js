@@ -213,13 +213,14 @@ const handleDeleteDocumentation = async () => {
                                     <Button
                                     className={styles.ProjectTitle}
                                     >
-                                        <h2>{project_title}</h2>
                                         {project_title === "" ? (
                                             <>
                                             <h3><i class="fa-solid fa-book-open-reader"></i></h3>
                                             </>
                                         ) : (
-                                            <></>
+                                            <>
+                                            <h2>{project_title}</h2>
+                                            </>
                                         )}
                                     </Button>
                                 </Link>
@@ -229,9 +230,17 @@ const handleDeleteDocumentation = async () => {
                     </div>
 
 
-                    <p className={styles.DescriptionFrame}>
-                        {project_description}
-                    </p>
+                    <div className={styles.DescriptionFrame}>
+                        {project_description === "" ? (
+                            <>
+                            <p>Created by {owner}</p>
+                            </>
+                        ) : (
+                            <>
+                            <p>{project_description}</p>
+                            </>
+                        )}
+                    </div>
 
                         <p>Latest update: {updated_at}</p>
                     <div>
