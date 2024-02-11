@@ -85,7 +85,15 @@ function ProjectPage() {
                 </>
             )}
 
-
+                {currentUser ? (
+                    <DocumentaitonCreateForm
+                    project={id}
+                    setProject={setProject}
+                    setDocumentations={setDocumentations}
+                    />
+                ) : (
+                <></>
+                )}
 
 
             {documentations.results.length ? (
@@ -101,7 +109,9 @@ function ProjectPage() {
                     </>
                 ))
             ) : (
-                <></>
+                <>
+                <p>test false</p>
+                </>
             )}
 
 

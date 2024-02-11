@@ -177,13 +177,6 @@ const Project = (props) => {
                                 > 
                                 Edit project
                                 </Button>
-
-                                <Button
-                                className={styles.Button}
-                                onClick={handleEditProject}
-                                > 
-                                Add documentation
-                                </Button>
                             </div>
                         ) : currentUser && isProjDetail ? (
                             <div>
