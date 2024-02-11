@@ -32,18 +32,20 @@ const NavBar = () => {
         }
     };
 
+const addProjectIcon = (
+    <NavLink
+    to="/projects/create"
+    exact
+    className={styles.NavLink}
+    activeClassName={styles.Active}
+    >
+        <i class="far fa-plus-square"></i> Create project
+    </NavLink>
+)
+
+
     const loggedInIcons = (
     <>
-
-    <NavLink
-        to="/projects/create"
-        exact
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        >
-            <i class="far fa-plus-square"></i> Create project
-        </NavLink>
-
         <NavLink to="/watch-list" exact
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -61,11 +63,14 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink to={`/artist-page/${currentUser?.artaccount_id}`}
-        className={styles.NavLink}
+        className={styles.AccountNavLink}
         activeClassName={styles.Active}
         >
-            <i className="fa-solid fa-user"></i>
-            My projects
+            <Avatar
+            src={currentUser?.artaccount_image}
+            text="My Page"
+            />
+
         </NavLink>
 
     </>)
@@ -103,6 +108,8 @@ const NavBar = () => {
                                 />
                         </Navbar.Brand>
                     </NavLink>
+
+                    {currentUser && addProjectIcon}
 
                     <Navbar.Toggle
                     ref={ref}

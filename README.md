@@ -217,6 +217,13 @@ As a signed in user, who have clicked the watch button for any project, I can cl
 - Watch count: As a user, I can see how many people are watching a project. So that I know how much attention the project has.
 
 
+Unsolved
+===
+Authenticated CRUD documentation:
+---
+- At the moment, it is possible to render a create documentation form only to the owner of any project. However, the delete documentation button isn't exclusive to the owner. Therefore, the documentation feature remain hidden. The code that allow for documentation remains, so that it can be resumed in the future as future featres.
+
+
 Deployment
 ===
 - In package.json, the following line have been added inside the "scripts" section:
