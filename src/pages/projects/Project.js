@@ -172,9 +172,19 @@ const handleDeleteDocumentation = async () => {
 
                 <Col>
                     <Container>
+
+                    <div className={styles.Test}>
+                        {is_owner && <MoreDropdown
+                        handleEditProject={handleEditProject}
+                        handleDeleteProject={handleDeleteProject}
+                        />}
+                        </div>
+
                     <h1>{owner}</h1>
 
-                        {deployed_link !== "" ? (
+
+
+                        {isProjDetail && deployed_link !== "" ? (
                             <>
                             <a
                             href={deployed_link}
@@ -208,10 +218,7 @@ const handleDeleteDocumentation = async () => {
                                 </Link>
                                 </>
                             )}
-                        {is_owner && <MoreDropdown
-                        handleEditProject={handleEditProject}
-                        handleDeleteProject={handleDeleteProject}
-                        />}
+
                     </div>
 
 
