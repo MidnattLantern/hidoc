@@ -271,7 +271,29 @@ const handleDeleteDocumentation = async () => {
                 </Col>
             </Row>
 
+            {is_owner && isProjDetail ? (
+                <>
+                <p>true</p>
+                </>
+            ) : (
+                <>
+                <p>false</p>
+                </>
+            )
+            }
 
+                {currentUser && is_owner ? (
+                    <>
+                    <DocumentaitonCreateForm
+                    project={id}
+                    setProject={setProject}
+                    setDocumentations={setDocumentations}
+                    />
+  
+                    </>
+                ) : (
+                <></>
+                )}
 
                 {documentations.results.length ? (
                 documentations.results.map(documentations => (

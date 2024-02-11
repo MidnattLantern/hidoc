@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
     Card,
@@ -8,15 +8,11 @@ import {
     Button,
  } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
 //import axios from "axios";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/Project.module.css";
-
-// test
-import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
-import Documentation from "../documentations/Documentation";
 
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/ across multiple sub-sections
@@ -35,29 +31,9 @@ const Project = (props) => {
 //        projectPage,
     } = props;
 
-    // test
-    const [project, setProject] = useState({ results: [] });
-    const [documentations, setDocumentations] = useState({ results: [] });
-
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
-
-    useEffect(() => {
-        const handleMount = async () => {
-            try {
-                const [{ data: project}, { data: documentations}] = await Promise.all([
-                    axiosReq.get(`/documentations/?project=${id}`),
-                ]);
-                setProject({ results: [project] });
-                setDocumentations(documentations);
-            } catch (err) {
-                console.log(err)
-            }
-        };
-
-        handleMount();
-    }, [id]);
 
     // && isProjDetail will hide some options in Browse view, and reveal in Project detail view
     const location = useLocation();
@@ -77,29 +53,6 @@ const Project = (props) => {
             console.log(err);
         }
     };
-
-// test
-const handleDeleteDocumentation = async () => {
-    try {
-        await axiosRes.delete(`/documentations/${id}/`);
-        setProject((prevProject) => ({
-            results: [
-                {
-                    ...prevProject.results[0],
-//                        documentations_count: prevProject.results[0].documentations_count -1,
-                },
-            ],
-        }));
-
-        // after deletion, the array is updated
-        setDocumentations((prevDocumentations => ({
-            ...prevDocumentations,
-            results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
-        })));
-    } catch (err) {
-        console.log(err)
-    }
-};
 
     const handleWatchProject = async () => {
         try {
@@ -272,22 +225,6 @@ const handleDeleteDocumentation = async () => {
             </Row>
 
 
-
-                {documentations.results.length ? (
-                documentations.results.map(documentations => (
-                    <>
-                        <p>Documentation: {documentations.id}</p>
-                        <Documentation
-                        key={documentations.id}
-                        {...documentations}
-                        setProject={setProject}
-                        setDocumentations={setDocumentations}
-                        />
-                    </>
-                ))
-            ) : (
-                <></>
-            )}
 
         </div>
     )

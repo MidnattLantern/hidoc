@@ -22,7 +22,7 @@ const Documentation = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const handleDelete = async () => {
+    const handleDeleteDocumentation = async () => {
         try {
             await axiosRes.delete(`/documentations/${id}/`);
             setProject((prevProject) => ({
@@ -48,7 +48,7 @@ const Documentation = (props) => {
         <div className={styles.DocumentationCard}>
             <p>content: {documentation_paragraph}</p>
             <Button
-            onClick={handleDelete}
+            onClick={handleDeleteDocumentation}
             >
                 Delete
             </Button>

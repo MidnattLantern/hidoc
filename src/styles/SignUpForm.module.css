@@ -1,6 +1,5 @@
 .Test{
     border: solid black 1px;
-    text-align: center;
 }
 
 h1{
@@ -8,7 +7,7 @@ h1{
 }
 
 .SignUpCard{
-    border: solid black 1px;
+    border: solid #000000 1px;
     border-radius: 10px;
     background-color: #ffffff;
     width: 600px;
@@ -28,7 +27,7 @@ h1{
 
 .Button {
     margin-top: 20px;
-    border: solid black 1px;
+    border: solid #000000 1px;
     background-color: #e35e8a;
 }
 
