@@ -33,7 +33,7 @@ export const AccountDataProvider = ({ children }) => {
             } 
         };
 
-        handleMount()
+        handleMount();
     }, [currentUser]);
 
     return (

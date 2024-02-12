@@ -60,12 +60,12 @@ const Project = (props) => {
     // && isProjDetail will hide some options in Browse view, and reveal in Project detail view
     const location = useLocation();
     const CurrentPath = location.pathname;
-    const isProjDetail = CurrentPath === `/projects/${id}`
+    const isProjDetail = CurrentPath === `/projects/${id}`;
 
     // Edit according to the training ref model. Different from edit parag-doc or img-doc (future features)
     const handleEditProject = () => {
-        history.push(`/projects/${id}/edit`)
-    }
+        history.push(`/projects/${id}/edit`);
+    };
 
     const handleDeleteProject = async () => {
         try {
@@ -138,7 +138,7 @@ const handleDeleteDocumentation = async () => {
 //    console.error('Error during API call:', err);
 //    console.log('Likely error: already unwatched project')
         }
-    }
+    };
 
     const moreDropdown = (
         <div className={styles.MoreDropdown}>

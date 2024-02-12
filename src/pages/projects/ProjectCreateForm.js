@@ -26,8 +26,8 @@ function ProjectCreateForm() {
         deployed_link: "",
     });
     const { project_title, project_description, feature_poster, deployed_link } = projectData;
-    const posterInput = useRef(null)
-    const history = useHistory()
+    const posterInput = useRef(null);
+    const history = useHistory();
 
     const handleInput = (userInput) => {
         setProjectData({
@@ -43,29 +43,29 @@ function ProjectCreateForm() {
             setProjectData({
                 ...projectData,
                 feature_poster: URL.createObjectURL(userInput.target.files[0]),
-            })
+            });
         }
     };
 
     const handleSubmit = async (userInput) => {
-        userInput.preventDefault()
+        userInput.preventDefault();
         const formData = new FormData();
 
-        formData.append('project_title', project_title)
-        formData.append('project_description', project_description)
-        formData.append('feature_poster', posterInput.current.files[0])
-        formData.append('deployed_link', deployed_link)
+        formData.append('project_title', project_title);
+        formData.append('project_description', project_description);
+        formData.append('feature_poster', posterInput.current.files[0]);
+        formData.append('deployed_link', deployed_link);
 
         try {
             const {data} = await axiosReq.post('/projects/', formData);
-            history.push(`/projects/${data.id}`)
+            history.push(`/projects/${data.id}`);
         } catch(err){
 //            console.log(err)
             if (err.response?.status !== 401) {
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     const textFields = (
         <div>
@@ -193,7 +193,5 @@ function ProjectCreateForm() {
             </Form>
     );
 }
-// Note about `<div className="d-md-none">`: this is the 'invisible duplicate'
-// <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
 
 export default ProjectCreateForm;

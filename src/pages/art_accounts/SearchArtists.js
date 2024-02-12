@@ -6,7 +6,7 @@ import {
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Artist from "./Artist";
-import style from "../../styles/ProjectsPage.module.css"
+import style from "../../styles/ProjectsPage.module.css";
 
 const SearchArtAccounts = () => {
 
@@ -29,7 +29,7 @@ const SearchArtAccounts = () => {
             }
         };
 
-        handleMount()
+        handleMount();
     }, [currentUser, setHasLoaded]);
 
     return (

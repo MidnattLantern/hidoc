@@ -12,7 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import {
     useAccountData,
     useSetAccountData,
-} from "../../contexts/AccountDataContext"
+} from "../../contexts/AccountDataContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Project from "../projects/Project";
 
@@ -34,7 +34,7 @@ function ArtistPage() {
             try {
                 const [{data: pageAccount}] = await Promise.all([
                     axiosReq.get(`/art-accounts/${id}/`)
-                ])
+                ]);
                 setAccountData(prevState => ({
                     ...prevState,
                     pageAccount: {results: [pageAccount]},
@@ -52,7 +52,7 @@ function ArtistPage() {
         const fetchProjects = async () => {
             try {
                 const { data } = await axiosReq.get(`/projects/?owner__artaccount=${id}`);
-                setProjects(data)
+                setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
 //                console.log(err);
@@ -62,7 +62,7 @@ function ArtistPage() {
         setHasLoaded(false);
     }, [currentUser, id]);
 
-    console.log(account)
+    console.log(account);
 
     const ArtAccInfo = (
      <>

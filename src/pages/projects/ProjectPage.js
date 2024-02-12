@@ -35,7 +35,7 @@ function ProjectPage() {
             } catch (err) {
                 // in case user ends up in a non existing project
                 if (err.response && err.response.status === 404) {
-                    console.log("404 error, this project does not exist.")
+                    console.log("404 error, this project does not exist.");
                     setProject404(true);
                 }
 //                console.log(err);

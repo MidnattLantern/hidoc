@@ -7,7 +7,6 @@ import './api/axiosDefaults';
 
 import SignInForm from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
-import SignOutForm from './pages/auth/SignOutForm';
 
 import ProjectCreateForm from './pages/projects/ProjectCreateForm';
 import ProjectPage from './pages/projects/ProjectPage';

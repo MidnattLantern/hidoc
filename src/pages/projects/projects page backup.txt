@@ -13,7 +13,7 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import style from "../../styles/ProjectsPage.module.css";
+import style from "../../styles/ProjectsPage.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 
@@ -33,7 +33,7 @@ function ProjectsPage({ message, filter = "" }) {
 //                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
                 const { data } = await axiosReq.get(`/projects/?${filter}`);
 //                setProjects(prev => ({ ...prev, results: data}));
-                setProjects(data);
+                setProjects(data)
                 setHasLoaded(true);
             } catch (err) {
 //                console.log(err);
@@ -43,10 +43,10 @@ function ProjectsPage({ message, filter = "" }) {
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchProjects();
-        }, 2000);
+        }, 2000)
         return () => {
             clearTimeout(timer);
-        };
+        }
     }, [filter, query, pathname, currentUser]);
 
     return (
@@ -55,7 +55,9 @@ function ProjectsPage({ message, filter = "" }) {
             <Form
             className={style.SearchBar}
             onSubmit={(event) => event.preventDefault()}
-            />
+            >
+
+            </Form>
                 {hasLoaded ? (
                     <>
                         {projects?.results?.length ? (

@@ -40,8 +40,8 @@ h1{
 @media only screen and (max-width: 600px) {
     .FormControl{
         width: 100%
-    };
+    }
     .SignInCard{
         margin-left: 0px;
     }
-};
+}

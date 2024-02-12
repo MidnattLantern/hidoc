@@ -33,7 +33,7 @@ function ProjectEditForm() {
                 // here, the edit form won't be blank
                 const {project_title, project_description, feature_poster, deployed_link, is_owner,} = data;
                 // here, the edit form is visible if is_owner is true
-                is_owner ? setProjectData({project_title, project_description, feature_poster, deployed_link}) : history.push('/')
+                is_owner ? setProjectData({project_title, project_description, feature_poster, deployed_link}) : history.push('/');
             } catch(err) {
                 console.log(err);
             }
@@ -55,39 +55,39 @@ function ProjectEditForm() {
             setProjectData({
                 ...projectData,
                 feature_poster: URL.createObjectURL(userInput.target.files[0]),
-            })
+            });
         }
     };
 
 
     const handleSubmit = async (userInput) => {
-        userInput.preventDefault()
+        userInput.preventDefault();
         const formData = new FormData();
 
-        formData.append('project_title', project_title)
-        formData.append('project_description', project_description)
+        formData.append('project_title', project_title);
+        formData.append('project_description', project_description);
 
         // unlike create, this additional code will prevent error message
         if (posterInput?.current?.files[0]) {
-           formData.append('feature_poster', posterInput.current.files[0])
+           formData.append('feature_poster', posterInput.current.files[0]);
         }
 
-        formData.append('deployed_link', deployed_link)
+        formData.append('deployed_link', deployed_link);
 
         if (userInput?.current?.files[0]){
-            formData.append('feature_poster', posterInput.current.files[0])
+            formData.append('feature_poster', posterInput.current.files[0]);
         }
 
         try {
             await axiosReq.put(`/projects/${id}/`, formData);
-            history.push(`/projects/${id}`)
+            history.push(`/projects/${id}`);
         } catch(err){
 //            console.log(err)
             if (err.response?.status !== 401) {
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     const textFields = (
         <div>

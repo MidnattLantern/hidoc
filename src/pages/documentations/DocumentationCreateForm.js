@@ -1,10 +1,9 @@
-// Future feature
 import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
-import styles from "../../styles/DocumentationCreateForm.module.css"
+import styles from "../../styles/DocumentationCreateForm.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
 

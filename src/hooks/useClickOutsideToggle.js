@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react';
 
 const useClickOutsideToggle = () => {
     // UI friendly burger
@@ -7,15 +7,15 @@ const useClickOutsideToggle = () => {
     useEffect(() => {
         const handleClickOutside = (userInput) => {
             if (ref.current && !ref.current.contains(userInput.target)){
-                setExpanded(false)
+                setExpanded(false);
             }
-        }
-        document.addEventListener('mouseup', handleClickOutside)
+        };
+        document.addEventListener('mouseup', handleClickOutside);
         return () => {
-            document.removeEventListener('mouseup', handleClickOutside)
-        }
-    }, [ref])
-    return { expanded, setExpanded, ref }
-}
+            document.removeEventListener('mouseup', handleClickOutside);
+        };
+    }, [ref]);
+    return { expanded, setExpanded, ref };
+};
 
-export default useClickOutsideToggle
+export default useClickOutsideToggle;
