@@ -86,7 +86,7 @@ HiDoc Features
 ===
 Navigation bar "Navbar":
 ---
-(screenshot image of navbar demo)
+![navbar-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/navbar-demo.png)
 - This component satisfies the "Navbar" user story.
 - Users can navigate through "Browse", "Create project", "Watch list", "Sign out/in/up", and "My projects".
 - The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implementing the use of `Navbar.Toggle` and `Navbar.Collapse`.
@@ -96,7 +96,7 @@ Navigation bar "Navbar":
 
 Sign-in page:
 ---
-(screenshot image of sign in-demo)
+![signin-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/signin-demo.png)
 - This feature satisfies the "Sign-in" user story.
 - useSetCurrentUser is a component that lets HiDoc tell whoever is signed in.
 - Errors catch invalid forms and return a message to the user.
@@ -105,7 +105,7 @@ Sign-in page:
 
 Sign-up page:
 ---
-(screenshot image of signup-demo)
+![signup-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/signup-demo.png)
 - This feature satisfies the "Sign-up" user story.
 - Errors catch invalid forms and return a message to the user.
 - Axios make communication with the API. It can create a new user with valid credentials.
@@ -113,7 +113,7 @@ Sign-up page:
 
 Browse:
 ---
-(screenshot image of browse-demo)
+![browse-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/browse-demo.png)
 - This feature satisfies the "browse" user story.
 - Wraps around the project component.
 - Using AxiosReq to get all the projects on the API.
@@ -126,14 +126,14 @@ Browse detail:
 - This feature satisfies the "browse detail" user story.
 - Wraps around the project component.
 - Show: poster, title, deployed link, owner, description, date, watch button, create documentation, and documentation.
-(screenshot image of signed-out-project-detail-demo)
-(screenshot image of signed-in-owner-project detail-demo)
-(screenshot image of signed-in-project detail-demo)
+![signed-out-project-detail-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/browse-demo.png)
+![signed-in-owner-projectdetail-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/signedin-owner-projectdetai-demo.png)
+![signed-in-projectdetail-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/signedin-projectdetai-demo.png)
 - Location: `src > pages > projects`
 
 Create project:
 ---
-(screenshot image of create-demo)
+![create-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/create-demo.png)
 - This feature satisfies the "create project" user story.
 - AxiosReq communicate with the API, allowing the user to make changes to the API.
 - The image input is mandatory, the other fields are optional.
@@ -143,7 +143,7 @@ Create project:
 
 Watch project:
 ---
-(screenshot image of watch project demo)
+![watchproject-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/watchproject-demo.png)
 - This feature satisfies the "watch project" user story.
 - This feature reuses the Browse component, only showing projects the user is watching.
 - If the user isn't watching any projects, a message appears, like the image above.
@@ -155,7 +155,7 @@ Sign out:
 
 My projects:
 ---
-(screenshot of my projects-demo)
+![projects-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/myprojects-demo.png)
 - This feature satisfies the "my projects" user story.
 - Axios fetch data from API comparing the art account ID, to render projects belonging to that user.
 - Infinite scroll optimize project loading.
@@ -165,6 +165,7 @@ My projects:
 Edit project:
 ---
 (screenshot of edit project demo)
+![]()
 - Follow the same model as creating the project module, but it gets existing data using Axios, depending on project ID, and overwrites existing data, instead of creating data.
 - Location: `src > pages > projects`.
 
@@ -212,7 +213,9 @@ The user interface will evolve with time, putting the documentation in the spotl
 
 Wireframes
 ===
-(screenshots of wireframes)
+![HiDoc-wireframe1](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/Wireframes/HiDoc-wireframe1.png)
+![HiDoc-wireframe2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/Wireframes/HiDoc-wireframe2.png)
+![HiDoc-wireframe3](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/Wireframes/HiDoc-wireframe3.png)
 - These images attempt to describe as much as possible about the goals of HiDoc.
 - These wireframes are guiding directors.
 
