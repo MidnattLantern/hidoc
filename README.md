@@ -164,14 +164,13 @@ My projects:
 
 Edit project:
 ---
-(screenshot of edit project demo)
-![]()
+![editproject-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/editproject-demo.png)
 - Follow the same model as creating the project module, but it gets existing data using Axios, depending on project ID, and overwrites existing data, instead of creating data.
 - Location: `src > pages > projects`.
 
 Not found:
 ---
-(screenshot of not found-demo)
+![notfound-demo](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/demonstration/notfound-demo.png)
 - Location: `src > components`.
 - The route dom will render this page if it fails to render any other URL link.
 
@@ -349,7 +348,7 @@ Sign in/up/out:
 404:
 ---
 - If a link to a non-existing project, the message "this project does not exist" will appear.
-- If inside an invalid page, a 404 message appears (screenshot of /sauce demonstration).
+- If inside an invalid page, a 404 message appears.
 
 Navigation bar options:
 ---
