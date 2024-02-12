@@ -1,6 +1,18 @@
 .DocumentationCard {
-    margin-top: 150px;;
+    margin-top: 50px;
+    padding: 20px;
     border: solid 1px #000000;
     border-radius: 10px;
     background-color: #ffffff;
+    text-align: left;
+}
+
+.Button {
+    border: solid black 1px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.Button:hover {
+    background-color: #cf0e32;
 }

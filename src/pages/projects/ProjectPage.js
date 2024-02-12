@@ -76,7 +76,6 @@ function ProjectPage() {
             {documentations.results.length ? (
                 documentations.results.map(documentations => (
                     <>
-                        <p>Documentation: {documentations.id}</p>
                         <Documentation
                         key={documentations.id}
                         {...documentations}
@@ -94,5 +93,6 @@ function ProjectPage() {
         </div>
     )
 }
+// Double Documentation snippet: after refresh/ revisit
 
 export default ProjectPage;

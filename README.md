@@ -170,6 +170,9 @@ Spare the naming anxiety:
 - The feature poster is manditory, an error message will appear if they refuse to publish one, but the other fields are optional. For many artists/ illustrators, making up a name or a description for their project can be a source of anxiety, so HiDoc don't expect them to provided that right away.
 - Warning messages are present on all fields, which makes sense for the Deplyed Link that will reject an invalid URL. But for Title and description, they don't have any known uses but they do provide merits for potential unknown bugs.
 
+Documentation
+---
+- Owner of a project can add paragraphs, writing about their project and add content at any time.
 
 User stories:
 ===
@@ -222,9 +225,9 @@ As a signed in user, who have clicked the watch button for any project, I can cl
 
 Unsolved
 ===
-Authenticated CRUD documentation:
+Double create documentation:
 ---
-- At the moment, it is possible to render a create documentation form only to the owner of any project. However, the delete documentation button isn't exclusive to the owner. Therefore, the documentation feature remain hidden. The code that allow for documentation remains, so that it can be resumed in the future as future featres.
+- Both Project.js and ProjectPage.js have the same create documentation code snippet. The snippet inside Projects.js make sure the created documentation appear before refresh, the block inside ProjectPage.js make sure the documentation appear after refresh/ revisit. This does not affect the functionality, but it can cause confusion and accidental bugs during future mainatainance/ updates.
 
 
 Deployment

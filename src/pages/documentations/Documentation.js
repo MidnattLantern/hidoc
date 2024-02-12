@@ -43,14 +43,15 @@ const Documentation = (props) => {
 
     return (
         <div className={styles.DocumentationCard}>
-            <p>content: {documentation_paragraph}</p>
+            <p>{documentation_paragraph}</p>
 
             {is_owner ? (
                 <>
                     <Button
-                onClick={handleDeleteDocumentation}>
-                Owner's Delete
-            </Button>
+                    className={styles.Button}
+                    onClick={handleDeleteDocumentation}>
+                    Delete documentation
+                    </Button>
                 </>
             ) : (
                 <></>

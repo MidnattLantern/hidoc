@@ -42,3 +42,9 @@ Watch project
 My projects
 ---
 - My projects page render all projects belonging to the the art account.
+
+Documentation
+---
+- If owner of any project, can write text and add documentation.
+- If owner of any project, can delete previously added documentations.
+- If not owner, neither the create documentation or delete documentation button are visible.

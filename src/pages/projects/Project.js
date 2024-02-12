@@ -84,7 +84,6 @@ const handleDeleteDocumentation = async () => {
             results: [
                 {
                     ...prevProject.results[0],
-//                        documentations_count: prevProject.results[0].documentations_count -1,
                 },
             ],
         }));
@@ -101,15 +100,10 @@ const handleDeleteDocumentation = async () => {
 
     const handleWatchProject = async () => {
         try {
-
-            // Log a message before making the API call
-            console.log('Sending POST request to /watch-projects/ with data:', { project:id });
-
+//            console.log('Sending POST request to /watch-projects/ with data:', { project:id });
             const {data} = await axiosRes.post('/watch-projects/', {project:id});
-
-            // Log the response data after a successful API call
-            console.log('Successfully received data from the API:', data);
-            console.log('Watching project')
+//            console.log('Successfully received data from the API:', data);
+//            console.log('Watching project')
 
             setProjects((prevProjects) => ({
                 ...prevProjects,
@@ -120,23 +114,17 @@ const handleDeleteDocumentation = async () => {
                 }),
             }));
         } catch(err){
-            // Log any errors that occur during the API call
-            console.error('Error during API call:', err);
-            console.log('Likely error: already watching project')
+//            console.error('Error during API call:', err);
+//            console.log('Likely error: already watching project')
         }
     };
 
     const handleUnwatchProject = async () => {
         try {
-
-        // Log a message before making the API call
-        console.log('Sending DELETE request to /watch-projects/ with data:', { project: id, watch_proj_id });
-
-            await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
-
-        // Log a message after a successful API call
-        console.log('Successfully deleted watch project:', watch_proj_id);
-        console.log('Unwatching project')
+//        console.log('Sending DELETE request to /watch-projects/ with data:', { project: id, watch_proj_id });
+        await axiosRes.delete(`/watch-projects/${watch_proj_id}`);
+//        console.log('Successfully deleted watch project:', watch_proj_id);
+//        console.log('Unwatching project')
         
             setProjects((prevProjects) => ({
                 ...prevProjects,
@@ -147,9 +135,8 @@ const handleDeleteDocumentation = async () => {
                 }),
             }));
         } catch(err){
-    // Log any errors that occur during the API call
-    console.error('Error during API call:', err);
-    console.log('Likely error: already unwatched project')
+//    console.error('Error during API call:', err);
+//    console.log('Likely error: already unwatched project')
         }
     }
 
@@ -312,15 +299,14 @@ const handleDeleteDocumentation = async () => {
 
                 {documentations.results.length ? (
                 documentations.results.map(documentations => (
-                    <>
-                        <p>Documentation: {documentations.id}</p>
+                    <div>
                         <Documentation
                         key={documentations.id}
                         {...documentations}
                         setProject={setProject}
                         setDocumentations={setDocumentations}
                         />
-                    </>
+                    </div>
                 ))
             ) : (
                 <></>
@@ -329,5 +315,6 @@ const handleDeleteDocumentation = async () => {
         </div>
     )
 }
+// Double Documentation snippet: before refresh/ revisit
 
 export default Project
