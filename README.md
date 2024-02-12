@@ -6,6 +6,9 @@ HiDoc is designed to complement existing artist sharing platforms with niche fea
 
 There are many reasons why an artist might want to document their art projects, mainly to save credibility. The ambition with the HiDoc project is that artists can link to a HiDoc project page in their description, reducing plagiarism, where AI-generated artwork is discredited since the process of AI-generated art cannot be documented. With HiDoc, human artists with a certain artistic direction are not accused of using AI since that can be documented.
 
+HiDoc is built upon React/ React Bootstrap, connected to a Django API trough Axios.
+
+
 More features will come in the future, such as documenting images alongside paragraphs.
 
 Deployed link: https://hidoc-144446eddf75.herokuapp.com/
@@ -172,14 +175,47 @@ Not found:
 - The route dom will render this page if it fails to render any other URL-link.
 
 
-HiDoc is built upon React/ React Bootstrap.
+Future features:
+===
+- Images as documentation.
+- Edit documentation paragraph.
+- Link to a project profile.
+- Search bar.
+- Reassign the ordering of documentations.
+- Multiple deployed links.
+- Hyperlink support for documentation.
+- Edit hyperlink documentation.
+- Watch artist alongside watch project.
+- Blur poster, or documentation image.
+- Unlisted project, preventing it from appearing on the Browse page, and restricting the Watch Project feature.
+- Optional dark theme (colours are easier to read with dark surroundings).
 
-Theme colour HEX: #e35e8a
+Underdelivered features
+---
+- Include an image as a part of project documentation. There are traces of code with attempts to achieve these features, which remain undeleted so that they can be implemented as future features.
 
-small screen CSS:
+
+Appearance
+===
+Theme colour HEX:
+#e35e8a
+
+Small screen CSS:
 @media only screen and (max-width: 600px) {}
 
-Setup:
+Font:
+Quicksand
+Edu SA Beginner (unused)
+
+The user interface will evolve with time, putting the documentation on the spotlight.
+
+
+Wireframes
+===
+(screenshots of wireframes)
+
+
+Technology Setup:
 ===
 
 NPM
@@ -213,12 +249,10 @@ Routing
 This setup will enable the navigation bar to render content depending on what button the user clicks.
 - Inside App.js, add <Route> for each item that should be rendered. Include exact.
 
-
 Font Awesome:
 ---
 - HiDoc uses icons borrowed from Font Awesome.
 - Installment of Font Awesome is a string inside `public > index.html`
-
 
 Axios and API request:
 ---
@@ -226,11 +260,123 @@ Axios and API request:
 - Axios is used to link the frontend and backend. In terminal:
 `npm install axios`
 
-
 Infinite scroll:
 ---
 - In terminal:
 `npm install react-infinite-scroll-component`
+- Infinite scroll optimize the communication with the API when loading content.
+
+
+Validation:
+===
+This can also be found inside the validation.md file
+
+Validated using https://jshint.com/ 
+Ignored warnings:
+- 'import' is only available in ES6 (use 'esversion: 6').
+- 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+- 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+- 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+- 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+- 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+- 'Unclosed regular expression. (inside return())
+- 'Unrecoverable syntax error.
+
+Checked files:
+- ProjectsPage.js
+- ProjectPage.js
+- ProjectEditForm.js
+- ProjectCreateForm.js
+- Project.js
+- DocumentationCreateForm.js
+- Documentation.js
+- SignUpForm.js
+- SignInForm.js
+- SearchArtists.js
+- ArtistPage.js
+- useRedirect.js
+- useClickOutsideToggle.js
+- CurrentUserContext.js
+- AccountDataContext.js
+- NotFound.js
+- NavBar.js
+- Avatar.js
+- Asset.js
+
+Validated using https://jigsaw.w3.org/css-validator/ 
+Checked files:
+- SignUpForm.module.css
+- SignInForm.module.css
+- ProjectsPage.module.css
+- ProjectPage.module.css
+- ProjectEdit.module.css
+- ProjectCreate.module.css
+- Project.module.css
+- NotFound.module.css
+- NavBar.module.css
+- MoreDropdown.module.css
+- DocumentationCreateForm.module.css
+- Documentation.module.css
+- Avatar.module.css
+- Asset.module.css
+- ArtistPage.module.css
+- Artist.module.css
+
+
+Manual testing:
+===
+This can also be found inside the manual testing.md file
+
+Sign in/out redirect:
+---
+- If signed in, cannot access the sign-in page.
+- If signed in, cannot access the sign-up page.
+- If signed out, cannot access the create project page.
+
+Sign in/up/out:
+---
+- If signed out, can sign up with a new artist account, if the form is valid.
+- If the signup form is invalid, warning messages appear. (sign-up error message demonstration image)
+- If signed out, can sign in with existing credentials, if the form is valid.
+- If the sign-in form is invalid, warning messages appear. (sign-in error messages demonstration image)
+- If signed in, clicking "sign out" will sign said user out.
+
+404:
+---
+- If a link to a non-existing project, the message "this project does not exist" will appear.
+- If inside an invalid page, a 404 message appears (screenshot of /sauce demonstration).
+
+Navigation bar options:
+---
+- If signed out, the navigation bar options are: "Browse", "Sign in", and "Sign up".
+- If signed in, the navigation bar options are: "Browse", "Create project", "Watch List", "Sign out", and "My projects".
+
+CRUD project:
+- The Browse page can retrieve all projects on HiDoc.
+- Can create a project, where the image is mandatory, and the "Title", "Description", and "Deployed link" allow empty input.
+- A warning message occurs if the user doesn't provide an image.
+- A warning message occurs if the user applies an invalid URL in the Deplyed link.
+- If the owner of any project, an option icon appears in the top right corner.
+- The owner of a project can edit their project, changing the image, title, description and deployed link.
+- The owner of a project can delete the project.
+
+Watch project
+---
+- If not owner, the option to watch is available.
+- If clicking "Watch project", the appearance of that button changes to "Unwatch project".
+- If clicking "Unwatch project", the appearance of that button changes to "Watch project".
+- If not watching any projects, the "watch list" view renders a message: "Projects you're watching will appear here".
+- If watching any projects, the "watch list" view renders all projects where said user clicked "watch project".
+
+My projects
+---
+- My projects page renders all projects belonging to the art account.
+
+Documentation
+---
+- If the owner of any project, can write text and add documentation.
+- If the owner of any project, can delete previously added documentation.
+- If not the owner, neither the create documentation nor delete documentation button are visible.
 
 
 Deployment
@@ -258,76 +404,49 @@ Run:
 - In terminal:
 `npm start`
 You may need to change the directory
-...
-
-
-Components:
-===
-Most JavaScript components can be found inside `src > components`, exceptions are documented later,
-Every corresponding CSS component can be found inside `src > styles`, 
-These details are important if the `.js` needs to be relocated. In that case, the directory path needs to be edited inside `apps.py`.
 
 
 Agile development:
 ===
 This section covers the tactical approach taken before and during development.
 
-The user stories list priority features with a number. The higher the number, the less important those features are. HiDoc uses an agile approach, meaning the less important user stories were only developed after the current priority was polished to a standard sufficient to be deployed.
+Waterfall:
+HiDoc is a waterfall project until these features are complete:
+- sign up
+- sign in
+- sign out
+- create project
+- edit project
+- delete project
+- browse projects
+- watch project
+- unwatch project
+- browse watching projects
 
-HiDoc is a project following criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfied all the expectations. To secure the highest chance of passing the expectations, this project follows a similar model to that training project. These are the features on a table from the Code Institutes training project, as well as hot HiDoc remix features:
-- CI Training project - HiDoc
-- post - project
-- like - watch
-- comment - documentation
-- follow - watch list
+One these features are complete, additional features are agile, meaning HiDoc can afford compromises of additional features before February 13:th.
+
+Referenced by Code Institute's proejct Moments:
+---
+HiDoc is a project following criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfied all the expectations. To secure the highest chance of passing the expectations, this project follows a similar model to that training project.
 The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one.
 
-Better underpromising than an unstable product
+Better underpromising than delivering an unstable product:
 ---
-There is no recorded evidence, but at a point during development, HiDoc's functionality was all set. There was a search bar that would filter the Browse page according to its text input. There was a watching projects section that would filter according to who was signed in and what projects they were watching. There was a search artist that would reveal a list of all the artists on HiDoc, and the "my page" would list all the projects of that artist.
-
-I regret to document this, but I had to cut out of these valuable features.
-
-These features are not available on the first release. With these named features, you couldn't sign up, create a new project or delete a project. During the attempt to recover the CRUD functionality, the filtering system crashed. I did all I could to recover both the CRUD functionality and the filtering options before the first release (13:th February), however, neither I, nor my mentor, nor my very patient tutors were able to recover them both. After severe panic attacks and hopeless evenings, I, unfortunately, had to take the agile approach to hide the filter features on the front end. The code and attempts for the filtering options are still in the source code so that they can be implemented as future features.
-
-The "watch project" feature remains "watch project" in the source code, but has temporarily been renamed "like project" in the UI to make sense with the current context.
-
-As of documenting this, there are five days left. I need to cut out features so that I can polish the user interface and clean up the code.
-
-Artistic therapy as agile development
----
-As I'm documenting this, I've gone through enough stress and many panic attacks throughout the development of HiDoc, and at this point, I'm drained. I can't do much more back and logic, my hands are shaking and my head is hot. At the bottom of the abyss, I remembered what I enjoyed the most throughout my journey in the Full Stack Course: CSS styling. There are five days left until my deadline. Instead of recovering the features that require filtering, I'm spending my energy on the visual presentation. HiDoc didn't have much visuals going on before this point, but that lack became my therapy for the moment.
+Due to burnout, there are some compromises. The source code have traces of the following features:
+- find other artists
+- search projects/ artists
+- edit documentation
+- add image to documentation
+These features are not available on the first release. But the code remain in the source code, so that they can be resumed as future features.
 
 Abounded features
 ---
-There are some unused features left in the code. These features during development were deemed unnecessary, or unprioritized. This was an agile approach, to not delete them in case they would be of value in the future. Some of those features are:
+There are some features abounded, deemed irrelevant for what HiDoc is trying to achieve. During early development, they seemed like relevant featueres. These are the features:
 - the ability to watch an artist,
 - the ability to search artists,
 - a watch project counter,
 - a watch artist counter,
 - commenting on a project.
-
-Underdelivered features
----
-These features couldn't be delivered due to incompetence:
-- include an image as a part of project documentation.
-There are traces of code with attempts to achieve these features, which remain undeleted so that they can be implemented as future features when I've had more time to figure things out.
-
-
-
-Features
-===
-
-Project create and edit form
----
-Spare the naming anxiety:
-- When an artist account creates a new project, they have four options: upload an image ("feature poster"), give the project a title, give the project a description, and a hyperlink to any website, such as Artstation where they've also uploaded the project.
-- The feature poster is mandatory, an error message will appear if they refuse to publish one, but the other fields are optional. For many artists/ illustrators, making up a name or a description for their project can be a source of anxiety, so HiDoc doesn't expect them to provide that right away.
-- Warning messages are present on all fields, which makes sense for the Deplyed Link that will reject an invalid URL. But for Title and description, they don't have any known uses but they do provide merits for potential unknown bugs.
-
-Documentation
----
-- The owner of a project can add paragraphs, write about their project and add content at any time.
 
 
 
