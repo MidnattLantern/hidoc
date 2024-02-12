@@ -31,8 +31,6 @@ const Project = (props) => {
         watch_proj_id,
         setProjects,
         deployed_link,
-
-//        projectPage,
     } = props;
 
     // test
@@ -299,7 +297,18 @@ const handleDeleteDocumentation = async () => {
                 </Col>
             </Row>
 
-
+            {currentUser && is_owner ? (
+                    <>
+                    <DocumentaitonCreateForm
+                    project={id}
+                    setProject={setProject}
+                    setDocumentations={setDocumentations}
+                    />
+  
+                    </>
+                ) : (
+                <></>
+                )}
 
                 {documentations.results.length ? (
                 documentations.results.map(documentations => (

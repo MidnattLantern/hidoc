@@ -44,11 +44,17 @@ const Documentation = (props) => {
     return (
         <div className={styles.DocumentationCard}>
             <p>content: {documentation_paragraph}</p>
-            <Button
-            onClick={handleDeleteDocumentation}
-            >
-                Delete
+
+            {is_owner ? (
+                <>
+                    <Button
+                onClick={handleDeleteDocumentation}>
+                Owner's Delete
             </Button>
+                </>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

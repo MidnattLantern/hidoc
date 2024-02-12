@@ -90,7 +90,7 @@ function ArtistPage() {
 
         ) : (
             <Container>
-                <p> failed to load </p>
+                <p> No projects. </p>
             </Container>
         )}
     </>

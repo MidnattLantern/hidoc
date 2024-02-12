@@ -73,9 +73,6 @@ function ProjectPage() {
                 </>
             )}
 
-
-
-
             {documentations.results.length ? (
                 documentations.results.map(documentations => (
                     <>
