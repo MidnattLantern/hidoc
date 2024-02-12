@@ -8,7 +8,6 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { AccountDataProvider } from './contexts/AccountDataContext';
 
 ReactDOM.render(
-//  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <AccountDataProvider>
@@ -16,7 +15,6 @@ ReactDOM.render(
         </AccountDataProvider>
       </CurrentUserProvider>
     </Router>,
-//  </React.StrictMode>,
   document.getElementById("root")
 );
 

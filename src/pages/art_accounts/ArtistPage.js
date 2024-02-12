@@ -41,7 +41,7 @@ function ArtistPage() {
                 }));
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err)
+//                console.log(err)
             }
         };
         fetchData();
@@ -55,7 +55,7 @@ function ArtistPage() {
                 setProjects(data)
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err);
+//                console.log(err);
             }
         };
         fetchProjects();

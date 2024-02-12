@@ -37,7 +37,7 @@ const Documentation = (props) => {
                 results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
             })));
         } catch (err) {
-            console.log(err)
+//            console.log(err)
         }
     };
 

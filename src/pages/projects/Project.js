@@ -52,7 +52,7 @@ const Project = (props) => {
                 setProject({ results: [project] });
                 setDocumentations(documentations);
             } catch (err) {
-                console.log(err)
+//                console.log(err)
             }
         };
 
@@ -74,7 +74,7 @@ const Project = (props) => {
             await axiosRes.delete(`/projects/${id}/`);
             history.goBack();
         } catch (err) {
-            console.log(err);
+//            console.log(err);
         }
     };
 
@@ -97,7 +97,7 @@ const handleDeleteDocumentation = async () => {
             results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
         })));
     } catch (err) {
-        console.log(err)
+//        console.log(err)
     }
 };
 

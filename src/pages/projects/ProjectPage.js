@@ -38,7 +38,7 @@ function ProjectPage() {
                     console.log("404 error, this project does not exist.")
                     setProject404(true);
                 }
-                console.log(err);
+//                console.log(err);
             }
         };
 

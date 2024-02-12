@@ -82,7 +82,7 @@ function ProjectEditForm() {
             await axiosReq.put(`/projects/${id}/`, formData);
             history.push(`/projects/${id}`)
         } catch(err){
-            console.log(err)
+//            console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }

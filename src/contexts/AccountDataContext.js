@@ -29,7 +29,7 @@ export const AccountDataProvider = ({ children }) => {
                     popularArtists: data,
                 }));
             } catch(err){
-                console.log(err)
+//                console.log(err)
             } 
         };
 
