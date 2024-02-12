@@ -8,10 +8,10 @@ There are many reasons why an artist might want to document their art projects, 
 
 HiDoc is built upon React/ React Bootstrap, connected to a Django API trough Axios.
 
-
 More features will come in the future, such as documenting images alongside paragraphs.
 
 Deployed link: https://hidoc-144446eddf75.herokuapp.com/
+API repository: https://github.com/MidnattLantern/HiDoc-API.git 
 
 User stories:
 ---
@@ -428,7 +428,7 @@ One these features are complete, additional features are agile, meaning HiDoc ca
 Referenced by Code Institute's proejct Moments:
 ---
 HiDoc is a project following criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfied all the expectations. To secure the highest chance of passing the expectations, this project follows a similar model to that training project.
-The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one.
+The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one. There are reused models borrowed from the training proejct, but no code have been copy-pasted.
 
 Better underpromising than delivering an unstable product:
 ---
@@ -449,7 +449,6 @@ There are some features abounded, deemed irrelevant for what HiDoc is trying to 
 - commenting on a project.
 
 
-
 Unsolved
 ===
 Double create documentation:
@@ -467,12 +466,13 @@ Deployment
 `web: serve -s build`
 `"engines": {"node": "16.13.0"}`
 
-
 Credits:
 ===
-Heavy references from other projects are commented
-Reference: Code Institute
+Referenced/ inspired by Code Institute's project Moments.
 Icons: Font Awesome
+Logo and some icons are designed by Alma Isaksson.
+Developed by Alma Isaksson.
+Example projects for demostration purposes are painted by Alma Isaksson.
 Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/about?classification=Handwriting
 Paragraph Font: Quicksand https://fonts.google.com/specimen/Quicksand/about?query=Quicksand&stroke=Sans+Serif
 The "Asset" asset is borrowed from Code Institute's project Moments
