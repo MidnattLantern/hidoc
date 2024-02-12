@@ -1,12 +1,12 @@
 HiDoc
 ===
-HiDoc is a platform designed for artists and illustrators to share and document their creative process. Unlike other art-sharing platforms such as ArtStation, DeviantArt, X, or Pinterest, HiDoc is optimized for documenting the creative process rather than just the finished product. The current versioin of the platform allows artists to document their artwork by writing paragraphs that record the date of documentation. The  poster can be updated whenever they want. They can also leave links to any site where they want to be seen, using the deployed link feature. 
+HiDoc is a platform designed for artists and illustrators to share and document their creative process. Unlike other art-sharing platforms such as ArtStation, DeviantArt, X, or Pinterest, HiDoc is optimized for documenting the creative process rather than just the finished product. The current version of the platform allows artists to document their artwork by writing paragraphs that record the date of the documentation. The poster can be updated whenever they want. They can also leave links to any site where they want to be seen, using the deployed link feature. 
 
-HiDoc is designed to complement existing artist sharing platforms with niche features that are appropriate for documenting the creative process. Therefore, HiDoc does not have a like or follow feature since that does not contribute to the value of documentation. It does however, have a "watch project" feature that allows users to save and keep track of interesting projects.
+HiDoc is designed to complement existing artist-sharing platforms with niche features that are appropriate for documenting the creative process. Therefore, HiDoc does not have a like or follow feature since that does not contribute to the value of documentation. It does, however, have a "watch project" feature that allows users to save and keep track of interesting projects.
 
-There are many reasons why an artist might want to document their art projects, mainly to save credibility. The ambition with the HiDoc project is that artists can link to a HiDoc project page in their description, reducing plagiarism, where AI-generated artwork is discredited since the process of AI-generated art cannot be documented. With HiDoc, human artists with a certain artistic direction are not accused of using AI since that can be documented.
+There are many reasons why an artist might want to document their art projects, mainly to save credibility. The ambition of the HiDoc project is that artists can link to a HiDoc project page in their description, reducing plagiarism, where AI-generated artwork is discredited since the process of AI-generated art cannot be documented. With HiDoc, human artists with a certain artistic direction are not accused of using AI since that can be documented.
 
-HiDoc is built upon React/ React Bootstrap, connected to a Django API trough Axios.
+HiDoc is built upon React/ React Bootstrap, connected to a Django API through Axios.
 
 More features will come in the future, such as documenting images alongside paragraphs.
 
@@ -33,10 +33,10 @@ Sign out:
 - As a signed-in user, I can sign out.
 
 My projects:
-- As a signed-in user, I can access my projects in a "My projects" page.
+- As a signed-in user, I can access my projects on a "My Projects" page.
 
 Create a project:
-- As a signed-in user, I can click a button that lets me create a new project, so that I can start documenting that project.
+- As a signed-in user, I can click a button that lets me create a new project so that I can start documenting that project.
 
 Edit projects:
 - As a signed-in user, I can click a button for any of my projects, that lets me change its content.
@@ -47,10 +47,10 @@ Delete projects:
 Browse:
 - As a user, I can browse all public projects. So that I can find inspiration.
 
-Watch list: As a signed-in user, I can find a list of all projects I've clicked Watch so that I can save all the projects I - have interest in.
+Watch list: As a signed-in user, I can find a list of all projects I've clicked Watch so that I can save all the projects I - have an interest in.
 
 Browse detail:
-- As a user, I can see the project in more detail, so that I can acces the watch button and the documentations.
+- As a user, I can see the project in more detail, so that I can access the watch button and the documentation.
 
 Watch button:
 - As a signed-in user, looking at any project, I can click a Watch button that will add that project to my Watch list. So that I can save all the projects I have an interest in.
@@ -59,36 +59,36 @@ Unwatch button:
 - As a signed-in user, who has clicked the watch button for any project, I can click it again to unwatch it. So the projects I don't want on my watch list are gone.
 
 Add documentation:
-- As a owner of a project, I can add paragraphs to my project, so that I can document the proccess.
+- As an owner of a project, I can add paragraphs to my project, so that I can document the process.
 
 Delete documentation:
-- As a owner of a project, I can delete any documentation I've created.
+- As an owner of a project, I can delete any documentation I've created.
 
 Project title:
-- As a owner of a project, I can give it a title, so that my project can make an impression with a large text.
+- As an owner of a project, I can give it a title, so that my project can make an impression with a large text.
 
 Edit project title:
-- As a owner of a project, I can edit the title, so that the project is up-to-date as my project take shape.
+- As an owner of a project, I can edit the title, so that the project is up-to-date as my project takes shape.
 
 Project description:
-- As a owner of a project, I can give it a description, so that people can read about my project.
+- As an owner of a project, I can give it a description, so that people can read about my project.
 
 Edit project description:
-- As a owner of a project, I can edit the description, so that the project is up-to-date as mt project take shape.
+- As an owner of a project, I can edit the description, so that the project is up-to-date as mt project takes shape.
 
 Deployed link:
-- As a owner of a project, I can add a deployed link, so that people can find me wherever I want to be seen, such as Artstation.
+- As an owner of a project, I can add a deployed link, so that people can find me wherever I want to be seen, such as Artstation.
 
 Edit deployed link:
-- As a owner of a project, I can edit the deployed link, in case I change my mind about where I want to be be visisble.
+- As an owner of a project, I can edit the deployed link, in case I change my mind about where I want to be visible.
 
 HiDoc Features
 ===
 Navigation bar "Navbar":
 ---
-(screenshot image of navbar-demo)
+(screenshot image of navbar demo)
 - This component satisfies the "Navbar" user story.
-- Users can navigate through "Browse", "Create project", "Watch list", "Sign out/in/up", "My projects".
+- Users can navigate through "Browse", "Create project", "Watch list", "Sign out/in/up", and "My projects".
 - The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implementing the use of `Navbar.Toggle` and `Navbar.Collapse`.
 - `Navbar.Toggle` makes up the 'hamburger' button.
 - `Navbar.Collapse` wraps the items that should be hidden inside the 'hamburger' button.
@@ -96,9 +96,9 @@ Navigation bar "Navbar":
 
 Sign-in page:
 ---
-(screenshot image of signin-demo)
+(screenshot image of sign in-demo)
 - This feature satisfies the "Sign-in" user story.
-- useSetCurrentUser is a component that let HiDoc tell whoever is signed in.
+- useSetCurrentUser is a component that lets HiDoc tell whoever is signed in.
 - Errors catch invalid forms and return a message to the user.
 - Axios make communication with the API. It can get data with valid credentials.
 - Location: `src > pages > auth`.
@@ -118,17 +118,17 @@ Browse:
 - Wraps around the project component.
 - Using AxiosReq to get all the projects on the API.
 - Show: poster, title, owner, description, and date.
-- Clicking the pink button takes the user to proejct detail.
+- Clicking the pink button takes the user to the project detail.
 - Location: `src > pages > projects`.
 
 Browse detail:
 ---
 - This feature satisfies the "browse detail" user story.
 - Wraps around the project component.
-- Show: poster, title, deployed link, owner, description, date, watch button, create documentation, and documentations.
-(screenshot image of signedout-projectdetail-demo)
-(screenshot image of signedin-owner-projectdetai-demo)
-(screenshot image of signedin-projectdetai-demo)
+- Show: poster, title, deployed link, owner, description, date, watch button, create documentation, and documentation.
+(screenshot image of signed-out-project-detail-demo)
+(screenshot image of signed-in-owner-project detail-demo)
+(screenshot image of signed-in-project detail-demo)
 - Location: `src > pages > projects`
 
 Create project:
@@ -136,17 +136,17 @@ Create project:
 (screenshot image of create-demo)
 - This feature satisfies the "create project" user story.
 - AxiosReq communicate with the API, allowing the user to make changes to the API.
-- The image input is manditory, the other fields are optional.
-- An empty title will show a icon instead.
+- The image input is mandatory, the other fields are optional.
+- An empty title will show an icon instead.
 - An empty description will show "created by user" instead.
 - Location: `src > pages > projects`.
 
 Watch project:
 ---
-(screenshot image of watchproject-demo)
+(screenshot image of watch project demo)
 - This feature satisfies the "watch project" user story.
-- This feature reuse the Browse component, only showing projects the user is watching.
-- If the user isn't watching any projects, a message appear, like the image above.
+- This feature reuses the Browse component, only showing projects the user is watching.
+- If the user isn't watching any projects, a message appears, like the image above.
 
 Sign out:
 ---
@@ -155,8 +155,8 @@ Sign out:
 
 My projects:
 ---
-(screenshot of myprojects-demo)
-- This feature satisfies the "my proejcts" user story.
+(screenshot of my projects-demo)
+- This feature satisfies the "my projects" user story.
 - Axios fetch data from API comparing the art account ID, to render projects belonging to that user.
 - Infinite scroll optimize project loading.
 - Showing the username of the art account, and how many projects they've made.
@@ -164,15 +164,15 @@ My projects:
 
 Edit project:
 ---
-(screenshot of editproject-demo)
-- Follow the same model as create project module, but it get existing data using axios, depending on project ID, and overwrite existing data, instad of creating data.
+(screenshot of edit project demo)
+- Follow the same model as creating the project module, but it gets existing data using Axios, depending on project ID, and overwrites existing data, instead of creating data.
 - Location: `src > pages > projects`.
 
 Not found:
 ---
-(screenshot of notfound-demo)
+(screenshot of not found-demo)
 - Location: `src > components`.
-- The route dom will render this page if it fails to render any other URL-link.
+- The route dom will render this page if it fails to render any other URL link.
 
 
 Future features:
@@ -181,7 +181,7 @@ Future features:
 - Edit documentation paragraph.
 - Link to a project profile.
 - Search bar.
-- Reassign the ordering of documentations.
+- Reassign the ordering of documentation.
 - Multiple deployed links.
 - Hyperlink support for documentation.
 - Edit hyperlink documentation.
@@ -207,7 +207,7 @@ Font:
 Quicksand
 Edu SA Beginner (unused)
 
-The user interface will evolve with time, putting the documentation on the spotlight.
+The user interface will evolve with time, putting the documentation in the spotlight.
 
 
 Wireframes
@@ -264,7 +264,7 @@ Infinite scroll:
 ---
 - In terminal:
 `npm install react-infinite-scroll-component`
-- Infinite scroll optimize the communication with the API when loading content.
+- Infinite scroll optimizes the communication with the API when loading content.
 
 
 Validation:
@@ -423,25 +423,25 @@ HiDoc is a waterfall project until these features are complete:
 - unwatch project
 - browse watching projects
 
-One these features are complete, additional features are agile, meaning HiDoc can afford compromises of additional features before February 13:th.
+Once these features are complete, additional features are agile, meaning HiDoc can afford compromises of additional features before February 13:th.
 
-Referenced by Code Institute's proejct Moments:
+Referenced by Code Institute's project Moments:
 ---
 HiDoc is a project following criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfied all the expectations. To secure the highest chance of passing the expectations, this project follows a similar model to that training project.
-The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one. There are reused models borrowed from the training proejct, but no code have been copy-pasted.
+The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one. There are reused models borrowed from the training project, but no code has been copy-pasted.
 
 Better underpromising than delivering an unstable product:
 ---
-Due to burnout, there are some compromises. The source code have traces of the following features:
+Due to burnout, there are some compromises. The source code has traces of the following features:
 - find other artists
-- search projects/ artists
+- Search projects/ artists
 - edit documentation
-- add image to documentation
-These features are not available on the first release. But the code remain in the source code, so that they can be resumed as future features.
+- Add image to documentation
+These features are not available on the first release. But the code remains in the source code so that they can be resumed as future features.
 
 Abounded features
 ---
-There are some features abounded, deemed irrelevant for what HiDoc is trying to achieve. During early development, they seemed like relevant featueres. These are the features:
+There are some features abounded, deemed irrelevant to what HiDoc is trying to achieve. During early development, they seemed like relevant features. These are the features:
 - the ability to watch an artist,
 - the ability to search artists,
 - a watch project counter,
@@ -470,9 +470,10 @@ Credits:
 ===
 Referenced/ inspired by Code Institute's project Moments.
 Icons: Font Awesome
-Logo and some icons are designed by Alma Isaksson.
+The logo and some icons are designed by Alma Isaksson.
 Developed by Alma Isaksson.
-Example projects for demostration purposes are painted by Alma Isaksson.
+Example projects for demonstration purposes are painted by Alma Isaksson.
 Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/about?classification=Handwriting
 Paragraph Font: Quicksand https://fonts.google.com/specimen/Quicksand/about?query=Quicksand&stroke=Sans+Serif
 The "Asset" asset is borrowed from Code Institute's project Moments
+Grammar and spell check using Grammarly.
