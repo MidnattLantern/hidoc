@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
+import styles from "../../styles/DocumentationCreateForm.module.css"
 
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -63,8 +65,11 @@ function DocumentationCreateForm(props) {
         }
     };
 
+    const isDocumentationEmpty = !documentation_paragraph.trim();
+
     return (
-        <div>
+        <div className={styles.DocumentationCreateFormCard}>
+            <p>Add documentation</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <InputGroup>
@@ -77,12 +82,13 @@ function DocumentationCreateForm(props) {
                     </InputGroup>
                 </Form.Group>
 
-                <button
-                disabled={!documentation_paragraph.trim()}
+                <Button
+                className={`${styles.Button} ${isDocumentationEmpty ? styles.Button : ''}`}
+                disabled={isDocumentationEmpty}
                 type="submit"
                 >
-                    submit
-                </button>
+                    Submit
+                </Button>
             </Form>
         </div>
     )

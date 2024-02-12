@@ -284,7 +284,7 @@ const handleDeleteDocumentation = async () => {
                 </Col>
             </Row>
 
-            {currentUser && is_owner ? (
+            {currentUser && is_owner && isProjDetail ? (
                     <>
                     <DocumentaitonCreateForm
                     project={id}

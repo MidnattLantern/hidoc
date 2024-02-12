@@ -229,6 +229,8 @@ Double create documentation:
 ---
 - Both Project.js and ProjectPage.js have the same create documentation code snippet. The snippet inside Projects.js make sure the created documentation appear before refresh, the block inside ProjectPage.js make sure the documentation appear after refresh/ revisit. This does not affect the functionality, but it can cause confusion and accidental bugs during future mainatainance/ updates.
 
+- The add documentation Submit button is supposed to have a white background, instead of a light blue, when the paragraph box is empty. This unsolved styling issue does not affect the functinonality of the documentation feature.
+
 
 Deployment
 ===

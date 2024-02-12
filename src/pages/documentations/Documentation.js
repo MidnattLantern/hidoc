@@ -13,6 +13,7 @@ const Documentation = (props) => {
         owner,
         documentation_paragraph,
 //future feature        documentation_image,
+        created_at,
         setProject,
         setDocumentations,
     } = props;
@@ -44,6 +45,7 @@ const Documentation = (props) => {
     return (
         <div className={styles.DocumentationCard}>
             <p>{documentation_paragraph}</p>
+            <p>Documentation date: {created_at}</p>
 
             {is_owner ? (
                 <>
