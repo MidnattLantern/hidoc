@@ -1,6 +1,178 @@
-HiDoc is built upon React/ React Bootstrap.
+HiDoc
+===
+HiDoc is a platform designed for artists and illustrators to share and document their creative process. Unlike other art-sharing platforms such as ArtStation, DeviantArt, X, or Pinterest, HiDoc is optimized for documenting the creative process rather than just the finished product. The current versioin of the platform allows artists to document their artwork by writing paragraphs that record the date of documentation. The  poster can be updated whenever they want. They can also leave links to any site where they want to be seen, using the deployed link feature. 
+
+HiDoc is designed to complement existing artist sharing platforms with niche features that are appropriate for documenting the creative process. Therefore, HiDoc does not have a like or follow feature since that does not contribute to the value of documentation. It does however, have a "watch project" feature that allows users to save and keep track of interesting projects.
+
+There are many reasons why an artist might want to document their art projects, mainly to save credibility. The ambition with the HiDoc project is that artists can link to a HiDoc project page in their description, reducing plagiarism, where AI-generated artwork is discredited since the process of AI-generated art cannot be documented. With HiDoc, human artists with a certain artistic direction are not accused of using AI since that can be documented.
+
+More features will come in the future, such as documenting images alongside paragraphs.
 
 Deployed link: https://hidoc-144446eddf75.herokuapp.com/
+
+User stories:
+---
+User stories for HiDoc can also be found on Github: https://github.com/users/MidnattLantern/projects/9 
+
+Navbar:
+- As a user, I can see a navigation bar from every page so that I can easily navigate around HiDoc. So that whatever I want to do is accessible.
+
+Navbar collapse:
+- As a user on a small screen/ small window, the navigation bar is hidden inside a 'hamburger' button. So that the navigation bar doesn't take up space on the small screen/ window.
+
+Sign Up:
+- As a user, I can sign up.
+
+Sign In:
+- As a user, I can sign in.
+
+Sign out:
+- As a signed-in user, I can sign out.
+
+My projects:
+- As a signed-in user, I can access my projects in a "My projects" page.
+
+Create a project:
+- As a signed-in user, I can click a button that lets me create a new project, so that I can start documenting that project.
+
+Edit projects:
+- As a signed-in user, I can click a button for any of my projects, that lets me change its content.
+
+Delete projects:
+- As a signed-in user, I can click a button for any of my projects, that lets me delete it and all its content.
+
+Browse:
+- As a user, I can browse all public projects. So that I can find inspiration.
+
+Watch list: As a signed-in user, I can find a list of all projects I've clicked Watch so that I can save all the projects I - have interest in.
+
+Browse detail:
+- As a user, I can see the project in more detail, so that I can acces the watch button and the documentations.
+
+Watch button:
+- As a signed-in user, looking at any project, I can click a Watch button that will add that project to my Watch list. So that I can save all the projects I have an interest in.
+
+Unwatch button:
+- As a signed-in user, who has clicked the watch button for any project, I can click it again to unwatch it. So the projects I don't want on my watch list are gone.
+
+Add documentation:
+- As a owner of a project, I can add paragraphs to my project, so that I can document the proccess.
+
+Delete documentation:
+- As a owner of a project, I can delete any documentation I've created.
+
+Project title:
+- As a owner of a project, I can give it a title, so that my project can make an impression with a large text.
+
+Edit project title:
+- As a owner of a project, I can edit the title, so that the project is up-to-date as my project take shape.
+
+Project description:
+- As a owner of a project, I can give it a description, so that people can read about my project.
+
+Edit project description:
+- As a owner of a project, I can edit the description, so that the project is up-to-date as mt project take shape.
+
+Deployed link:
+- As a owner of a project, I can add a deployed link, so that people can find me wherever I want to be seen, such as Artstation.
+
+Edit deployed link:
+- As a owner of a project, I can edit the deployed link, in case I change my mind about where I want to be be visisble.
+
+HiDoc Features
+===
+Navigation bar "Navbar":
+---
+(screenshot image of navbar-demo)
+- This component satisfies the "Navbar" user story.
+- Users can navigate through "Browse", "Create project", "Watch list", "Sign out/in/up", "My projects".
+- The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implementing the use of `Navbar.Toggle` and `Navbar.Collapse`.
+- `Navbar.Toggle` makes up the 'hamburger' button.
+- `Navbar.Collapse` wraps the items that should be hidden inside the 'hamburger' button.
+- Location: `src > pages > auth`.
+
+Sign-in page:
+---
+(screenshot image of signin-demo)
+- This feature satisfies the "Sign-in" user story.
+- useSetCurrentUser is a component that let HiDoc tell whoever is signed in.
+- Errors catch invalid forms and return a message to the user.
+- Axios make communication with the API. It can get data with valid credentials.
+- Location: `src > pages > auth`.
+
+Sign-up page:
+---
+(screenshot image of signup-demo)
+- This feature satisfies the "Sign-up" user story.
+- Errors catch invalid forms and return a message to the user.
+- Axios make communication with the API. It can create a new user with valid credentials.
+- Location: `src > pages > auth`.
+
+Browse:
+---
+(screenshot image of browse-demo)
+- This feature satisfies the "browse" user story.
+- Wraps around the project component.
+- Using AxiosReq to get all the projects on the API.
+- Show: poster, title, owner, description, and date.
+- Clicking the pink button takes the user to proejct detail.
+- Location: `src > pages > projects`.
+
+Browse detail:
+---
+- This feature satisfies the "browse detail" user story.
+- Wraps around the project component.
+- Show: poster, title, deployed link, owner, description, date, watch button, create documentation, and documentations.
+(screenshot image of signedout-projectdetail-demo)
+(screenshot image of signedin-owner-projectdetai-demo)
+(screenshot image of signedin-projectdetai-demo)
+- Location: `src > pages > projects`
+
+Create project:
+---
+(screenshot image of create-demo)
+- This feature satisfies the "create project" user story.
+- AxiosReq communicate with the API, allowing the user to make changes to the API.
+- The image input is manditory, the other fields are optional.
+- An empty title will show a icon instead.
+- An empty description will show "created by user" instead.
+- Location: `src > pages > projects`.
+
+Watch project:
+---
+(screenshot image of watchproject-demo)
+- This feature satisfies the "watch project" user story.
+- This feature reuse the Browse component, only showing projects the user is watching.
+- If the user isn't watching any projects, a message appear, like the image above.
+
+Sign out:
+---
+- This feature satisfies the "sign out" user story.
+- The signout button will sign out the user.
+
+My projects:
+---
+(screenshot of myprojects-demo)
+- This feature satisfies the "my proejcts" user story.
+- Axios fetch data from API comparing the art account ID, to render projects belonging to that user.
+- Infinite scroll optimize project loading.
+- Showing the username of the art account, and how many projects they've made.
+- Location: `src > pages > art_accounts`.
+
+Edit project:
+---
+(screenshot of editproject-demo)
+- Follow the same model as create project module, but it get existing data using axios, depending on project ID, and overwrite existing data, instad of creating data.
+- Location: `src > pages > projects`.
+
+Not found:
+---
+(screenshot of notfound-demo)
+- Location: `src > components`.
+- The route dom will render this page if it fails to render any other URL-link.
+
+
+HiDoc is built upon React/ React Bootstrap.
 
 Theme colour HEX: #e35e8a
 
@@ -89,30 +261,11 @@ You may need to change the directory
 ...
 
 
-Components/ Features:
+Components:
 ===
 Most JavaScript components can be found inside `src > components`, exceptions are documented later,
 Every corresponding CSS component can be found inside `src > styles`, 
 These details are important if the `.js` needs to be relocated. In that case, the directory path needs to be edited inside `apps.py`.
-
-Navigation bar "Navbar":
----
-- This component satisfies the "Navbar" user story.
-- Users can navigate through 
-- Uses { Navbar, Container, Nav } from React-Bootstrap
-- The navigation bar will collapse when the size isn't wide enough to fit the content. This is achieved by implementing the use of `Navbar.Toggle` and `Navbar.Collapse`.
-- `Navbar.Toggle` makes up the 'hamburger' button.
-- `Navbar.Collapse` wraps the items that should be hidden inside the 'hamburger' button.
-- Switch and route
-
-Sign-in page:
----
-- This feature satisfies the "Sign-in" user story.
-- This page is located inside `src > pages > auth`.
-
-Project(s):
----
-This should be addressed, there's "project" as in singular, and there's "projects" as in plural with an S at the end. During maintenance and future development, keep an eye on the S/ or lack thereof, at the end when working with project(s).
 
 
 Agile development:
@@ -176,53 +329,6 @@ Documentation
 ---
 - The owner of a project can add paragraphs, write about their project and add content at any time.
 
-User stories:
-===
-1. essential, without these stories, HiDoc cannot exist:
-- Navbar:
-As a user, I can see a navigation bar from every page so that I can easily navigate around HiDoc. So that whatever I want to do is accessible.
-- Navbar collapse:
-As a user on a small screen/ small window, the navigation bar is hidden inside a 'hamburger' button. So that the navigation bar doesn't take up space on the small screen/ window.
-- Sign Up:
-As a user, I can sign up.
-- Sign In:
-As a user, I can sign in.
-- Sign out:
-As a signed-in user, I can sign out.
-- Portfolio:
-As a signed-in user, I can see my name and all my projects on a portfolio page.
-- Create a project:
-As a signed-in user, inside my portfolio page, I can click a button that lets me create a new project for my property, and give it a name.
-- Edit projects:
-As a signed-in user, inside my portfolio page, I can click a button for any of my projects, that lets me change its name.
-- Delete projects:
-As a signed-in user, inside my portfolio page, I can click a button for any of my projects, that lets me delete it and all its content.
-- Add text object:
-As a signed-in user, inside my project, I can click a button that adds a text object.
-- Edit text object:
-As a signed-in user, inside my project, I can click a button that changes the content of an existing text object.
-- Delete text object:
-As a signed-in user, inside my project, I can click a button that deletes an existing text object.
-- Add image object:
-As a signed-in user, inside my project, I can click a button that adds an image object.
-- Delete image object:
-As a signed-in user, inside my project, I can click a button that deletes an existing image object.
-- Reassign object:
-As a signed-in user, inside my project, I can click and drag any object to rearrange the order they appear.
-
-2. Essential, HiDoc would be functional, but not complete without these:
-- Browse:
-As a user, I can browse all public projects. So that I can find inspiration.
-- Search artist:
-As a user, I can search for artists by entering their names and seeing their names appear with a hyperlink to their portfolio. So that I can find artists I know the name of.
-- Watch list: As a signed-in user, I can find a list of all projects I've clicked Watch so that I can save all the projects I have interest in.
-- Watch button:
-As a signed-in user, looking at any project, I can click a Watch button that will add that project to my Watch list. So that I can save all the projects I have an interest in.
-- Unwatch button:
-As a signed-in user, who has clicked the watch button for any project, I can click it again to unwatch it. So the projects I don't want on my watch list are gone.
-
-3. Optional, HiDoc don't need these, but they are valuable features:
-- Watch count: As a user, I can see how many people are watching a project. So that I know how much attention the project has.
 
 
 Unsolved

@@ -1,11 +1,9 @@
 import React, { useEffect , useState} from "react";
 
-import {
-    Container,
-} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
-
 import styles from "../../styles/ArtistPage.module.css";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";

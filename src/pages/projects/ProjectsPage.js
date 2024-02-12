@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-
 import styles from "../../styles/ProjectsPage.module.css";
 
 import Project from "./Project";
@@ -24,15 +23,11 @@ function ProjectsPage({ message, filter = "" }) {
     const currentUser = useCurrentUser();
 
     const [query] = useState("");
-//    const [query, setQuery] = useState("");
-//    const [query] = useState("");
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-//                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
                 const { data } = await axiosReq.get(`/projects/?${filter}`);
-//                setProjects(prev => ({ ...prev, results: data}));
                 setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
