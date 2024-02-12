@@ -213,6 +213,8 @@ The user interface will evolve with time, putting the documentation in the spotl
 Wireframes
 ===
 (screenshots of wireframes)
+- These images attempt to describe as much as possible about the goals of HiDoc.
+- These wireframes are guiding directors.
 
 
 Technology Setup:
