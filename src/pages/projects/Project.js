@@ -14,10 +14,8 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-// future feature
 import DocumentaitonCreateForm from "../documentations/DocumentationCreateForm";
 import Documentation from "../documentations/Documentation";
-
 
 // most from the api: https://hidoc-api-80e680483d64.herokuapp.com/
 const Project = (props) => {
@@ -149,27 +147,10 @@ const handleDeleteDocumentation = async () => {
         </div>
     )
 
-    return (
-        <div className={styles.ProjectCard}>
+    const textFields = (
+        <div>
 
-            <Row>
-                <Col>
-                    <Container>
-                        <Link to={`/projects/${id}`}>
-                            <Card.Img
-                            className={styles.PosterFrame}
-                            src={feature_poster}
-                            />
-                        </Link>
-                    </Container>
-                </Col>
-
-                <Col>
-                    <Container>
-
-                    {moreDropdown}
-
-                    <h1>{owner}</h1>
+<h1>{owner}</h1>
 
                         {isProjDetail && deployed_link !== "" ? (
                             <div>
@@ -278,11 +259,37 @@ const handleDeleteDocumentation = async () => {
                             </div>
                         )}
 
-
                     </div>
+
+        </div>
+    )
+
+    return (
+        <div className={styles.ProjectCard}>
+            <div>
+            <Row className="flex-column flex-md-row">
+                <Col>
+                    <Container>
+                        <Link to={`/projects/${id}`}>
+                            <Card.Img
+                            className={styles.PosterFrame}
+                            src={feature_poster}
+                            />
+                        </Link>
+                    </Container>
+                </Col>
+
+                <Col>
+                    <Container>
+
+                    {moreDropdown}
+                    {textFields}
+
+                    
                     </Container>
                 </Col>
             </Row>
+            </div>
 
             {currentUser && is_owner && isProjDetail ? (
                     <>

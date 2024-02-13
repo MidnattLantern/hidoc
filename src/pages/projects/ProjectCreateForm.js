@@ -139,8 +139,7 @@ function ProjectCreateForm() {
                 <Row className={styles.ProjectCreateFormCard}>
                     <Col>
                         <Container>
-                            <Form.Group
-                            >
+                            <Form.Group>
                                 {feature_poster ? (
                                     <>
                                         <figure>
@@ -178,7 +177,6 @@ function ProjectCreateForm() {
                                     {message}
                                 </Alert>
                             ))}
-
 
                         </Container>
                     </Col>
