@@ -22,12 +22,12 @@ function ProjectsPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
 
-    const [query, setQuery] = useState("goaty");
+    const [query] = useState("");
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const { data } = await axiosReq.get(`/projects/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(`/projects/?${filter}`);
                 setProjects(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -46,21 +46,11 @@ function ProjectsPage({ message, filter = "" }) {
 
     return (
         <div className={styles.ProjectsPageCard}>
-
             <Col>
-                <Form
-                    className={style.SearchBar}
-                    onSubmit={(event) => event.preventDefault()}
-                >
-                    <Form.Control
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    type="text"
-                    className="mr-sm-2"
-                    placeholder="search projects"
-                    />
-                </Form>
-
+            <Form
+            className={style.SearchBar}
+            onSubmit={(event) => event.preventDefault()}
+            />
                 {hasLoaded ? (
                     <>
                         {projects?.results?.length ? (

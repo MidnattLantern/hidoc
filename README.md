@@ -382,6 +382,11 @@ Documentation
 - If the owner of any project, can delete previously added documentation.
 - If not the owner, neither the create documentation nor delete documentation button are visible.
 
+Search-bar (completion)
+---
+- Can enter text in a field for the Browse and Watch list that will filter projects according to the text input.
+- Pressing enter won't interfere the page.
+
 
 Deployment
 ===
@@ -453,6 +458,17 @@ There are some features abounded, deemed irrelevant to what HiDoc is trying to a
 - commenting on a project.
 
 
+Resumed features/ completion
+===
+- Search-bar
+
+search-bar
+---
+- Before approaching this on the front-end, is it possible to search projects in the api? See the images below.
+(screenshots of search bar api)
+- This feature satisfies the search bar user story
+
+
 Unsolved
 ===
 Double create documentation:
@@ -469,6 +485,7 @@ Deployment
 - The Procfile was added with the following content:
 `web: serve -s build`
 `"engines": {"node": "16.13.0"}`
+(details on heroku goes here)
 
 Credits:
 ===
@@ -481,3 +498,9 @@ Theme Font: Edu SA Beginner https://fonts.google.com/specimen/Edu+SA+Beginner/ab
 Paragraph Font: Quicksand https://fonts.google.com/specimen/Quicksand/about?query=Quicksand&stroke=Sans+Serif
 The "Asset" asset is borrowed from Code Institute's project Moments
 Grammar and spell check using Grammarly.
+
+
+Project complementary
+===
+The first "prototype" verson had to be complemented to meet certain requirements, these features were added:
+- Search feature
