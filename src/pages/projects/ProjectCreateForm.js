@@ -162,7 +162,7 @@ function ProjectCreateForm() {
                                     >
                                         <Asset
                                         src={Upload}
-                                        message="JPG or PNG, max 1 MB" />
+                                        message="JPG or PNG" />
                                     </Form.Label>
                                 )}
                                 <Form.File

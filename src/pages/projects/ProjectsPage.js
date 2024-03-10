@@ -22,7 +22,7 @@ function ProjectsPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
 
-    const [query, setQuery] = useState("goaty");
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         const fetchProjects = async () => {

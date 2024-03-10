@@ -1,7 +1,6 @@
 // Future feature
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import styles from "../../styles/Documentation.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -12,9 +11,8 @@ const Documentation = (props) => {
     const {
         id,
         owner,
-        documentation_title,
         documentation_paragraph,
-        documentation_image,
+//future feature        documentation_image,
         created_at,
         setProject,
         setDocumentations,
@@ -47,10 +45,6 @@ const Documentation = (props) => {
     return (
         <div className={styles.DocumentationCard}>
             <p>{documentation_paragraph}</p>
-            <Image
-            src={documentation_image}
-            />
-            <p>{documentation_image}</p>
             <p>Documentation date: {created_at}</p>
 
             {is_owner ? (

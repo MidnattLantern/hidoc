@@ -480,12 +480,45 @@ Double create documentation:
 
 Deployment
 ===
+
+setup
+---
 - In package.json, the following line has been added inside the "scripts" section:
 `"Heroku-prebuild": "npm install -g serve"`
 - The Procfile was added with the following content:
 `web: serve -s build`
 `"engines": {"node": "16.13.0"}`
-(details on heroku goes here)
+- Make a final Git repository push before moving on. In the terminal, run:
+1. `git add .`
+2. `git commit -m "final deployment"`
+3. `git push`
+
+Heroku
+---
+- An account is required, this is the sign-up link:
+https://signup.heroku.com/login
+
+- From the page:
+https://dashboard.heroku.com/apps
+
+- At the top right, click "Create new app":
+(front_heroku_step_1)
+
+- Give the app a name, in HiDoc's case, the name "HiDoc" was given:
+(front_heroku_step_2)
+
+- Unlike the API, the front-end don't need any configuration setup. Jumping straight to the deployment section:
+(front_end_step_3)
+
+- Pick Github among the options, then search for the name of the repository, in HiDoc's case, "hidoc", then pick "connect" for the front-end repository "HiDoc":
+(front_end_step_4)
+
+- At the bottom of the page, click "Deploy branch":
+(front_end_step_5)
+
+- When finished, click "open app". This is the link to the front-end HiDoc:
+https://hidoc-144446eddf75.herokuapp.com/
+
 
 Credits:
 ===
