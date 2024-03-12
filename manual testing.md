@@ -1,19 +1,21 @@
+new manual testing front
+
 Sign in/out redirect:
 ---
 - If signed in, cannot access the sign-in page:
-If the navigation bar has the option "My Projects", the user is signed in. At this stage, by adding `/sign-in` in the url, the user will be prompted back to the main page.
+If the navigation bar has the option "My Projects", the user is signed in. At this stage, by adding `/sign-in` in the URL, the user will be prompted back to the main page.
 
 - If signed in, cannot access the sign-up page:
-This can be tested with the same method as for sign in, but adding `/sign-up` instead.
+This can be tested with the same method as for sign-in, but adding `/sign-up` instead.
 
 - If signed out, cannot access the create project page:
-If the navigation bar has the option "Sign up", the user is signed out. At this stage, by adding `/projects/create` in the url, the user will be prompted back to the main page.
+If the navigation bar has the option "Sign up", the user is signed out. At this stage, by adding `/projects/create` in the URL, the user will be prompted back to the main page.
 
 
 Sign in/up/out:
 ---
 - If signed out, can sign up with a new artist account, if the form is valid:
-This can be tested by being signed out and either click "sign up" in the navigation bar or add `/sign-up` in the url. Then, make a valid submittion.
+This can be tested by being signed out and either clicking "sign up" in the navigation bar or adding `/sign-up` in the URL. Then, make a valid submission.
 
 - If the signup form is invalid, warning messages appear:
 Missing the second password field:
@@ -22,7 +24,7 @@ Entering "123" and "456" in the password fields:
 ![invalid-signup-2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/invalid-signup-2.png)
 
 - If signed out, can sign in with existing credentials, if the form is valid.
-This can be tested with the same method as for sign up, but clicking "sing in" in the navigaiton bar, or adding `/sign-in` to the url, then use existing authentication instead of making up one.
+This can be tested with the same method as for sign-up, but clicking "sign in" in the navigation bar or adding `/sign-in` to the URL, then using existing authentication instead of making up one.
 
 - If the sign-in form is invalid, warning messages appear:
 Missing the password field:
@@ -31,30 +33,30 @@ Invalid username and password
 ![invalid-signin-2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/invalid-signin-2.png)
 
 - If signed in, clicking "sign out" will sign said user out:
-This can be tested by signing in, then click "sign out" at the navigation bar.
+This can be tested by signing in and then clicking "sign out" at the navigation bar.
 
 
 404:
 ---
 - If inside an invalid page, a 404 message appears:
-This can be tested by adding any nonsensical text to the url, such as `/sauce`:
+This can be tested by adding any nonsensical text to the URL, such as `/sauce`:
 
 Navigation bar options:
 ---
 - If signed out, the navigation bar options are: "Browse", "Sign in", and "Sign up":
-This can be tested by visting HiDoc for the first time. If you're a regular, make sure to click "sign out" in the navigation bar:
+This can be tested by visiting HiDoc for the first time. If you're a regular, make sure to click "sign out" in the navigation bar:
 ![navbar-signout](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/navbar-signout.png)
 
 - If signed in, the navigation bar options are: "Browse", "Create project", "Watch List", "Sign out", and "My projects":
 This can be tested by signing in. If you're a regular, chances are these options appear upon visitation:
 ![navbar-signin](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/navbar-signin.png)
 
-- If scrolling down, the navigation bar is fixed on the top of the page.
+- If scrolling down, the navigation bar is fixed at the top of the page.
 
 
 Browsing:
 ---
-- All projects on the API is displayed on the browse page.
+- All projects on the API are displayed on the browse page.
 - Entering text in the search bar will filter all projects according to the text input:
 By default, all projects stored on the API will appear:
 ![search-bar-unfiltered](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/search-bar-unfiltered.png)
@@ -65,7 +67,7 @@ There's a test project named "bunny". By typing "bunny" in the search bar, there
 CRUD project:
 ---
 - The Browse page can retrieve all projects on HiDoc:
-Upon visiting, the main page will display a text "loading projects", after a couple seconds, a list of projects will appear in infinite scroll.
+Upon visiting, the main page will display the text "loading projects", after a couple of seconds, a list of projects will appear in an infinite scroll.
 
 - Can create a project, where the image is mandatory, and the "Title", "Description", and "Deployed link" allow empty input:
 By signing in, the create project is accessible in the navigation bar:
@@ -84,11 +86,11 @@ To easily find projects you own, click "my projects" in the navigation bar. The 
 ![project-crud-4](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/project-crud-4.png)
 
 - The owner of a project can edit their project, changing the image, title, description and deployed link:
-If your own the project, a button for editing a project is displayed. For instance, the deployed link can send the user to Youtube.com before the edit, and Reddit.com after the edit:
+If you own the project, a button for editing a project is displayed. For instance, the deployed link can send the user to Youtube.com before the edit, and Reddit.com after the edit:
 ![project-crud-5](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/project-crud-5.png)
 
-- Unauthenicated users are prompted to the home page if 'trying' to edit another user's project:
-If signed out, and adding `/projects/51/edit` to the url, the bunny example project, the user will be prompted to the home page. This page should only be accessible to the owner of that project.
+- Unauthenticated users are prompted to the home page if 'trying' to edit another user's project:
+If signed out, and added `/projects/51/edit` to the URL, the bunny example project, the user will be prompted to the home page. This page should only be accessible to the owner of that project.
 
 - The owner of a project can delete the project:
 For a project you own, clicking "delete" will delete the project.
@@ -97,15 +99,15 @@ For a project you own, clicking "delete" will delete the project.
 Watch project
 ---
 - If not owner, the option to watch is available:
-The bunny example project display a "watch project" button from any account that isn't the owner:
+The bunny example project displays a "watch project" button from any account that isn't the owner:
 ![watch_project_2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/watch_project_2.png)
 
 - If clicking "Watch project", the appearance of that button changes to "Unwatch project":
-The appearance change when clicking the button:
+The appearance changes when clicking the button:
 ![watch_project_3](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/watch_project_3.png)
 
 - If clicking "Unwatch project", the appearance of that button changes to "Watch project".
-The appearance change when clicking the button:
+The appearance changes when clicking the button:
 ![watch_project_2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/watch_project_2.png)
 
 - If not watching any projects, the "watch list" view renders a message: "Projects you're watching will appear here".
@@ -119,7 +121,7 @@ Comparing the "browse" page to the "watch list" page, notice that only projects 
 My projects
 ---
 - My projects page renders all projects belonging to the art account.
-Comparing the "browse" page to the "my projects" page, notice that only projects you own will appear in the page:
+Comparing the "browse" page to the "my projects" page, notice that only projects you own will appear on the page:
 ![my-projects-1](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/my-projects-1.png)
 ![my-projects-2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/my-projects-2.png)
 
@@ -127,13 +129,13 @@ Comparing the "browse" page to the "my projects" page, notice that only projects
 Documentation
 ---
 - If the owner of any project, can write text and add documentation.
-This was tested by signing in with HiDoc-testuser1's account and checking project id 51. The add documentation option is visible.
-![documentation-1]()
+This was tested by signing in with HiDoc-testuser1's account and checking project ID 51. The add documentation option is visible.
+![documentation-1](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/documentation-1.png)
 
 - If the owner of any project, can delete previously added documentation.
-This was tested by signing in with HiDoc-testuser1's account and checking project id 51. The delete documentation option is visible.
-![documentation-2]()
+This was tested by signing in with HiDoc-testuser1's account and checking project ID 51. The delete documentation option is visible.
+![documentation-2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/documentation-2.png)
 
 - If not the owner, neither the create documentation nor delete documentation button are visible.
-This was tested by signing out and revisiting project id 51. Neither the add or delete option are visible.
-![documentation-3]()
+This was tested by signing out and revisiting project ID 51. Neither the add or delete option is visible.
+![documentation-3](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/manual_testing/documentation-3.png)
