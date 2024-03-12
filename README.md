@@ -329,7 +329,7 @@ Checked files:
 
 Manual testing:
 ===
-This can also be found inside the manual testing.md file
+This can also be found inside the `manual testing.md` file with images
 
 Sign in/out redirect:
 ---
@@ -495,22 +495,22 @@ https://signup.heroku.com/login
 https://dashboard.heroku.com/apps
 
 - At the top right, click "Create new app":
-(front_heroku_step_1)
+![front_heroku_step_1](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/front_heroku_deployment/front_heroku_step_1.png)
 
 - Give the app a name, in HiDoc's case, the name "HiDoc" was given:
-(front_heroku_step_2)
+![front_heroku_step_2](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/front_heroku_deployment/front_heroku_step_2.png)
 
 - Unlike the API, the front-end don't need any configuration setup. Jumping straight to the deployment section:
-(front_end_step_3)
+![front_end_step_3](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/front_heroku_deployment/front_heroku_step_3.png)
 
 - Pick Github among the options, then search for the name of the repository, in HiDoc's case, "hidoc", then pick "connect" for the front-end repository "HiDoc":
-(front_end_step_4)
+![front_end_step_4](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/front_heroku_deployment/front_heroku_step_4.png)
 
 - At the bottom of the page, click "Deploy branch":
-(front_end_step_5)
+![front_end_step_5](https://raw.githubusercontent.com/MidnattLantern/hidoc/main/Readme%20images/front_heroku_deployment/front_heroku_step_5.png)
 
 - When finished, click "open app". This is the link to the front-end HiDoc:
-https://hidoc-144446eddf75.herokuapp.com/
+https://hidoc-144446eddf75.herokuapp.com
 
 
 Credits:
