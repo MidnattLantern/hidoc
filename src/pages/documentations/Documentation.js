@@ -40,17 +40,13 @@ const Documentation = (props) => {
                 results: prevDocumentations.results.filter((documentation) => documentation.id !== id),
             })));
         } catch (err) {
-//            console.log(err)
+
         }
     };
 
     return (
         <div className={styles.DocumentationCard}>
             <p>{documentation_paragraph}</p>
-            <Image
-            src={documentation_image}
-            />
-            <p>{documentation_image}</p>
             <p>Documentation date: {created_at}</p>
 
             {is_owner ? (

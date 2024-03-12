@@ -439,7 +439,7 @@ Referenced by Code Institute's project Moments:
 HiDoc is a project following criteria with expectations set by Code Institute. Code Institute did provide a training project that satisfied all the expectations. To secure the highest chance of passing the expectations, this project follows a similar model to that training project.
 The HiDoc equivalents, however, are not copies masked behind a different name. For instance, the comments from the Code Institute Training project are created by the read-only user, whereas the documentation is created by the owner. The watch and follow models from the training are separate features from the training project, whereas HiDoc merges them into one. There are reused models borrowed from the training project, but no code has been copy-pasted.
 
-Better underpromising than delivering an unstable product:
+Compromises:
 ---
 Due to burnout, there are some compromises. The source code has traces of the following features:
 - find other artists
@@ -461,13 +461,6 @@ There are some features abounded, deemed irrelevant to what HiDoc is trying to a
 Resumed features/ completion
 ===
 - Search-bar
-
-search-bar
----
-- Before approaching this on the front-end, is it possible to search projects in the api? See the images below.
-(screenshots of search bar api)
-- This feature satisfies the search bar user story
-
 
 Unsolved
 ===
