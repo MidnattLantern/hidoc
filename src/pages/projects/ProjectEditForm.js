@@ -35,7 +35,7 @@ function ProjectEditForm() {
                 // here, the edit form is visible if is_owner is true
                 is_owner ? setProjectData({project_title, project_description, feature_poster, deployed_link}) : history.push('/');
             } catch(err) {
-                console.log(err);
+
             }
         };
 
@@ -82,7 +82,7 @@ function ProjectEditForm() {
             await axiosReq.put(`/projects/${id}/`, formData);
             history.push(`/projects/${id}`);
         } catch(err){
-//            console.log(err)
+
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

@@ -60,7 +60,7 @@ function ProjectCreateForm() {
             const {data} = await axiosReq.post('/projects/', formData);
             history.push(`/projects/${data.id}`);
         } catch(err){
-//            console.log(err)
+
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

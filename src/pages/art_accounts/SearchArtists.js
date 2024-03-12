@@ -25,7 +25,7 @@ const SearchArtAccounts = () => {
                 setArtAccountData(prev => ({ ...prev, data}));
                 setHasLoaded(true);
             } catch (err) {
-//                console.log(err)
+
             }
         };
 
